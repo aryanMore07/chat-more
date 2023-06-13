@@ -1,0 +1,48 @@
+/* Default styles for mobile devices */
+.heading {
+  margin: 0px;
+  padding: 15px 0px 15px 0px;
+}
+
+.navbar-div {
+    width: auto;
+  font-family: "Carter One", cursive;
+  background-color: #2c394b;
+  padding: 0px;
+  margin: 0px;
+  text-align: center;
+}
+
+/* Styles for tablets (portrait) and up */
+@media (min-width: 768px) {
+  .heading {
+    margin: 0px;
+    padding: 15px 0px 15px 0px;
+  }
+
+  .navbar-div {
+    width: auto;
+    font-family: "Carter One", cursive;
+    background-color: #2c394b;
+    padding: 0px;
+    margin: 0px;
+    text-align: center;
+  }
+}
+
+/* Styles for laptops and up */
+@media screen and (min-width: 1024px) {
+  .heading {
+    margin: 0px;
+    padding: 15px 0px 15px 5rem;
+  }
+
+  .navbar-div {
+    width: auto;
+    font-family: "Carter One", cursive;
+    background-color: #2c394b;
+    padding: 0px;
+    margin: 0px;
+    text-align: left;
+  }
+}

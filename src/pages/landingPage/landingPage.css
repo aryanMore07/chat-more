@@ -1,0 +1,218 @@
+/* Default styles for mobile devices */
+
+/* ============================================================ */
+
+/* Main Div  */
+.landingPage-div {
+  margin: 0px;
+  display: flex;
+  justify-content: center;
+  padding: 4rem;
+}
+
+/* ============================================================ */
+
+/* Left Side div  */
+
+.leftSide-inner-div {
+  height: 70vh;
+  width: 23rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.landingPage-heading-line {
+  font-size: 3.5rem;
+  font-weight: 800;
+}
+
+/* LEFT-SIDE SECOND DIV  */
+.head-char {
+  font-size: 35px;
+  color: #9a9a9a;
+}
+
+.leftSide-headings {
+    
+    font-weight: 600;
+    font-size: 10px
+}
+
+/* LEFT-SIDE THIRD DIV  */
+
+.join-now-btn {
+    width: 100%;
+    padding: 15px;
+    color: white;
+    font-weight: 900;
+    cursor: pointer;
+    margin-bottom: 10px;
+    border: none;
+    box-shadow: 0 0 1rem rgba(0,0,0,.6);
+    background-color: #ff3b30;
+    
+    
+}
+ .go-to-auth-btn-div {
+    color: #ff3b30;
+    width: 100%;
+    text-align: center;
+    text-decoration: none;
+ }
+
+ .go-to-auth-btn {
+    text-decoration: none;
+    color: #ff3b30;
+ }
+/* ============================================================ */
+
+/* Right Side Div  */
+.landingPage-image {
+  display: none;
+}
+
+/* Styles for tablets (portrait) and up */
+@media (min-width: 768px) {
+  /* Main Div  */
+  .landingPage-div {
+    margin: 0px;
+    display: flex;
+    justify-content: center;
+    padding: 4rem;
+  }
+
+  /* ============================================================ */
+
+  /* Left Side div */
+
+  .leftSide-inner-div {
+    height: 70vh;
+    width: 25rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+  }
+  .landingPage-heading-line {
+    font-size: 3.5rem;
+    font-weight: 800;
+  }
+
+  /* LEFT-SIDE SECOND DIV  */
+  .head-char {
+    font-size: 35px;
+    color: #9a9a9a;
+  }
+
+  .leftSide-headings {
+    
+    font-weight: 600;
+    font-size: 10px
+  }
+
+  /* LEFT-SIDE THIRD DIV  */
+
+  .join-now-btn {
+    width: 100%;
+    padding: 15px;
+    color: white;
+    font-weight: 900;
+    cursor: pointer;
+    margin-bottom: 10px;
+    border: none;
+    box-shadow: 0 0 1rem rgba(0,0,0,.6);
+    background-color: #ff3b30;
+  }
+
+ .go-to-auth-btn-div {
+    color: #ff3b30;
+    width: 100%;
+    text-align: center;
+    text-decoration: none;
+ }
+
+ .go-to-auth-btn {
+    text-decoration: none;
+    color: #ff3b30;
+ }
+  /* ============================================================ */
+
+  /* Right Side Div  */
+  .landingPage-image {
+   display: none;
+  }
+}
+
+/* Styles for laptops and up */
+@media screen and (min-width: 1024px) {
+  /* Main Div  */
+  .landingPage-div {
+    margin: 0px;
+    display: flex;
+    justify-content: space-evenly;
+    padding: 4rem;
+  }
+
+  /* ============================================================ */    
+
+  /* Left Side div */
+
+  .leftSide-inner-div {
+    height: 70vh;
+    width: 25rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+  }
+
+  .landingPage-heading-line {
+    font-size: 3.5rem;
+    font-weight: 800;
+  }
+
+  /* LEFT-SIDE SECOND DIV  */
+  .head-char {
+    font-size: 35px;
+    color: #9a9a9a;
+  }
+
+  .leftSide-headings {
+    
+    font-weight: 600;
+    font-size: 10px
+  }
+
+  /* LEFT-SIDE THIRD DIV  */
+
+  .join-now-btn {
+    width: 100%;
+    padding: 15px;
+    color: white;
+    font-weight: 900;
+    cursor: pointer;
+    margin-bottom: 10px;
+    border: none;
+    box-shadow: 0 0 1rem rgba(0,0,0,.6);
+    background-color: #ff3b30;   
+  }
+   .go-to-auth-btn-div {
+    color: #ff3b30;
+    width: 100%;
+    text-align: center;
+    text-decoration: none;
+   }
+
+
+   .go-to-auth-btn {
+    text-decoration: none;
+    color: #ff3b30;
+   }
+  /* ============================================================ */
+
+  /* Right Side Div  */
+  .landingPage-image {
+    display: block;
+    height: 70vh;
+    width: 30rem;
+    }
+}
