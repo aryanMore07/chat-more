@@ -1,0 +1,244 @@
+/* Default styles for mobile devices */
+.login-div {
+  height: 40.8rem;
+  width: auto;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.login-credentials-div {
+  height: 25rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 23rem;
+  display: flex;
+  flex-direction: column;
+  background-color: #ffff;
+  border-radius: 0.6rem;
+  border-radius: 0.6rem;
+  box-shadow: rgba(0, 0, 0, 0.05) 0px 6px 24px 0px,
+    rgba(0, 0, 0, 0.08) 0px 0px 0px 1px;
+}
+
+.login-main-heading {
+  text-align: center;
+  width: 22rem;
+  font-weight: 900;
+  font-size: 3rem;
+  line-height: 4rem;
+}
+
+.label-div {
+  display: flex;
+  flex-direction: column;
+  width: 20rem;
+}
+
+.login-btn {
+  font-size: 15px;
+  color: #fff;
+  background-color: #ff3b30;
+  width: 20rem;
+  padding: 15px;
+  font-weight: 900;
+  cursor: pointer;
+  margin-bottom: 10px;
+  border: none;
+}
+
+#email-input {
+  width: auto;
+  margin-bottom: 1rem;
+  border: 1px solid grey;
+  border-radius: 0.3rem;
+  line-height: 1rem;
+  height: 15px;
+  padding: 0.5rem;
+  font-weight: bold;
+}
+
+#password-input {
+  width: auto;
+  margin-bottom: 1rem;
+  border: 1px solid grey;
+  border-radius: 0.3rem;
+  line-height: 1rem;
+  height: 15px;
+  padding: 0.5rem;
+  font-weight: bold;
+}
+
+.create-new-acc-btn {
+  text-decoration: none;
+  color: #ff3b30;
+}
+.create-new-acc-btn:hover {
+  text-decoration: underline;
+}
+/* Styles for tablets (portrait) and up */
+@media (min-width: 768px) {
+  .login-div {
+    height: 40.8rem;
+    width: auto;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .login-credentials-div {
+    height: 25rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 30rem;
+    display: flex;
+    flex-direction: column;
+    background-color: #ffff;
+    border-radius: 0.6rem;
+    border-radius: 0.6rem;
+    box-shadow: rgba(0, 0, 0, 0.05) 0px 6px 24px 0px,
+      rgba(0, 0, 0, 0.08) 0px 0px 0px 1px;
+  }
+
+  .login-main-heading {
+    text-align: center;
+    width: 22rem;
+    font-weight: 900;
+    font-size: 3rem;
+    line-height: 4rem;
+  }
+
+  .label-div {
+    display: flex;
+    flex-direction: column;
+    width: 22rem;
+  }
+
+  .login-btn {
+    font-size: 15px;
+    color: #fff;
+    background-color: #ff3b30;
+    width: 22rem;
+    padding: 15px;
+    font-weight: 900;
+    cursor: pointer;
+    margin-bottom: 10px;
+    border: none;
+  }
+
+  #email-input {
+    width: auto;
+    margin-bottom: 1rem;
+    border: 1px solid grey;
+    border-radius: 0.3rem;
+    line-height: 1rem;
+    height: 15px;
+    padding: 0.5rem;
+    font-weight: bold;
+  }
+
+  #password-input {
+    width: auto;
+    margin-bottom: 1rem;
+    border: 1px solid grey;
+    border-radius: 0.3rem;
+    line-height: 1rem;
+    height: 15px;
+    padding: 0.5rem;
+    font-weight: bold;
+  }
+
+  .create-new-acc-btn {
+    text-decoration: none;
+    color: #ff3b30;
+  }
+  .create-new-acc-btn:hover {
+    text-decoration: underline;
+  }
+}
+
+/* Styles for laptops and up */
+@media screen and (min-width: 1024px) {
+  .login-div {
+    height: 40.8rem;
+    width: auto;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .login-credentials-div {
+    height: 25rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 30rem;
+    display: flex;
+    flex-direction: column;
+    background-color: #ffff;
+    border-radius: 0.6rem;
+    box-shadow: rgba(0, 0, 0, 0.05) 0px 6px 24px 0px,
+      rgba(0, 0, 0, 0.08) 0px 0px 0px 1px;
+  }
+
+  .login-main-heading {
+    text-align: center;
+    width: 22rem;
+    font-weight: 900;
+    font-size: 3rem;
+    line-height: 4rem;
+  }
+
+  .label-div {
+    display: flex;
+    flex-direction: column;
+    width: 22rem;
+  }
+
+  .login-btn {
+    font-size: 15px;
+    color: #fff;
+    background-color: #ff3b30;
+    width: 22rem;
+    padding: 15px;
+    font-weight: 900;
+    cursor: pointer;
+    margin-bottom: 10px;
+    border: none;
+  }
+
+  #email-input {
+    width: auto;
+    margin-bottom: 1rem;
+    border: 1px solid grey;
+    border-radius: 0.3rem;
+    line-height: 1rem;
+    height: 15px;
+    padding: 0.5rem;
+    font-weight: bold;
+  }
+
+  #password-input {
+    width: auto;
+    margin-bottom: 1rem;
+    border: 1px solid grey;
+    border-radius: 0.3rem;
+    line-height: 1rem;
+    height: 15px;
+    padding: 0.5rem;
+    font-weight: bold;
+  }
+
+  .create-new-acc-btn {
+    text-decoration: none;
+    color: #ff3b30;
+  }
+  .create-new-acc-btn:hover {
+    text-decoration: underline;
+  }
+}

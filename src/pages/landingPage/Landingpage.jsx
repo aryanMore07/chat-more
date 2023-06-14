@@ -1,9 +1,11 @@
 import React from 'react';
 import './landingPage.css';
 import landingPageImage from '../../images/landing-page-picture.svg';
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 
 const Landingpage = () => {
+
+    const navigate = useNavigate(); 
     return (
         <div className='landingPage-div'>
             <div className='leftSide-div'>
@@ -17,9 +19,11 @@ const Landingpage = () => {
                         <p className='leftSide-headings'><span className='head-char'>SHARE</span>WHAT YOU THINK</p>
                     </div>
                     <div className='leftSide-third-div'>
-                        <button className='join-now-btn'>JOIN NOW</button>
-                        <div className='go-to-auth-btn-div'>
-                            <Link className='go-to-auth-btn'>Already have an account?</Link>
+                        <button className='join-now-btn' onClick={() => {
+                            navigate('/auth-signup')
+                        }}>JOIN NOW</button>
+                        <div className='go-to-auth-btn-div'> 
+                            <Link to='/auth-login' className='go-to-auth-btn'>Already have an account?</Link>
                         </div>
                     </div>
                 </div>
