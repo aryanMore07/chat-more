@@ -18,7 +18,16 @@ const LoginComponent = () => {
                     password: password
                 })
                 if(response.status === 200 || response.status === 201) {
-                    alert("LoginSuccesfull");
+                    toast.success('Login successful 🔥', {
+                        position: "bottom-center",
+                        autoClose: 2000,
+                        hideProgressBar: false,
+                        closeOnClick: true,
+                        pauseOnHover: true,
+                        draggable: true,
+                        progress: undefined,
+                        theme: "light",
+                        });
                     localStorage.setItem("token", response.data.encodedToken);
                 } 
                 setEmail('')
