@@ -1,0 +1,199 @@
+/* Default styles for mobile devices */
+
+/* FIRST DIV  */
+
+.user-info {
+  padding: 15px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.user-picture {
+  width: 200px;
+  height: 180px;
+  border-radius: 50%;
+  overflow: hidden;
+}
+
+.edit-btn {
+  margin-bottom: 8px;
+  border: 1px solid white;
+  border-radius: 8px;
+  padding: 10px;
+  transition: 0.2s;
+}
+.edit-btn:hover {
+  color: white;
+  background-color: #ff3b30;
+}
+
+.followings-details-div {
+  box-shadow: rgba(9, 30, 66, 0.25) 0px 1px 1px,
+    rgba(9, 30, 66, 0.13) 0px 0px 1px 1px;
+  display: flex;
+  justify-content: space-evenly;
+  width: 18rem;
+  padding: 18px;
+}
+
+.followings-inner-divs {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.users-posts {
+  display: flex;
+  padding: 25px;
+}
+
+.post-info {
+  margin-left: 10px;
+  width: 100%;
+}
+
+.icons-div {
+  display: flex;
+  justify-content: space-between;
+}
+
+.icons {
+  cursor: pointer;
+}
+
+/* Styles for tablets (portrait) and up */
+@media (min-width: 768px) {
+  /* FIRST DIV  */
+
+  .user-info {
+    padding: 15px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .user-picture {
+    width: 200px;
+    height: 180px;
+    border-radius: 50%;
+    overflow: hidden;
+  }
+
+  .edit-btn {
+    margin-bottom: 8px;
+    border: 1px solid white;
+    border-radius: 8px;
+    padding: 10px;
+    transition: 0.2s;
+  }
+  .edit-btn:hover {
+    color: white;
+    background-color: #ff3b30;
+  }
+
+  .followings-details-div {
+    box-shadow: rgba(9, 30, 66, 0.25) 0px 1px 1px,
+      rgba(9, 30, 66, 0.13) 0px 0px 1px 1px;
+    display: flex;
+    justify-content: space-evenly;
+    width: 18rem;
+    padding: 18px;
+  }
+
+  .followings-inner-divs {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .users-posts {
+    display: flex;
+    padding: 25px;
+  }
+
+  .post-info {
+    margin-left: 10px;
+    width: 100%;
+  }
+
+  .icons-div {
+    display: flex;
+    justify-content: space-between;
+  }
+
+  .icons {
+    cursor: pointer;
+  }
+}
+
+/* Styles for laptops and up */
+@media screen and (min-width: 1024px) {
+  /* FIRST DIV  */
+
+  .user-info {
+    padding: 15px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .user-picture {
+    width: 200px;
+    height: 180px;
+    border-radius: 50%;
+    overflow: hidden;
+  }
+
+  .edit-btn {
+    margin-bottom: 8px;
+    border: 1px solid white;
+    border-radius: 8px;
+    padding: 10px;
+    transition: 0.2s;
+  }
+  .edit-btn:hover {
+    color: white;
+    background-color: #ff3b30;
+  }
+
+  .followings-details-div {
+    box-shadow: rgba(9, 30, 66, 0.25) 0px 1px 1px,
+      rgba(9, 30, 66, 0.13) 0px 0px 1px 1px;
+    display: flex;
+    justify-content: space-evenly;
+    width: 18rem;
+    padding: 18px;
+  }
+
+  .followings-inner-divs {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .users-posts {
+    display: flex;
+    padding: 25px;
+  }
+
+  .post-info {
+    margin-left: 10px;
+    width: 100%;
+  }
+
+  .icons-div {
+    display: flex;
+    justify-content: space-between;
+  }
+
+  .icons {
+    cursor: pointer;
+  }
+}

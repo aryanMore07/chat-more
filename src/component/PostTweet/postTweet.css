@@ -1,0 +1,109 @@
+/* Default styles for mobile devices */
+.post-user-profile-div {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.post-something-div {
+    display: flex;
+    flex-direction: row;
+}
+
+.post-input {
+  width: 100%;
+
+}
+
+.post-btn {
+  display: flex;
+  justify-content: end;
+  border: none;
+  padding: 10px 25px 10px 25px;
+  border-radius: 8px;
+  transition: 0.2s;
+}
+
+.post-btn-div {
+    display: flex;
+    justify-content: flex-end;
+    padding: 10px 25px 10px 25px
+}
+
+.post-btn:hover {
+  color: white;
+  background-color: rgb(255, 59, 48);
+}
+
+/* Styles for tablets (portrait) and up */
+@media (min-width: 768px) {
+  .post-user-profile-div {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .post-something-div {
+    display: flex;
+    flex-direction: row;
+  }
+
+  .post-input {
+    width: 100%;
+  }
+
+  .post-btn {
+    justify-content: end;
+    border: none;
+    padding: 10px 25px 10px 25px;
+    border-radius: 8px;
+    transition: 0.2s;
+  }
+
+  .post-btn-div {
+    display: flex;
+    justify-content: flex-end;
+    padding: 10px 25px 10px 25px
+  }
+
+  .post-btn:hover {
+    color: white;
+    background-color: rgb(255, 59, 48);
+  }
+}
+
+/* Styles for laptops and up */
+@media screen and (min-width: 1024px) {
+  .post-user-profile-div {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .post-something-div {
+    display: flex;
+    flex-direction: row;
+  }
+
+  .post-input {
+    width: 100%;
+  }
+
+  .post-btn {
+    border: 1px solid transparent;
+    padding: 10px 25px 10px 25px;
+    border-radius: 8px;
+    transition: 0.2s;
+  }
+
+  .post-btn-div {
+    display: flex;
+    justify-content: flex-end;
+    padding: 10px 25px 10px 25px
+  }
+
+  .post-btn:hover {
+    color: white;
+    background-color: rgb(255, 59, 48);
+  }
+}
