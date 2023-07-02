@@ -1,0 +1,90 @@
+/* Default styles for mobile devices */
+.explore-post {
+    padding: 18px;
+    display: flex;
+}
+
+.explore-post-details {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    width: 100%;
+    align-items: center;
+}
+
+.users-content {
+    width: 100%;
+    padding: 15px;
+}
+
+
+  .icons-div {
+    display: flex;
+    justify-content: space-between;
+  }
+
+  .icons {
+    cursor: pointer;
+  }
+
+/* Styles for tablets (portrait) and up */
+@media (min-width: 768px) {
+  .explore-post {
+    padding: 18px;
+    display: flex;
+  }
+
+  .explore-post-details {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    width: 100%;
+    align-items: center;
+  }
+
+  .users-content {
+    width: 100%;
+    padding: 15px;
+  }
+
+  
+  .icons-div {
+    display: flex;
+    justify-content: space-between;
+  }
+
+  .icons {
+    cursor: pointer;
+  }
+}
+
+/* Styles for laptops and up */
+@media screen and (min-width: 1024px) {
+  .explore-post {
+    padding: 18px;
+    display: flex;
+  }
+
+  .explore-post-details {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    width: 100%;
+    align-items: center;
+  }
+
+  .users-content {
+    width: 100%;
+    padding: 15px;
+  }
+
+  
+  .icons-div {
+    display: flex;
+    justify-content: space-between;
+  }
+
+  .icons {
+    cursor: pointer;
+  }
+}

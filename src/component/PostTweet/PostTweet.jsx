@@ -9,7 +9,8 @@ const PostTweetComponent = () => {
 
   const { state } = useContext(UserContext);
   const { postMessage } = useContext(PostContext);
-  const [input, setInput] = useState({content: ''});
+  const { fullName, userName, image } = state.userDetails;
+  const [input, setInput] = useState({ content: '', fullName: "", username: "", image: "" });
 
   const postBtnHandler = () => {
     postMessage(input);
@@ -21,7 +22,7 @@ const PostTweetComponent = () => {
         <div className='post-user-profile-div'>
           <Avatar alt={state.userDetails.fullName} src={state.userDetails.image} />
         </div>
-        <div style={{width: '100%', padding: '18px'}}>
+        <div style={{ width: '100%', padding: '18px' }}>
           <div className='input-div'>
             <TextField
               id="filled-multiline-static"
@@ -32,14 +33,14 @@ const PostTweetComponent = () => {
               className='post-input'
               value={input.content}
               onChange={(event) => {
-                setInput({ content: event.target.value});
+                setInput({ content: event.target.value, fullName: fullName, username: userName, image: image });
               }}
             />
           </div>
           <div className='post-btn-div'>
             <button className='post-btn' onClick={postBtnHandler}>Post</button>
           </div>
-          <hr />  
+          <hr />
         </div>
       </div>
     </div>

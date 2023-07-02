@@ -1,5 +1,3 @@
-import axios from "axios";
-import { useEffect } from "react";
 import { createContext, useReducer } from "react";
 
 export const UserContext = createContext();
@@ -9,14 +7,24 @@ const reducerFuction = (state, action) => {
 
     switch (action.type) {
         case 'ADD_USER_DETAILS':
-            return{
+            return {
             ...state, userDetails: action.payload
         }
+        case 'ADD_TO_BOOKMARK': 
+            return {
+                ...state, bookMarks: action.payload
+            }
+        case "LOGOUT_USER":
+            return {
+                ...state, userDetails: ''
+            }
     
         default:
             return state;
     }
 }
+
+
 
 export const UserProvider = ({children}) => {
 
@@ -26,11 +34,7 @@ export const UserProvider = ({children}) => {
 
     const [ state, dispatch ] = useReducer(reducerFuction, {
         userDetails: '',
-        // userFullName: user?.fullName,
-        // userEmail: user.email,
-        // userPicture: user?.image,
-        // userBio: user?.bio,
-        // userPortfolio: user?.bio,
-     })
+     });
+
     return <UserContext.Provider value={{state, dispatch}}>{children}</UserContext.Provider>
 }

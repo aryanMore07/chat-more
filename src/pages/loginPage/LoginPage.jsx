@@ -9,14 +9,14 @@ import { UserContext } from '../../contexts/userContext.js';
 const LoginComponent = () => {
 
     const { dispatch } = useContext(UserContext);
-    const [email, setEmail] = useState('');
+    const [userName, setUserName] = useState('');
     const [password, setPassword] = useState('');
     const navigate = useNavigate();
     const loginHandler = async () => {
         try {
-            if (email && password) {
+            if (userName && password) {
                 const response = await axios.post('/api/auth/login', {
-                    email: email,
+                    username: userName,
                     password: password
                 })
                 if (response.status === 200 || response.status === 201) {
@@ -33,7 +33,7 @@ const LoginComponent = () => {
                     localStorage.setItem("token", response.data.encodedToken);
                     localStorage.setItem("userDetails", JSON.stringify(response.data.foundUser));
                     dispatch({type: 'ADD_USER_DETAILS', payload: response.data.foundUser});
-                    setEmail('')
+                    setUserName('')
                     setPassword('')
                     navigate('/home');
                 }
@@ -83,11 +83,11 @@ const LoginComponent = () => {
             <div className='login-credentials-div'>
                 <h2 style={{ textAlign: 'center', lineHeight: '2.5rem', fontSize: '2rem' }}>Login</h2>
                 <div className='label-div'>
-                    <label htmlFor="email-input">
-                        Email Address
+                    <label htmlFor="userName-input">
+                        Username 
                     </label>
-                    <input type="email" id='email-input' placeholder='aryanmore@gmail.com' value={email} onChange={(event) => {
-                        setEmail(event.target.value)
+                    <input type="userName" id='userName-input' placeholder='Enter username' value={userName} onChange={(event) => {
+                        setUserName(event.target.value)
                     }} />
 
                     <label htmlFor="password-input">

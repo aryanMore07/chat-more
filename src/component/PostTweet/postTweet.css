@@ -14,21 +14,21 @@
   width: 100%;
 
 }
+.post-btn-div {
+    display: flex;
+    justify-content: flex-end;
+    padding: 10px 25px 10px 25px
+}
 
 .post-btn {
   display: flex;
-  justify-content: end;
+  justify-content: flex-end;
   border: none;
   padding: 10px 25px 10px 25px;
   border-radius: 8px;
   transition: 0.2s;
 }
 
-.post-btn-div {
-    display: flex;
-    justify-content: flex-end;
-    padding: 10px 25px 10px 25px
-}
 
 .post-btn:hover {
   color: white;
@@ -53,7 +53,7 @@
   }
 
   .post-btn {
-    justify-content: end;
+    justify-content: flex-end;
     border: none;
     padding: 10px 25px 10px 25px;
     border-radius: 8px;

@@ -5,7 +5,6 @@ import RocketLaunchIcon from '@mui/icons-material/RocketLaunch';
 import BookmarkBorderIcon from '@mui/icons-material/BookmarkBorder';
 import AccountCircleIcon from '@mui/icons-material/AccountCircle';
 import Avatar from '@mui/material/Avatar';
-import MoreVertIcon from '@mui/icons-material/MoreVert';
 import SearchIcon from '@mui/icons-material/Search';
 import { UserContext } from '../../contexts/userContext';
 import { NavLink, Outlet } from 'react-router-dom';
@@ -16,8 +15,9 @@ import List from '@mui/material/List';
 import ListItem from '@mui/material/ListItem';
 import ListItemButton from '@mui/material/ListItemButton';
 import ListItemIcon from '@mui/material/ListItemIcon';
-import ListItemText from '@mui/material/ListItemText'; 
+import ListItemText from '@mui/material/ListItemText';
 import AddCircleOutlineIcon from '@mui/icons-material/AddCircleOutline';
+import LogoutComponent from '../../component/logoutComponent/LogoutComponent';
 
 const HomeComponent = () => {
 
@@ -35,6 +35,7 @@ const HomeComponent = () => {
     }
 
     const { state } = useContext(UserContext);
+    
     useEffect(() => {
         fetchAllUsersData();
     }, [])
@@ -48,19 +49,19 @@ const HomeComponent = () => {
                     <NavLink to='profile' className='sidebar-nav-links'><li className='list-style'><span style={{ paddingRight: '15px' }}><AccountCircleIcon /></span>Profile</li></NavLink>
                 </ul>
                 {
-                    state?.userDetails?.fullName &&
+                    state?.userDetails?.firstName &&
                     <div className='user-div'>
-                    <div>
-                        <Avatar alt="Travis Howard" src={state?.userDetails?.image} />
-                    </div>
-                    <div>
-                        <p style={{ margin: '0px' }}><b>{state.userDetails.fullName}</b></p>
-                        <p style={{ margin: '0px' }}>@{state.userDetails.userName}</p>
-                    </div>
-                    <div className='user-menu-btn'>
-                        <MoreVertIcon />
-                    </div>
-                </div>}
+                        <div>
+                            <Avatar alt="Travis Howard" src={state?.userDetails?.image} />
+                        </div>
+                        <div>
+                            <p style={{ margin: '0px' }}><b>{state.userDetails.firstName}{state.userDetails.lastName}</b></p>
+                            <p style={{ margin: '0px' }}>@{state.userDetails.username}</p>
+                        </div>
+                        <div className='user-menu-btn'>
+                            <LogoutComponent />
+                        </div>
+                    </div>}
             </div>
             <div className="middle-div">
                 <Outlet />
@@ -77,15 +78,15 @@ const HomeComponent = () => {
                 <div className="all-user">
                     {
                         allUser.map((user) => {
-                            const { id, fullName, userName, image } = user
+                            const { id, firstName, lastName, username, image } = user
                             return (
                                 <List key={id}>
-                                    <ListItem style={{borderRadius: '5rem'}} disablePadding>
+                                    <ListItem style={{ borderRadius: '5rem' }} disablePadding>
                                         <ListItemButton>
                                             <ListItemIcon>
-                                                <Avatar alt={fullName} src={image} />
+                                                <Avatar alt={firstName} src={image} />
                                             </ListItemIcon>
-                                            <ListItemText primary={fullName} secondary={"@" + userName} />
+                                            <ListItemText primary={`${firstName}${lastName}`} secondary={"@" + username} />
                                             <ListItemIcon>
                                                 <AddCircleOutlineIcon />
                                             </ListItemIcon>

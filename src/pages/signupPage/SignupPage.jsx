@@ -7,7 +7,8 @@ import { toast } from 'react-toastify';
 
 const SignupComponent = () => {
 
-    const [fullName, setFullName] = useState('');
+    const [firstName, setFirstName] = useState('');
+    const [lastName, setLastName] = useState('');
     const [userName, setUserName] = useState('');
     const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');
@@ -18,12 +19,13 @@ const SignupComponent = () => {
 
     const signUpHandler = async () => {
         try {
-            if (fullName && userName && email && password && confirmPassword) {
+            if (firstName && userName && email && password && confirmPassword) {
                 if (password === confirmPassword) {
                     const response = await axios.post('/api/auth/signup',
                         {
-                            fullName: fullName,
-                            userName: userName,
+                            firstName: firstName,
+                            lastName: lastName,
+                            username: userName,
                             email: email,
                             password: password
                         }
@@ -40,7 +42,7 @@ const SignupComponent = () => {
                             theme: "light",
                         });
                         localStorage.setItem("token", response.data.encodedToken);
-                        setFullName('');
+                        setFirstName('');
                         setUserName('');
                         setEmail('');
                         setPassword('');
@@ -107,11 +109,17 @@ const SignupComponent = () => {
             <div className='signup-credentials-div'>
                 <h2 style={{ textAlign: 'center', lineHeight: '2.5rem', fontSize: '2rem' }}>Signup</h2>
                 <div className='label-div'>
-                    <label htmlFor="userFullname">
-                        Fullname
+                    <label htmlFor="userfirstname">
+                        Firstname
                     </label>
-                    <input type="text" name="fullname" id="userFullname" className='user-inputs' placeholder='Aryan More' value={fullName} onChange={(event) => {
-                        setFullName(event.target.value)
+                    <input type="text" name="firstname" id="userfirstname" className='user-inputs' placeholder='Aryan' value={firstName} onChange={(event) => {
+                        setFirstName(event.target.value)
+                    }} />
+                    <label htmlFor="userLastname">
+                        Lastname
+                    </label>
+                    <input type="text" name="lastname" id="userLastname" className='user-inputs' placeholder='More' value={lastName} onChange={(event) => {
+                        setLastName (event.target.value)
                     }} />
                     <label htmlFor="username">
                         Username

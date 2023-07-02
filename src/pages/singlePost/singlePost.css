@@ -1,0 +1,155 @@
+/* Default styles for mobile devices */
+.singlePost-div {
+  display: flex;
+  padding: 4rem;
+  flex-direction: column;
+}
+
+.selected-firstdiv {
+  display: flex;
+}
+
+.selected-secondDiv {
+  padding: 2rem;
+}
+
+.post-btn {
+  display: flex;
+  justify-content: flex-end;
+  border: none;
+  padding: 10px 25px 10px 25px;
+  border-radius: 8px;
+  transition: 0.2s;
+}
+
+.post-btn:hover {
+  color: white;
+  background-color: rgb(255, 59, 48);
+    
+.comment-inputDiv {
+    padding: 15px;
+}}
+
+.comment-input-firstDiv {
+  display: flex;
+}
+
+.comment-input {
+  display: flex;
+  width: 100%;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.input-comment {
+    width: 100%;
+    border: none;
+    background-color: #c5c5c5;
+}
+
+/* Styles for tablets (portrait) and up */
+@media (min-width: 768px) {
+  .singlePost-div {
+    display: flex;
+    padding: 4rem;
+    flex-direction: column;
+  }
+
+  .selected-firstdiv {
+    display: flex;
+  }
+
+  .selected-secondDiv {
+    padding: 2rem;
+  }
+
+  .post-btn {
+    display: flex;
+    justify-content: flex-end;
+    border: none;
+    padding: 10px 25px 10px 25px;
+    border-radius: 8px;
+    transition: 0.2s;
+  }
+
+  .post-btn:hover {
+    color: white;
+    background-color: rgb(255, 59, 48);
+  }
+
+  .comment-inputDiv {
+    padding: 15px;
+  }
+  .comment-input-firstDiv {
+    display: flex;
+  }
+
+  .comment-input-div {
+    width: 100%;
+    margin: 0px 8px 0px 8px;
+  }
+
+  .comment-input {
+    display: flex;
+    width: 100%;
+    justify-content: space-between;
+    align-items: center;
+  }
+
+  .input-comment {
+    width: 100%;
+    border: none;
+    background-color: #c5c5c5;
+  }
+}
+
+/* Styles for laptops and up */
+@media screen and (min-width: 1024px) {
+  .singlePost-div {
+    display: flex;
+    padding: 4rem;
+    flex-direction: column;
+  }
+
+  .selected-firstdiv {
+    display: flex;
+  }
+
+  .selected-secondDiv {
+    padding: 2rem;
+  }
+
+  .post-btn {
+    display: flex;
+    justify-content: flex-end;
+    border: none;
+    padding: 10px 25px 10px 25px;
+    border-radius: 8px;
+    transition: 0.2s;
+  }
+
+  .post-btn:hover {
+    color: white;
+    background-color: rgb(255, 59, 48);
+  }
+
+  .comment-inputDiv {
+    padding: 15px;
+  }
+  .comment-input-firstDiv {
+    display: flex;
+  }
+
+  .comment-input {
+    display: flex;
+    width: 100%;
+    justify-content: space-between;
+    align-items: center;
+  }
+
+  .input-comment {
+    width: 100%;
+    border: none;
+    background-color: #c5c5c5;
+  }
+}
