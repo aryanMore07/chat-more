@@ -7,8 +7,8 @@
 /* LEFT SIDE DIV  */
 
 .leftSide-div {
-  width: 20%;
-  height: 44rem;
+  width: auto;
+  height: auto;
 }
 
 .user-div {
@@ -48,7 +48,7 @@
 
 .rightSide-div {
   padding: 5rem 0px 5rem 0px;
-  width: 20%;
+  width: auto;
 }
 
 /* Styles for tablets (portrait) and up */
@@ -61,8 +61,8 @@
   /* LEFT SIDE DIV  */
 
   .leftSide-div {
-    width: 20%;
-    height: 44rem;
+    width: auto;
+    height: auto;
     display: flex;
     flex-direction: column;
     justify-content: space-around;
@@ -113,7 +113,7 @@
 
   .rightSide-div {
     padding: 5rem 0px 5rem 0px;
-    width: 20%;
+    width: auto;
   }
 }
 
@@ -127,8 +127,8 @@
   /* LEFT SIDE DIV  */
 
   .leftSide-div {
-    width: 20%;
-    height: 44rem;
+    width: auto;
+    height: auto;
     display: flex;
     flex-direction: column;
     justify-content: space-around;
@@ -179,7 +179,7 @@
 
   .rightSide-div {
     padding: 5rem 0px 5rem 0px;
-    width: 20%;
+    width: auto;
   }
 
   .all-user {

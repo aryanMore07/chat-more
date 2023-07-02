@@ -25,10 +25,11 @@
 .post-btn:hover {
   color: white;
   background-color: rgb(255, 59, 48);
-    
-.comment-inputDiv {
+
+  .comment-inputDiv {
     padding: 15px;
-}}
+  }
+}
 
 .comment-input-firstDiv {
   display: flex;
@@ -42,9 +43,11 @@
 }
 
 .input-comment {
-    width: 100%;
-    border: none;
-    background-color: #c5c5c5;
+  padding: 12px;
+  border: 1px solid white;
+  width: 100%;
+  border: none;
+  background-color: #f8f9fa;
 }
 
 /* Styles for tablets (portrait) and up */
@@ -97,9 +100,11 @@
   }
 
   .input-comment {
+    padding: 12px;
+    border: 1px solid white;
     width: 100%;
     border: none;
-    background-color: #c5c5c5;
+    background-color: #f8f9fa;
   }
 }
 
@@ -148,8 +153,10 @@
   }
 
   .input-comment {
+    padding: 12px;
+    border: 1px solid white;
     width: 100%;
     border: none;
-    background-color: #c5c5c5;
+    background-color: #f8f9fa;
   }
 }

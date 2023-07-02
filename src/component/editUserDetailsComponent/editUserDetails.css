@@ -1,0 +1,87 @@
+/* Default styles for mobile devices */
+.userImage {
+    width: 100%;
+    height: max-content;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.profile-pic {
+    height: 210px;
+    width: 210px;
+    border-radius: 50%;
+}
+
+.input-div {
+    display: flex;
+    flex-direction: column;
+    margin: 8px;
+}
+
+.edit-btns {
+    display: flex;
+    justify-content: space-evenly;
+    width: 100%;
+    margin: 18px 0px 0px 0px;
+}
+  
+  /* Styles for tablets (portrait) and up */
+  @media (min-width: 768px) {
+    .userImage {
+        width: 100%;
+        height: max-content;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+
+    .profile-pic {
+        height: 210px;
+        width: 210px;
+        border-radius: 50%;
+    }
+
+    .input-div {
+        display: flex;
+        flex-direction: column;
+        margin: 8px;
+    }
+
+    .edit-btns {
+        display: flex;
+        justify-content: space-evenly;
+        width: 100%;
+        margin: 18px 0px 0px 0px;
+    }
+  }
+  
+  /* Styles for laptops and up */
+  @media screen and (min-width: 1024px) {
+    .userImage {
+        width: 100%;
+        height: max-content;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+
+    .profile-pic {
+        height: 210px;
+        width: 210px;
+        border-radius: 50%;
+    }
+
+    .input-div {
+        display: flex;
+        flex-direction: column;
+        margin: 8px;
+    }
+
+    .edit-btns {
+        display: flex;
+        justify-content: space-evenly;
+        width: 100%;
+        margin: 18px 0px 0px 0px;
+    }
+  }

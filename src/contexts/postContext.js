@@ -3,6 +3,7 @@ import { useContext } from "react";
 import { createContext, useState } from "react";
 import { UserContext } from "./userContext";
 import { useEffect } from "react";
+import { async } from "q";
 
 export const PostContext = createContext();
 
@@ -107,7 +108,7 @@ export const PostProvider = ({ children }) => {
                         authorization: encodedToken
                     }
                 })
-            console.log(response.data.bookmarks);
+            setBookmarkdata(response.data.bookmarks);
         } catch (error) {
             console.log(error);
         }
@@ -190,6 +191,66 @@ export const PostProvider = ({ children }) => {
         }
     }
 
+    // Add, Edit & Delete Comment
+
+    const addComment = async (postId, text) => {
+        const token = localStorage.getItem('token');
+        try {
+            const response = await axios.post(`/api/comments/add/${postId}`,
+                {
+                    commentData: text
+                },
+                {
+                    headers: {
+                        authorization: token,
+                    }
+                })
+            if (response.status === 200 || response.status === 201) {
+                setPostData(response.data.posts);
+                alert('Comment successfull');
+            }
+        } catch (error) {
+            console.log(error)
+        }
+    }
+
+    const editComment = async (postId, commentId, text) => {
+        const token = localStorage.getItem('token');
+        try {
+            const response = await axios.post(`/api/comments/edit/${postId}/${commentId}`,
+                {
+                    commentData: text
+                },
+                {
+                    headers: {
+                        authorization: token
+                    }
+                })
+            if (response.status === 200 || response.status === 201) {
+                setPostData(response.data.posts);
+            }
+        } catch (error) {
+            console.log(error);
+        }
+    }
+
+    const deleteComment = async (postId, commentId) => {
+        const token = localStorage.getItem('token');
+        try {
+            const response = await axios.delete(`/api/comments/delete/${postId}/${commentId}`,
+                {
+                    headers: {
+                        authorization: token
+                    }
+                })
+            if (response.status === 200 || response.status === 201) {
+                setPostData(response.data.posts);
+            }
+        } catch (error) {
+            console.log(error);
+        }
+    }
+
 
     useEffect(() => {
         getAllPost();
@@ -197,5 +258,5 @@ export const PostProvider = ({ children }) => {
         fetchUsersPost()
     }, [postData, bookmarkData])
 
-    return <PostContext.Provider value={{ userPosts, postData, postMessage, bookmarkData, addToBookmark, removeFromBookmark, likePost, dislikePost, deletePost, editPost }}>{children}</PostContext.Provider>
+    return <PostContext.Provider value={{ userPosts, postData, postMessage, bookmarkData, addToBookmark, removeFromBookmark, likePost, dislikePost, deletePost, editPost, addComment, editComment, deleteComment }}>{children}</PostContext.Provider>
 }

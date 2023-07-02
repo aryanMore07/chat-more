@@ -10,7 +10,7 @@ import BookmarkIcon from '@mui/icons-material/Bookmark';
 
 const BookmarkComponent = () => {
 
-  const { bookmarkData, removeFromBookmark } = useContext(PostContext);
+  const { bookmarkData, removeFromBookmark, likePost } = useContext(PostContext);
 
   return (
     <div className='bookmark-main-div'>
@@ -37,7 +37,9 @@ const BookmarkComponent = () => {
                     </div>
                     <hr />
                     <div className='icons-div'>
-                      <span className='icons' ><FavoriteBorderIcon /> {likes.likeCount}</span>
+                      <span className='icons' onClick={() => {
+                        likePost(_id)
+                      }}><FavoriteBorderIcon /> {likes.likeCount}</span>
                       <span className='icons' ><ChatBubbleOutlineIcon /></span>
                       <span className='icons' onClick={() => {
                         removeFromBookmark(_id)

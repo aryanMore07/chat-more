@@ -8,6 +8,7 @@
   display: flex;
   justify-content: center;
   padding: 4rem;
+  align-items: center;
 }
 
 /* ============================================================ */
@@ -80,6 +81,7 @@
     display: flex;
     justify-content: center;
     padding: 4rem;
+    align-items: center;
   }
 
   /* ============================================================ */
@@ -151,6 +153,7 @@
     display: flex;
     justify-content: space-evenly;
     padding: 4rem;
+    align-items: center;
   }
 
   /* ============================================================ */    

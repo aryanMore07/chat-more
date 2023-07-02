@@ -1,5 +1,6 @@
 import { v4 as uuid } from "uuid";
 import { formatDate } from "../utils/authUtils";
+import ayanPic from '../../images/myProfilePicture.jpeg';
 /**
  * User Database can be added here.
  * You can add default users of your wish with different attributes
@@ -20,7 +21,7 @@ export const users = [
     firstName: "Aryan",
     lastName: "More",
     username: "aryanmore2110",
-    image: 'https://lh3.googleusercontent.com/pw/AJFCJaUVvxbZOyeSoovHA2W70vILB0lm3iD6mZ5_BMzTlcmt5KHcb7IqLFVEYj8RIbYpxFCNkAXGHtGGSui2rzrl5A0GecRX8YKx-M3Do1g0EyyA9HkkhZnbLweiDicXUElA2y4k3LLSPp8nYCj3NZludxUwCm30N1nWlmqMuMzTsDhJxPtkt3qEoXabyYE4NTyihNHn4yjVl5_Loa8Xu5wSzQMgg3Phy7RzppO10kVc87bOC0Ztr_Noy6HU8jUGcPdjRlCG8EUoM4JYhxZuuiT4q9yHovqBWDYeCfUvJWqk1M3TDf4B9cvCqio-SW4Jp1dAyiI4LVBlYgUm_qL6jaXWM6JZP8Gllwk00CX9dTzulHLcEjr7vP-6s3ZrJj7_lYneUxX0o3Bzd594JeABwcx9bf1B7zgd6-Xx2F3dwWmx9Z5jcISIVPIjGqdT3NG5nOsk5MU0XxKRDhVIbwCCe3DjeaSYxNJLKZWScJQv0oCJZvrtjGYm2o91q0fDWbGgVI7ZeXWC_qpdr_QAdob9rymg4Y0hG8I40GJI9NhxSsSv2307fMJfloE-ErDdDMgsVr8npHVGL752K1Sh2jXcTlgwHdiefjmaUsEnYm3yZJFo8ZT8POCf2x4mNWpB-W_N2za4W-7nLn-2IMkdw3ARpiOwBVHW1aDGzB24ydmoFlXO2UpE35QhPuChgYTY4sIrMmeHRYadcxnPPrb_Joaqd_Mmv18Wqp5QfYb_UzNxZLyY_VcILByMP6t6yt04qQzaOrZVamkpaVRkCk78-h2RIwmVNM2fwwT4ruocX5dmygIls2-H6NqCPnAqG7s5rxUydc2Cn53_9hLncJsDbmroc9gM4DzM8HZ6jTSy5VpfSJqiMa7Tq7likYw3W89GzN8LplUDPeKRwSNC9inBUnW-7hE-ZwI=w730-h903-s-no?authuser=0',
+    image: `${ayanPic}`,
     password: "aryanmore",
     bookmarks: [],
     bio: "Aspiring MERN Stack",

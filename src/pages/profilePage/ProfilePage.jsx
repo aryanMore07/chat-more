@@ -2,7 +2,7 @@ import React from 'react';
 import './profilePage.css';
 import { useContext } from 'react';
 import { UserContext } from '../../contexts/userContext';
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import Avatar from '@mui/material/Avatar';
 import Button from '@mui/material/Button';
 import Menu from '@mui/material/Menu';
@@ -22,6 +22,7 @@ import TextField from '@mui/material/TextField';
 import CancelIcon from '@mui/icons-material/Cancel';
 import { useState } from 'react';
 import BookmarkIcon from '@mui/icons-material/Bookmark';
+import EditUserDetails from '../../component/editUserDetailsComponent/EditUserDetails';
 
 const style = {
     position: 'absolute',
@@ -42,6 +43,7 @@ const ProfileComponent = () => {
     const [modelOpen, setModelOpen] = React.useState(false);
     const handleModelOpen = () => setModelOpen(true);
     const handleModelClose = () => setModelOpen(false);
+    const navigate = useNavigate();
 
     const [anchorEl, setAnchorEl] = React.useState(null);
     const open = Boolean(anchorEl);
@@ -57,17 +59,17 @@ const ProfileComponent = () => {
 
     const { state } = useContext(UserContext);
     const [editedPost, setEditedPost] = useState('')
-    const { postData, addToBookmark, removeFromBookmark, editPost, deletePost, bookmarkData } = useContext(PostContext);
+    const { postData, addToBookmark, removeFromBookmark, editPost, deletePost, bookmarkData, likePost } = useContext(PostContext);
     const loggedInUserposts = postData.filter((post) => post.username === state.userDetails.username);
     const bookedMarkPost = (postId) => bookmarkData.find((post) => post._id === postId);
-    console.log(postData);
     return (
         <div className='profile-div'>
             <div className="user-info">
-                <img src={state.userDetails.image} alt="" className='user-picture' />
+                {/* <img  alt=""  /> */}
+                <Avatar src={state.userDetails.image} alt={state.userDetails.firstName} className='user-picture' style={{height: '220px', width: '220px', margin: '8px'}}/>
                 <h4>{state?.userDetails?.firstName}{state?.userDetails?.lastName}</h4>
                 <p style={{ color: '#9a9a9a' }}>@{state?.userDetails?.username}</p>
-                <button className='edit-btn'>Edit Profile</button>
+                <EditUserDetails />
                 {state?.userDetails.bio ? (<p>{state?.userDetails.bio}</p>) : (<p>Please add a bio</p>)}
                 {state?.userDetails.portfolio ? (<Link>{state?.userDetails.portfolio}</Link>) : (<p>Please add a website</p>)}
                 <div className='followings-details-div'>
@@ -76,7 +78,7 @@ const ProfileComponent = () => {
                         <span>Following</span>
                     </div>
                     <div className='followings-inner-divs'>
-                        2k
+                    {loggedInUserposts.length}
                         <span>Posts</span>
                     </div>
                     <div className='followings-inner-divs'>
@@ -95,7 +97,7 @@ const ProfileComponent = () => {
                             return (
                                 <div key={_id} className='users-posts'>
                                     <div className='user-profile'>
-                                        <Avatar alt={state.userDetails.firstName} src={state.userDetails.image} />
+                                        <Avatar alt={state.userDetails.firstName} src={state.userDetails.image}  />
                                     </div>
                                     <div className='post-info'>
                                         <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>
@@ -166,8 +168,12 @@ const ProfileComponent = () => {
                                         </div>
                                         <hr />
                                         <div className='icons-div'>
-                                            <span className='icons' ><FavoriteBorderIcon /> {likes.likeCount}</span>
-                                            <span className='icons' ><ChatBubbleOutlineIcon /></span>
+                                            <span className='icons' onClick={() => {
+                                                likePost(_id)
+                                            }}><FavoriteBorderIcon /> {likes.likeCount}</span>
+                                            <span className='icons' onClick={() => {
+                                                navigate(`/${_id}`)
+                                            }}><ChatBubbleOutlineIcon /></span>
                                             {
                                                 bookedMarkPost(_id) ?
                                                     (<span className='icons' onClick={() => {
