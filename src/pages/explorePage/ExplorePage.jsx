@@ -9,14 +9,16 @@ import Avatar from '@mui/material/Avatar';
 import PostSettingComponent from '../../component/postSettingComponent/PostSettingComponent';
 import BookmarkIcon from '@mui/icons-material/Bookmark';
 import FavoriteIcon from '@mui/icons-material/Favorite';
-import { useNavigate } from 'react-router';
+import { Navigate, useLocation, useNavigate } from 'react-router';
 
 const ExploreComponent = () => {
 
+  let location = useLocation();
+  const navigate = useNavigate();
   const { postData, bookmarkData, addToBookmark, removeFromBookmark, likePost, dislikePost } = useContext(PostContext);
   const bookmarkedPost = (postId) => bookmarkData.find((post) => post._id === postId);
+
   const likedPost = (postId) => postData.find(({ _id, likes }) => _id === postId && likes.likedBy.find(({ _id }) => _id === postId));
-  const navigate = useNavigate();
   return (
     <div className='explore-posts-div'>
       <div className='explore-div'>
@@ -37,7 +39,7 @@ const ExploreComponent = () => {
                   }}>
                     <p style={{ marginLeft: '15px' }}><b>{firstName}{lastName}</b> <span style={{ color: '#9a9a9a' }}>@{username}</span></p>
                     <div>
-                      <PostSettingComponent />
+                      <PostSettingComponent postId={_id} />
                     </div>
                   </div>
                   <div className='users-content'>
@@ -59,7 +61,8 @@ const ExploreComponent = () => {
                           )
                       }
                       <span className='icons' onClick={() => {
-                        navigate(`/${_id}`)
+                        navigate(`/${_id}`, {state: {from: location}});
+                        // <Navigate to={`/${_id}`} state={{ from: location }} />
                       }}><ChatBubbleOutlineIcon /></span>
                       {
                         bookmarkedPost(_id) ?

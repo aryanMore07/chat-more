@@ -1,6 +1,6 @@
 import React from 'react';
 import './singlePost.css';
-import { useNavigate, useParams } from 'react-router';
+import { useLocation, useNavigate, useParams } from 'react-router';
 import { useContext } from 'react';
 import { PostContext } from '../../contexts/postContext';
 import ArrowBackIcon from '@mui/icons-material/ArrowBack';
@@ -35,6 +35,7 @@ const style = {
 const SinglePost = () => {
 
     const navigate = useNavigate();
+    const location = useLocation();
     const { postId } = useParams();
     const [commentInput, setCommentInput] = useState('');
     const [editedComment, setEditedComment] = useState('');
@@ -42,8 +43,12 @@ const SinglePost = () => {
     const { postData, bookmarkData, addToBookmark, removeFromBookmark, likePost, dislikePost, addComment, editComment, deleteComment } = useContext(PostContext);
     const bookmarkedPost = (postId) => bookmarkData.find((post) => post._id === postId);
     const likedPost = (postId) => postData.find(({ _id, likes }) => _id === postId && likes.likedBy.find(({ _id }) => _id === postId));
+    
+    // Getting data for the post that selected
     const selectedData = postData.find((post) => post._id === postId)
-    const { _id, firstName, lastName, username, image, content, likes, comments } = selectedData;
+   
+    // Destructuring the data
+    const { _id, firstName, lastName, username, image, content, likes, comments } = selectedData; 
 
     // Model Handler
     const [open, setOpen] = React.useState(false);
@@ -67,7 +72,10 @@ const SinglePost = () => {
 
     return (
         <div className='singlePost-div'>
-            <div style={{ padding: '15px', display: 'flex' }}><span style={{ marginRight: '5px', cursor: 'pointer', width: '28px' }}><ArrowBackIcon /></span> <h4>Post</h4></div>
+            <div style={{ padding: '15px', display: 'flex' }} onClick={() => {
+                const from = location.state?.from?.pathname;
+                navigate(from);
+            }}><span style={{ marginRight: '5px', cursor: 'pointer', width: '28px' }}><ArrowBackIcon /></span> <h4>Post</h4></div>
             <div className='selected-post'>
                 <div className='selectedpost-info'>
                     <div className='selected-firstdiv'>

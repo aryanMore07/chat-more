@@ -22,6 +22,10 @@
   overflow: hidden;
 }
 
+.user-profile {
+  padding-top: 15px
+}
+
 .edit-btn {
   margin-bottom: 8px;
   border: 1px solid white;
@@ -94,6 +98,10 @@
     height: 180px;
     border-radius: 50%;
     overflow: hidden;
+  }
+
+  .user-profile {
+    padding-top: 15px
   }
 
   .edit-btn {
@@ -169,6 +177,10 @@
     height: 180px;
     border-radius: 50%;
     overflow: hidden;
+  }
+
+  .user-profile {
+    padding-top: 15px
   }
 
   .edit-btn {

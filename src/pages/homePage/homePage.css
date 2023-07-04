@@ -51,6 +51,7 @@
 
 .rightSide-div {
   padding: 5rem 0px 5rem 0px;
+    margin-left: 20px;
   width: auto;
 }
 
@@ -119,6 +120,7 @@
 
   .rightSide-div {
     padding: 5rem 0px 5rem 0px;
+    margin-left: 20px;
     width: auto;
   }
 }
@@ -193,6 +195,7 @@
 
   .rightSide-div {
     padding: 5rem 0px 5rem 0px;
+    margin-left: 20px;
     width: auto;
   }
 

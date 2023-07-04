@@ -38,8 +38,6 @@ const style = {
 
 const ProfileComponent = () => {
 
-
-
     const [modelOpen, setModelOpen] = React.useState(false);
     const handleModelOpen = () => setModelOpen(true);
     const handleModelClose = () => setModelOpen(false);
@@ -65,9 +63,8 @@ const ProfileComponent = () => {
     return (
         <div className='profile-div'>
             <div className="user-info">
-                {/* <img  alt=""  /> */}
                 <Avatar src={state.userDetails.image} alt={state.userDetails.firstName} className='user-picture' style={{height: '220px', width: '220px', margin: '8px'}}/>
-                <h4>{state?.userDetails?.firstName}{state?.userDetails?.lastName}</h4>
+                <h4>{state?.userDetail?.firstName}{state?.userDetails?.lastName}</h4>
                 <p style={{ color: '#9a9a9a' }}>@{state?.userDetails?.username}</p>
                 <EditUserDetails />
                 {state?.userDetails.bio ? (<p>{state?.userDetails.bio}</p>) : (<p>Please add a bio</p>)}
@@ -94,15 +91,15 @@ const ProfileComponent = () => {
                 <div style={{padding: '3rem'}}>
                     {
                         loggedInUserposts.map((post) => {
-                            const { _id, content, username, likes } = post;
+                            const { _id, firstName, lastName,content, username, likes } = post;
                             return (
                                 <div key={_id} className='users-posts'>
                                     <div className='user-profile'>
                                         <Avatar alt={state.userDetails.firstName} src={state.userDetails.image}  />
                                     </div>
                                     <div className='post-info'>
-                                        <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>
-                                            <p><b>{state?.userDetails?.firstName}</b> <span style={{ color: '#9a9a9a' }}>@{username}</span></p>
+                                        <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', padding: '15px' }}>
+                                            <p><b>{firstName} {lastName}</b> <span style={{ color: '#9a9a9a' }}>@{username}</span></p>
 
                                             <div>
                                                 <Button
@@ -195,9 +192,9 @@ const ProfileComponent = () => {
                             )
                         })
                     }
-                </div >
-            </div >
-        </div >
+                </div>
+            </div>
+        </div>
     )
 }
 
