@@ -19,8 +19,8 @@ const ExploreComponent = () => {
   const navigate = useNavigate();
   return (
     <div className='explore-posts-div'>
-      <h4><b>Explore</b></h4>
       <div className='explore-div'>
+      <h4><b>Explore</b></h4>
         {
           postData.map((post) => {
             const { _id, username, content, likes, image, firstName, lastName } = post

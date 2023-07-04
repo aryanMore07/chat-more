@@ -33,6 +33,7 @@
   text-decoration: none;
   color: black;
   transition: 0.2s;
+  width: max-content;
 }
 
 .list-style:hover {
@@ -42,6 +43,8 @@
 /* Middle Div  */
 .middle-div {
   width: 60%;
+  border-right: 1px solid #DCDCDC;
+  border-left: 1px solid #DCDCDC;
 }
 
 /* RIGHT DIV  */
@@ -62,7 +65,7 @@
 
   .leftSide-div {
     width: auto;
-    height: auto;
+    height: 652px;
     display: flex;
     flex-direction: column;
     justify-content: space-around;
@@ -98,6 +101,7 @@
     text-decoration: none;
     color: black;
     transition: 0.2s;
+    width: max-content;
   }
 
   .list-style:hover {
@@ -107,6 +111,8 @@
   /* Middle Div  */
   .middle-div {
     width: 60%;
+    border-right: 1px solid #DCDCDC;
+    border-left: 1px solid #DCDCDC;
   }
 
   /* RIGHT DIV */
@@ -128,7 +134,7 @@
 
   .leftSide-div {
     width: auto;
-    height: auto;
+    height: 652px;
     display: flex;
     flex-direction: column;
     justify-content: space-around;
@@ -164,15 +170,23 @@
     text-decoration: none;
     color: black;
     transition: 0.2s;
+    width: max-content;
   }
 
   .list-style:hover {
     box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px;
   }
 
+  .active {
+    box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px;
+    color: #FF3B30;
+  }
+
   /* Middle Div  */
   .middle-div {
     width: 60%;
+    border-right: 1px solid #DCDCDC;
+    border-left: 1px solid #DCDCDC;
   }
 
   /* RIGHT DIV */

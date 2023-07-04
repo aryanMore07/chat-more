@@ -1,13 +1,14 @@
 /* Default styles for mobile devices */
 .post-user-profile-div {
   display: flex;
-  justify-content: center;
-  align-items: center;
+  padding: 16px;
 }
 
 .post-something-div {
     display: flex;
     flex-direction: row;
+    box-shadow: rgba(0, 0, 0, 0.18) 0px 2px 4px;
+    border-radius: 5px;
 }
 
 .post-input {
@@ -39,14 +40,15 @@
 @media (min-width: 768px) {
   .post-user-profile-div {
     display: flex;
-    justify-content: center;
-    align-items: center;
+    padding: 16px;
   }
 
   .post-something-div {
     display: flex;
     flex-direction: row;
-  }
+ 
+ box-shadow: rgba(0, 0, 0, 0.18) 0px 2px 4px;
+border-radius: 5px; }
 
   .post-input {
     width: 100%;
@@ -76,14 +78,15 @@
 @media screen and (min-width: 1024px) {
   .post-user-profile-div {
     display: flex;
-    justify-content: center;
-    align-items: center;
+    padding: 16px;
   }
 
   .post-something-div {
     display: flex;
     flex-direction: row;
-  }
+ 
+ box-shadow: rgba(0, 0, 0, 0.18) 0px 2px 4px;
+border-radius: 5px; }
 
   .post-input {
     width: 100%;

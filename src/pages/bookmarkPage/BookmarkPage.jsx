@@ -14,8 +14,7 @@ const BookmarkComponent = () => {
 
   return (
     <div className='bookmark-main-div'>
-      {bookmarkData.length === 0 ? <></> : (<h3><b>Your Bookmarks</b></h3>)}
-      <div className='bookmarks-div'>
+      {bookmarkData.length === 0 ? <></> : (<h4><b>Your Bookmarks</b></h4>)}
         {
           bookmarkData.length === 0 ?
             (<h2>No Bookmarks</h2>)
@@ -50,7 +49,6 @@ const BookmarkComponent = () => {
               )
             })
         }
-      </div>
     </div>
   )
 }

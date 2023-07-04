@@ -88,6 +88,7 @@ export const posts = [
         _id: uuid(),
         username: "aryanmore2110",
         text: "Nice read",
+        image: aryan,
         votes: {
           upvotedBy: [],
           downvotedBy: [],
@@ -226,7 +227,7 @@ export const posts = [
     lastName: 'More',
     content:
       "Just a software engineer betting his entire career on a framework made by Facebook.",
-    image: 'https://scontent.famd5-2.fna.fbcdn.net/v/t39.30808-6/335638560_599518231735734_1878037630595375975_n.jpg?_nc_cat=104&cb=99be929b-3346023f&ccb=1-7&_nc_sid=09cbfe&_nc_ohc=X0eL2Ut51dsAX96fXxI&_nc_ht=scontent.famd5-2.fna&oh=00_AfB6f9GLbXtIq8-FLKttlwdEDbguLAVm0HRDSObdVrwdfw&oe=648FFD65',
+    image: aryan,
     likes: {
       likeCount: 4,
       likedBy: [

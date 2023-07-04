@@ -7,6 +7,7 @@
 
 .selected-firstdiv {
   display: flex;
+
 }
 
 .selected-secondDiv {
@@ -25,14 +26,23 @@
 .post-btn:hover {
   color: white;
   background-color: rgb(255, 59, 48);
+}
 
-  .comment-inputDiv {
-    padding: 15px;
-  }
+.comment {
+  padding: 15px;
+  box-shadow: rgba(0, 0, 0, 0.16) 0px 1px 4px;
+  border-radius: 5px;
+}
+.comment-inputDiv {
+  padding: 15px;
 }
 
 .comment-input-firstDiv {
   display: flex;
+  padding: 22px;
+  box-shadow: rgba(0, 0, 0, 0.16) 0px 1px 4px;
+  border-radius: 5px;
+  width: 100%;
 }
 
 .comment-input {
@@ -60,6 +70,7 @@
 
   .selected-firstdiv {
     display: flex;
+
   }
 
   .selected-secondDiv {
@@ -80,11 +91,21 @@
     background-color: rgb(255, 59, 48);
   }
 
+  .comment {
+    padding: 15px;
+    box-shadow: rgba(0, 0, 0, 0.16) 0px 1px 4px;
+    border-radius: 5px;
+  }
+
   .comment-inputDiv {
     padding: 15px;
   }
   .comment-input-firstDiv {
     display: flex;
+    padding: 22px;
+    box-shadow: rgba(0, 0, 0, 0.16) 0px 1px 4px;
+    border-radius: 5px;
+    width: 100%;
   }
 
   .comment-input-div {
@@ -118,10 +139,17 @@
 
   .selected-firstdiv {
     display: flex;
+
   }
 
   .selected-secondDiv {
     padding: 2rem;
+  }
+
+  .selectedpost-info {
+    box-shadow: rgba(0, 0, 0, 0.16) 0px 1px 4px;
+    padding: 20px;
+    border-radius: 5px;
   }
 
   .post-btn {
@@ -138,11 +166,21 @@
     background-color: rgb(255, 59, 48);
   }
 
+  .comment {
+    padding: 15px;
+    box-shadow: rgba(0, 0, 0, 0.16) 0px 1px 4px;
+    border-radius: 5px;
+  }
+
   .comment-inputDiv {
     padding: 15px;
   }
   .comment-input-firstDiv {
     display: flex;
+    padding: 22px;
+    box-shadow: rgba(0, 0, 0, 0.16) 0px 1px 4px;
+    border-radius: 5px;
+    width: 100%;
   }
 
   .comment-input {

@@ -10,6 +10,11 @@
   align-items: center;
 }
 
+.users-posts {
+  box-shadow: rgba(0, 0, 0, 0.18) 0px 2px 4px;
+  border-radius: 5px;
+}
+
 .user-picture {
   width: 200px;
   height: 180px;
@@ -48,6 +53,7 @@
 
 .users-posts {
   box-shadow: rgba(0, 0, 0, 0.18) 0px 2px 4px;
+  border-radius: 5px;
   display: flex;
   padding: 25px;
 }
@@ -69,6 +75,11 @@
 /* Styles for tablets (portrait) and up */
 @media (min-width: 768px) {
   /* FIRST DIV  */
+
+  .users-posts {
+    box-shadow: rgba(0, 0, 0, 0.18) 0px 2px 4px;
+    border-radius: 5px;
+  }
 
   .user-info {
     padding: 15px;
@@ -104,7 +115,7 @@
     justify-content: space-evenly;
     width: 18rem;
     padding: 18px;
-    margin-top: 15px
+    margin-top: 15px;
   }
 
   .followings-inner-divs {
@@ -116,6 +127,7 @@
 
   .users-posts {
     box-shadow: rgba(0, 0, 0, 0.18) 0px 2px 4px;
+    border-radius: 5px;
     display: flex;
     padding: 25px;
   }
@@ -139,6 +151,11 @@
 @media screen and (min-width: 1024px) {
   /* FIRST DIV  */
 
+  .users-posts {
+    box-shadow: rgba(0, 0, 0, 0.18) 0px 2px 4px;
+    border-radius: 5px;
+  }
+
   .user-info {
     padding: 15px;
     display: flex;
@@ -173,7 +190,7 @@
     justify-content: space-evenly;
     width: 18rem;
     padding: 18px;
-    margin-top: 15px
+    margin-top: 15px;
   }
 
   .followings-inner-divs {
@@ -185,6 +202,7 @@
 
   .users-posts {
     box-shadow: rgba(0, 0, 0, 0.18) 0px 2px 4px;
+    border-radius: 5px;
     display: flex;
     padding: 25px;
   }

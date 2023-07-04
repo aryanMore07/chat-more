@@ -69,58 +69,61 @@ const SinglePost = () => {
         <div className='singlePost-div'>
             <div style={{ padding: '15px', display: 'flex' }}><span style={{ marginRight: '5px', cursor: 'pointer', width: '28px' }}><ArrowBackIcon /></span> <h4>Post</h4></div>
             <div className='selected-post'>
-                <div className='selected-firstdiv'>
-                    <div style={{ padding: '8px' }}>
-                        <Avatar alt={firstName} src={image} />
+                <div className='selectedpost-info'>
+                    <div className='selected-firstdiv'>
+                        <div style={{ padding: '8px' }}>
+                            <Avatar alt={firstName} src={image} />
+                        </div>
+                        <div style={{ width: "100%", display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>
+                            <p><b>{firstName} {lastName}</b> @{username}</p>
+                            <SinglePostSettings />
+                        </div>
                     </div>
-                    <div style={{ width: "100%", display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>
-                        <p><b>{firstName} {lastName}</b> @{username}</p>
-                        <SinglePostSettings />
+                    <hr />
+                    <div className='selected-secondDiv'>
+                        {content}
                     </div>
-                </div>
-                <div className='selected-secondDiv'>
-                    {content}
-                </div>
-                <hr />
-                <b>{likes.likeCount} Likes</b>
-                <hr />
-                <div className='icons-div'>
-                    {
-                        likedPost(_id) ?
-                            (
-                                <span className='icons' onClick={() => {
-                                    dislikePost(_id)
-                                }}><FavoriteIcon /></span>
-                            )
-                            :
-                            (
-                                <span className='icons' onClick={() => {
-                                    likePost(_id)
-                                }}><FavoriteBorderIcon /> {likes.likeCount}</span>
-                            )
-                    }
-                    <span className='icons' onClick={() => {
-                        navigate(`/${_id}`)
-                    }}><ChatBubbleOutlineIcon /> {comments.length}</span>
-                    {
-                        bookmarkedPost(_id) ?
-                            (
-                                <span className='icons' onClick={() => {
-                                    removeFromBookmark(_id)
-                                }}><BookmarkIcon /></span>
-                            )
-                            :
-                            (
-                                <span className='icons' onClick={() => {
-                                    addToBookmark(_id)
-                                }} ><BookmarkBorderIcon /></span>
-                            )
-                    }
+                    <hr />
+                    <b>{likes.likeCount} Likes</b>
+                    <hr />
+                    <div className='icons-div'>
+                        {
+                            likedPost(_id) ?
+                                (
+                                    <span className='icons' onClick={() => {
+                                        dislikePost(_id)
+                                    }}><FavoriteIcon /></span>
+                                )
+                                :
+                                (
+                                    <span className='icons' onClick={() => {
+                                        likePost(_id)
+                                    }}><FavoriteBorderIcon /> {likes.likeCount}</span>
+                                )
+                        }
+                        <span className='icons' onClick={() => {
+                            navigate(`/${_id}`)
+                        }}><ChatBubbleOutlineIcon /> {comments.length}</span>
+                        {
+                            bookmarkedPost(_id) ?
+                                (
+                                    <span className='icons' onClick={() => {
+                                        removeFromBookmark(_id)
+                                    }}><BookmarkIcon /></span>
+                                )
+                                :
+                                (
+                                    <span className='icons' onClick={() => {
+                                        addToBookmark(_id)
+                                    }} ><BookmarkBorderIcon /></span>
+                                )
+                        }
+                    </div>
                 </div>
                 <div className='comment-inputDiv'>
                     <div className='comment-input-firstDiv'>
                         <div style={{ padding: '8px' }}>
-                            <Avatar alt={state.userDetails.firstName} src={image} />
+                            <Avatar alt={state.userDetails.firstName} src={state.userDetails.image} />
                         </div>
                         <div className='comment-input'>
                             <div className='comment-input-div'>
@@ -135,6 +138,7 @@ const SinglePost = () => {
                     </div>
                 </div>
                 <div className='comments-div'>
+                    <hr />
                     {
                         comments.map((post) => {
                             const { _id, image, username, text } = post;
@@ -171,6 +175,7 @@ const SinglePost = () => {
                                             </div>
                                         </div>
                                     </div>
+                                    <hr />
                                     <div style={{ padding: '2rem' }}>
                                         {text}
                                     </div>

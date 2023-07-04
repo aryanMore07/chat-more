@@ -17,7 +17,8 @@ const PostTweetComponent = () => {
   }
 
   return (
-    <div>
+    <div style={{padding: '3rem'}}>
+      <h4 style={{textAlign: 'center', marginBottom: '10px'}}>Home</h4>
       <div className='post-something-div'>
         <div className='post-user-profile-div'>
           <Avatar alt={state.userDetails.fullName} src={state.userDetails.image} />
@@ -26,7 +27,7 @@ const PostTweetComponent = () => {
           <div className='input-div'>
             <TextField
               id="filled-multiline-static"
-              label="Post your thoughts...."
+              label="Whats happening...?"
               multiline
               rows={4}
               variant="filled"
@@ -40,7 +41,6 @@ const PostTweetComponent = () => {
           <div className='post-btn-div'>
             <button className='post-btn' onClick={postBtnHandler}>Post</button>
           </div>
-          <hr />
         </div>
       </div>
     </div>

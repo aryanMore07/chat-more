@@ -1,37 +1,61 @@
 /* Default styles for mobile devices */
+
+.explore-div {
+  padding: 3rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
 .explore-post {
-    padding: 18px;
-    display: flex;
+  width: 100%;
+  padding: 18px;
+  display: flex;
+  box-shadow: rgba(0, 0, 0, 0.18) 0px 2px 4px;
+  margin: 20px 0px 20px 0px;
+  border-radius: 5px;
 }
 
 .explore-post-details {
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
-    width: 100%;
-    align-items: center;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  width: 100%;
+  align-items: center;
 }
 
 .users-content {
-    width: 100%;
-    padding: 15px;
+  width: 100%;
+  padding: 15px;
 }
 
+.icons-div {
+  display: flex;
+  justify-content: space-between;
+}
 
-  .icons-div {
-    display: flex;
-    justify-content: space-between;
-  }
-
-  .icons {
-    cursor: pointer;
-  }
+.icons {
+  cursor: pointer;
+}
 
 /* Styles for tablets (portrait) and up */
 @media (min-width: 768px) {
+  .explore-div {
+    padding: 3rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+  }
+
   .explore-post {
+    width: 100%;
     padding: 18px;
     display: flex;
+    box-shadow: rgba(0, 0, 0, 0.18) 0px 2px 4px;
+    margin: 20px 0px 20px 0px;
+    border-radius: 5px;
   }
 
   .explore-post-details {
@@ -47,7 +71,6 @@
     padding: 15px;
   }
 
-  
   .icons-div {
     display: flex;
     justify-content: space-between;
@@ -60,9 +83,21 @@
 
 /* Styles for laptops and up */
 @media screen and (min-width: 1024px) {
+  .explore-div {
+    padding: 3rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+  }
+
   .explore-post {
+    width: 100%;
     padding: 18px;
     display: flex;
+    box-shadow: rgba(0, 0, 0, 0.18) 0px 2px 4px;
+    margin: 20px 0px 20px 0px;
+    border-radius: 5px;
   }
 
   .explore-post-details {
@@ -78,7 +113,6 @@
     padding: 15px;
   }
 
-  
   .icons-div {
     display: flex;
     justify-content: space-between;
