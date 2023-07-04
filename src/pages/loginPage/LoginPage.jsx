@@ -98,6 +98,11 @@ const LoginComponent = () => {
                     }} />
                 </div>
                 <button className='login-btn' onClick={loginHandler}>Login</button>
+                <button className='login-btn' onClick={() => {
+                    setUserName('aryanmore2110');
+                    setPassword('aryanmore');
+                    loginHandler();
+                }}>DefaultLogin</button>
                 <Link to='/auth-signup' className='create-new-acc-btn'>Create New Account {'>'}</Link>
             </div>
         </div>

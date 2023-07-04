@@ -57,7 +57,6 @@ export const posts = [
   },
   {
     _id: uuid(),
-
     firstName: 'Tanay',
     lastName: 'Pratap',
     content:
@@ -101,7 +100,6 @@ export const posts = [
   },
   {
     _id: uuid(),
-
     firstName: 'Tirth',
     lastName: 'Baraiya',
     content:
@@ -133,13 +131,13 @@ export const posts = [
       ],
       dislikedBy: [],
     },
+    comments: [],
     username: "tirthbaraiya",
     createdAt: formatDate(),
     updatedAt: formatDate(),
   },
   {
     _id: uuid(),
-
     firstName: 'Yash',
     lastName: 'Mali',
     content:
@@ -171,13 +169,13 @@ export const posts = [
       ],
       dislikedBy: [],
     },
+    comments: [],
     username: "yashmali",
     createdAt: formatDate(),
     updatedAt: formatDate(),
   },
   {
     _id: uuid(),
-
     firstName: 'Rupesh',
     lastName: 'Soni',
     content:
@@ -217,6 +215,7 @@ export const posts = [
       ],
       dislikedBy: [],
     },
+    comments: [],
     username: "rupeshsoni",
     createdAt: formatDate(),
     updatedAt: formatDate(),

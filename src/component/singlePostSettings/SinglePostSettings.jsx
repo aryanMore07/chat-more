@@ -5,16 +5,22 @@ import Menu from '@mui/material/Menu';
 import MenuItem from '@mui/material/MenuItem';
 import Fade from '@mui/material/Fade';
 import MoreVertIcon from '@mui/icons-material/MoreVert';
+import { useContext } from 'react';
+import { PostContext } from '../../contexts/postContext';
 
-const SinglePostSettings = () => {
+const SinglePostSettings = ({postId}) => {
+
+
+    const { bookmarkData, addToBookmark, removeFromBookmark, } = useContext(PostContext);
+    const bookmarkedPost = (postId) => bookmarkData.find((post) => post._id === postId);
 
     const [anchorEl, setAnchorEl] = React.useState(null);
     const open = Boolean(anchorEl);
     const handleClick = (event) => {
-      setAnchorEl(event.currentTarget);
+        setAnchorEl(event.currentTarget);
     };
     const handleClose = () => {
-      setAnchorEl(null);
+        setAnchorEl(null);
     };
 
     return (
@@ -37,8 +43,15 @@ const SinglePostSettings = () => {
                 open={open}
                 onClose={handleClose}
                 TransitionComponent={Fade}
-            >
-                <MenuItem onClick={handleClose}>Add to Favorites</MenuItem>
+            >   
+                {
+                    bookmarkedPost(postId) ? (<MenuItem onClick={() => {
+                        removeFromBookmark(postId)
+                    }}>Remove from Favorites</MenuItem>) : (<MenuItem onClick={() => {
+                        addToBookmark(postId)
+                    }}>Add to Favorites</MenuItem>)
+                }
+                
                 <MenuItem onClick={handleClose}>close</MenuItem>
             </Menu>
         </div>

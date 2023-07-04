@@ -43,12 +43,12 @@ const SinglePost = () => {
     const { postData, bookmarkData, addToBookmark, removeFromBookmark, likePost, dislikePost, addComment, editComment, deleteComment } = useContext(PostContext);
     const bookmarkedPost = (postId) => bookmarkData.find((post) => post._id === postId);
     const likedPost = (postId) => postData.find(({ _id, likes }) => _id === postId && likes.likedBy.find(({ _id }) => _id === postId));
-    
+
     // Getting data for the post that selected
-    const selectedData = postData.find((post) => post._id === postId)
-   
+    const selectedData = postData.find((post) => post._id === postId);
+
     // Destructuring the data
-    const { _id, firstName, lastName, username, image, content, likes, comments } = selectedData; 
+    const { _id, firstName, lastName, username, image, content, likes, comments } = selectedData;
 
     // Model Handler
     const [open, setOpen] = React.useState(false);
@@ -58,16 +58,20 @@ const SinglePost = () => {
     // Post, Edit, & Delete Comment Handlers
 
     const postCommentBtnHandler = (postId) => {
-        addComment(postId, commentInput)
+        addComment(postId, commentInput);
+        setCommentInput('');
     }
 
     const editCommentBtnHandler = (postId, commentId) => {
         editComment(postId, commentId, editedComment);
+        setCommentInput('');
         handleClose();
     }
 
     const deleteCommentBtnHandler = (postId, commentId) => {
         deleteComment(postId, commentId);
+        setCommentInput('');
+        handleClose();
     }
 
     return (
@@ -84,7 +88,7 @@ const SinglePost = () => {
                         </div>
                         <div style={{ width: "100%", display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>
                             <p><b>{firstName} {lastName}</b> @{username}</p>
-                            <SinglePostSettings />
+                            <SinglePostSettings postId={_id} />
                         </div>
                     </div>
                     <hr />
@@ -111,7 +115,7 @@ const SinglePost = () => {
                         }
                         <span className='icons' onClick={() => {
                             navigate(`/${_id}`)
-                        }}><ChatBubbleOutlineIcon /> {comments.length}</span>
+                        }}><ChatBubbleOutlineIcon /> {comments?.length}</span>
                         {
                             bookmarkedPost(_id) ?
                                 (
@@ -135,7 +139,7 @@ const SinglePost = () => {
                         </div>
                         <div className='comment-input'>
                             <div className='comment-input-div'>
-                                <input type="text" className='input-comment' placeholder='Add a comment' onChange={(event) => {
+                                <input type="text" value={commentInput} className='input-comment' placeholder='Add a comment' onChange={(event) => {
                                     setCommentInput(event.target.value);
                                 }} />
                             </div>
@@ -148,7 +152,7 @@ const SinglePost = () => {
                 <div className='comments-div'>
                     <hr />
                     {
-                        comments.map((post) => {
+                        comments?.map((post) => {
                             const { _id, image, username, text } = post;
                             return (
                                 <div key={_id} className='comment'>
@@ -156,31 +160,36 @@ const SinglePost = () => {
                                         <Avatar alt={username} src={image} style={{ margin: '0px 15px 0px 0px' }} />
                                         <div style={{ width: '100%', display: 'flex', justifyContent: 'space-between' }}>
                                             <p>@{username}</p>
-                                            <div>
-                                                <Button onClick={handleOpen}><MoreVertIcon /></Button>
-                                                <Modal
-                                                    open={open}
-                                                    onClose={handleClose}
-                                                    aria-labelledby="modal-modal-title"
-                                                    aria-describedby="modal-modal-description"
-                                                >
-                                                    <Box sx={style}>
-                                                        <div style={{ display: 'flex', justifyContent: 'space-between' }}>
-                                                            <h4>Edit Comment</h4>
-                                                            <span style={{ cursor: 'pointer' }} onClick={handleClose}><CancelIcon /></span>
-                                                        </div>
-                                                        <textarea style={{ margin: '15px 0px 15px 0px' }} name="comment" id="comment" cols="30" rows="10" defaultValue={text} onChange={(event) => {
-                                                            setEditedComment(event.target.value);
-                                                        }}></textarea>
-                                                        <div style={{ display: 'flex', justifyContent: 'space-evenly' }}>
-                                                            <Button variant='contained' color='error' onClick={() => { deleteCommentBtnHandler(selectedData._id, _id) }}><span ><DeleteForever /></span> Delete</Button>
-                                                            <Button variant='contained' color='primary' onClick={() => {
-                                                                editCommentBtnHandler(selectedData._id, _id)
-                                                            }}><span><EditIcon /> Edit</span></Button>
-                                                        </div>
-                                                    </Box>
-                                                </Modal>
-                                            </div>
+                                            {username === state.userDetails.username ? (
+                                                <div>
+                                                    <Button onClick={handleOpen}><MoreVertIcon /></Button>
+                                                    <Modal
+                                                        open={open}
+                                                        onClose={handleClose}
+                                                        aria-labelledby="modal-modal-title"
+                                                        aria-describedby="modal-modal-description"
+                                                    >
+                                                        <Box sx={style}>
+                                                            <div style={{ display: 'flex', justifyContent: 'space-between' }}>
+                                                                <h4>Edit Comment</h4>
+                                                                <span style={{ cursor: 'pointer' }} onClick={handleClose}><CancelIcon /></span>
+                                                            </div>
+                                                            <textarea style={{ margin: '15px 0px 15px 0px' }} name="comment" id="comment" cols="30" rows="10" defaultValue={text} onChange={(event) => {
+                                                                setEditedComment(event.target.value);
+                                                            }}></textarea>
+                                                            <div style={{ display: 'flex', justifyContent: 'space-evenly' }}>
+                                                                <Button variant='contained' color='error' onClick={() => { deleteCommentBtnHandler(selectedData._id, _id) }}><span ><DeleteForever /></span> Delete</Button>
+                                                                <Button variant='contained' color='primary' onClick={() => {
+                                                                    editCommentBtnHandler(selectedData._id, _id)
+                                                                }}><span><EditIcon /> Edit</span></Button>
+                                                            </div>
+                                                        </Box>
+                                                    </Modal>
+                                                </div>
+                                            ) : (
+                                                <></>
+                                            )}
+
                                         </div>
                                     </div>
                                     <hr />

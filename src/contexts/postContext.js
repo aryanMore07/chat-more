@@ -1,9 +1,9 @@
+/* eslint-disable react-hooks/exhaustive-deps */
 import axios from "axios";
 import { useContext } from "react";
 import { createContext, useState } from "react";
 import { UserContext } from "./userContext";
 import { useEffect } from "react";
-import { async } from "q";
 
 export const PostContext = createContext();
 
@@ -207,7 +207,6 @@ export const PostProvider = ({ children }) => {
                 })
             if (response.status === 200 || response.status === 201) {
                 setPostData(response.data.posts);
-                alert('Comment successfull');
             }
         } catch (error) {
             console.log(error)

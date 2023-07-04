@@ -7,10 +7,9 @@ import AccountCircleIcon from '@mui/icons-material/AccountCircle';
 import Avatar from '@mui/material/Avatar';
 import SearchIcon from '@mui/icons-material/Search';
 import { UserContext } from '../../contexts/userContext';
-import { NavLink, Outlet } from 'react-router-dom';
+import { NavLink, Outlet, useNavigate } from 'react-router-dom';
 import Form from 'react-bootstrap/Form';
 import InputGroup from 'react-bootstrap/InputGroup';
-import axios from 'axios';
 import List from '@mui/material/List';
 import ListItem from '@mui/material/ListItem';
 import ListItemButton from '@mui/material/ListItemButton';
@@ -21,24 +20,9 @@ import LogoutComponent from '../../component/logoutComponent/LogoutComponent';
 
 const HomeComponent = () => {
 
-    const [allUser, setAllusers] = useState([]);
+    const navigate = useNavigate();
+    const { state, dispatch, searchedData, allUserData } = useContext(UserContext);
 
-    const fetchAllUsersData = async () => {
-        try {
-            const response = await axios.get('/api/users');
-            if (response.status === 200 || response.status === 201) {
-                setAllusers(response.data.users);
-            }
-        } catch (error) {
-            console.log(error);
-        }
-    }
-
-    const { state } = useContext(UserContext);
-    
-    useEffect(() => {
-        fetchAllUsersData();
-    }, [])
     return (
         <div className='home-div container'>
             <div className="leftSide-div">
@@ -73,16 +57,59 @@ const HomeComponent = () => {
                         placeholder="Username"
                         aria-label="Username"
                         aria-describedby="basic-addon1"
+                        onChange={(event) => {
+                            dispatch({ type: 'USER_INPUT', payload: event.target.value });
+                        }}
                     />
                 </InputGroup>
+                {
+                    state.userInput && (
+                        <div className='searched-users-output'>
+                            <ul style={{ listStyle: 'none', display: 'flex', flexDirection: 'column' }}>
+                                {
+                                    searchedData.map((user) => {
+                                        const { _id, firstName, lastName, username } = user;
+                                        return (
+                                            <li
+                                                style={{
+                                                    padding: '0.5rem 1rem',
+                                                    border: '1px solid',
+                                                    borderColor: 'rgba(0,0,0,0.2)',
+                                                    margin: '0.5rem',
+                                                    borderRadius: '0.5rem',
+                                                    boxShadow: '0 2px 8px 0 rgba(0,0,0,0.1)',
+                                                    cursor: 'pointer'
+                                                }}
+                                                key={_id}
+                                                onClick={() => {
+                                                    navigate(`/user/${_id}`)
+                                                }}
+                                            >
+                                                <div style={{ display: 'flex', justifyContent: 'space-between', width: '100%' }}>
+                                                    <Avatar alt={firstName} />
+                                                    <div>
+                                                        <b>{firstName} {lastName}</b> <br />
+                                                        @{username}
+                                                    </div>
+                                                </div>
+                                            </li>
+                                        )
+                                    })
+                                }
+                            </ul>
+                        </div>
+                    )
+                }
                 <div className="all-user">
                     {
-                        allUser.map((user) => {
-                            const { id, firstName, lastName, username, image } = user
+                        allUserData.map((user) => {
+                            const { _id, firstName, lastName, username, image } = user;
                             return (
-                                <List key={id}>
+                                <List key={_id}>
                                     <ListItem style={{ borderRadius: '5rem' }} disablePadding>
-                                        <ListItemButton>
+                                        <ListItemButton onClick={() => {
+                                            navigate(`/user/${_id}`)
+                                        }}>
                                             <ListItemIcon>
                                                 <Avatar alt={firstName} src={image} />
                                             </ListItemIcon>
