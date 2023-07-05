@@ -4,17 +4,14 @@ import { useContext } from "react";
 import { createContext, useState } from "react";
 import { UserContext } from "./userContext";
 import { useEffect } from "react";
+import { useReducer } from "react";
 
 export const PostContext = createContext();
 
 export const PostProvider = ({ children }) => {
 
-
-
-    const { state } = useContext(UserContext)
     const [postData, setPostData] = useState([]);
     const [bookmarkData, setBookmarkdata] = useState([]);
-    const [userPosts, setUserPosts] = useState([]);
 
 
     const getAllPost = async () => {
@@ -25,19 +22,6 @@ export const PostProvider = ({ children }) => {
             }
         } catch (error) {
             console.log(error);
-        }
-    }
-
-    // LoggedIn User posts
-
-    const fetchUsersPost = async () => {
-        try {
-            const response = await axios.get(`/api/posts/user/${state.userDetails._id}`)
-            if (response.status === 200 || response.status === 201) {
-                setUserPosts(response.data.posts)
-            }
-        } catch (error) {
-            console.log(error)
         }
     }
 
@@ -257,5 +241,5 @@ export const PostProvider = ({ children }) => {
         fetchUsersPost()
     }, [postData, bookmarkData])
 
-    return <PostContext.Provider value={{ userPosts, postData, postMessage, bookmarkData, addToBookmark, removeFromBookmark, likePost, dislikePost, deletePost, editPost, addComment, editComment, deleteComment }}>{children}</PostContext.Provider>
+    return <PostContext.Provider value={{ postData, postMessage, bookmarkData, addToBookmark, removeFromBookmark, likePost, dislikePost, deletePost, editPost, addComment, editComment, deleteComment }}>{children}</PostContext.Provider>
 }

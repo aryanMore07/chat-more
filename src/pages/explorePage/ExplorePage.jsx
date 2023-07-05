@@ -9,16 +9,17 @@ import Avatar from '@mui/material/Avatar';
 import PostSettingComponent from '../../component/postSettingComponent/PostSettingComponent';
 import BookmarkIcon from '@mui/icons-material/Bookmark';
 import FavoriteIcon from '@mui/icons-material/Favorite';
-import { Navigate, useLocation, useNavigate } from 'react-router';
+import { useLocation, useNavigate } from 'react-router';
+import { UserContext } from '../../contexts/userContext';
 
 const ExploreComponent = () => {
 
   let location = useLocation();
   const navigate = useNavigate();
+  const { state } = useContext(UserContext);
   const { postData, bookmarkData, addToBookmark, removeFromBookmark, likePost, dislikePost } = useContext(PostContext);
   const bookmarkedPost = (postId) => bookmarkData.find((post) => post._id === postId);
-
-  const likedPost = (postId) => postData.find(({ _id, likes }) => _id === postId && likes.likedBy.find(({ _id }) => _id === postId));
+  const likedPost = (postId) => postData.find(({ _id, likes }) => _id === postId && likes.likedBy.find(({ _id }) => _id === state.userDetails._id));
   return (
     <div className='explore-posts-div'>
       <div className='explore-div'>
@@ -51,7 +52,7 @@ const ExploreComponent = () => {
                           (
                             <span className='icons' onClick={() => {
                               dislikePost(_id)
-                            }}><FavoriteIcon /></span>
+                            }}><FavoriteIcon /> {likes.likeCount}</span>
                           )
                           :
                           (

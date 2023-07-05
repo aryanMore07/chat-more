@@ -22,7 +22,6 @@ import TextField from '@mui/material/TextField';
 import CancelIcon from '@mui/icons-material/Cancel';
 import { useState } from 'react';
 import BookmarkIcon from '@mui/icons-material/Bookmark';
-import EditUserDetails from '../../component/editUserDetailsComponent/EditUserDetails';
 
 
 const style = {
@@ -60,13 +59,33 @@ const SingleUser = () => {
     setAnchorEl(null);
   };
 
-  const { state } = useContext(UserContext);
+  const { state, followUser, unFollowUser } = useContext(UserContext);
   const [editedPost, setEditedPost] = useState('')
   const { postData, addToBookmark, removeFromBookmark, editPost, deletePost, bookmarkData, likePost } = useContext(PostContext);
+
+  // Function to find the Selected user Details
   const selectedUserData = state.allUser.find((user) => user._id === userId);
-  const { firstName, lastName, username, image, bio, portfolio, following, followers } = selectedUserData;
+  const { _id, firstName, lastName, username, image, bio, portfolio, following, followers } = selectedUserData;
+
+  // Function to filter only data of the selectedUser
   const loggedInUserposts = postData.filter((post) => post.username === selectedUserData.username);
+
+  // Function to find whether the user have bookmarked the post or not
   const bookedMarkPost = (postId) => bookmarkData.find((post) => post._id === postId);
+
+  // Function check whether the user have follwed or not
+  const checkUserFollowing = (userId) => state.userDetails.following.find((user) => user._id === userId);
+
+  // Follow button Handler
+  const followUserBtn = () => {
+    followUser(_id);
+  }
+  const unFollowUserBtn = () => {
+    unFollowUser(_id);
+  }
+
+  // console.log(selectedUserData.followers)
+  // console.log(selectedUserData.following)
 
   return (
     <div className='profile-div'>
@@ -74,8 +93,10 @@ const SingleUser = () => {
         <Avatar src={image} alt={firstName} className='user-picture' style={{ height: '220px', width: '220px', margin: '8px' }} />
         <h4>{firstName} {lastName}</h4>
         <p style={{ color: '#9a9a9a' }}>@{username}</p>
-        <button className='follow-btn'>Follow</button>
-        <button className='unfollow-btn'>Unfollow</button>
+        {
+          checkUserFollowing(_id) ? (<button className='unfollow-btn' onClick={unFollowUserBtn}>Unfollow</button>) : (
+            <button className='follow-btn' onClick={followUserBtn}>Follow</button>)
+        }
         {bio ? (<p>{bio}</p>) : (<p>Please add a bio</p>)}
         {portfolio ? (<Link>{portfolio}</Link>) : (<p>Please add a website</p>)}
         <div className='followings-details-div'>
