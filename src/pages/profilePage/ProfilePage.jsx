@@ -2,7 +2,7 @@ import React from 'react';
 import './profilePage.css';
 import { useContext } from 'react';
 import { UserContext } from '../../contexts/userContext';
-import { Link, useNavigate } from 'react-router-dom';
+import { Link, useLocation, useNavigate } from 'react-router-dom';
 import Avatar from '@mui/material/Avatar';
 import Button from '@mui/material/Button';
 import Menu from '@mui/material/Menu';
@@ -42,6 +42,7 @@ const ProfileComponent = () => {
     const handleModelOpen = () => setModelOpen(true);
     const handleModelClose = () => setModelOpen(false);
     const navigate = useNavigate();
+    const location = useLocation();
 
     const [anchorEl, setAnchorEl] = React.useState(null);
     const open = Boolean(anchorEl);
@@ -150,7 +151,7 @@ const ProfileComponent = () => {
                                                                 <Button color='error' startIcon={<CancelIcon />} onClick={handleModelClose}>Discard</Button>
                                                                 <Button color='primary' startIcon={<EditIcon />} onClick={() => {
                                                                     editPost(_id, editedPost);
-                                                                    handleClose()
+                                                                    handleClose();
                                                                 }}>Edit</Button>
                                                             </Box>
                                                         </Modal>
@@ -170,7 +171,7 @@ const ProfileComponent = () => {
                                                 likePost(_id)
                                             }}><FavoriteBorderIcon /> {likes.likeCount}</span>
                                             <span className='icons' onClick={() => {
-                                                navigate(`/${_id}`)
+                                                navigate(`/${_id}`, {state: {from: location}});
                                             }}><ChatBubbleOutlineIcon /></span>
                                             {
                                                 bookedMarkPost(_id) ?

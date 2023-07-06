@@ -23,10 +23,10 @@ const ExploreComponent = () => {
   return (
     <div className='explore-posts-div'>
       <div className='explore-div'>
-      <h4><b>Explore</b></h4>
+        <h4><b>Explore</b></h4>
         {
           postData.map((post) => {
-            const { _id, username, content, likes, image, firstName, lastName } = post
+            const { _id, username, content, likes, image, firstName, lastName, comments } = post
             return (
               <div key={_id} className='explore-post'>
                 <div className='user-img'>
@@ -62,9 +62,9 @@ const ExploreComponent = () => {
                           )
                       }
                       <span className='icons' onClick={() => {
-                        navigate(`/${_id}`, {state: {from: location}});
+                        navigate(`/${_id}`, { state: { from: location } });
                         // <Navigate to={`/${_id}`} state={{ from: location }} />
-                      }}><ChatBubbleOutlineIcon /></span>
+                      }}><ChatBubbleOutlineIcon /> {comments.length}</span>
                       {
                         bookmarkedPost(_id) ?
                           (
