@@ -1,10 +1,7 @@
 /* eslint-disable react-hooks/exhaustive-deps */
 import axios from "axios";
-import { useContext } from "react";
-import { createContext, useState } from "react";
-import { UserContext } from "./userContext";
 import { useEffect } from "react";
-import { useReducer } from "react";
+import { createContext, useState } from "react";
 
 export const PostContext = createContext();
 
