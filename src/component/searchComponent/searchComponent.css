@@ -1,0 +1,42 @@
+/* Default styles for mobile devices */
+.user-card {
+    height: max-content;
+    border: 1px solid #DCDCDC;
+  }
+  .user-details {
+    display: flex;
+    align-items: center;
+  }
+  .user-info {
+    padding-left: 15px;
+  }
+  
+  /* Styles for tablets (portrait) and up */
+  @media (min-width: 768px) {
+    .user-card {
+      height: max-content;
+      border: 1px solid #DCDCDC;
+    }
+    .user-details {
+        display: flex;
+        align-items: center;
+    }
+    .user-info {
+        padding-left: 15px;
+    }
+  }
+  
+  /* Styles for laptops and up */
+  @media screen and (min-width: 1024px) {
+    .user-card {
+      height: max-content;
+      border: 1px solid #DCDCDC;
+    }
+    .user-details {
+        display: flex;
+        align-items: center;
+    }
+    .user-info {
+        padding-left: 15px;
+    }
+  }

@@ -231,8 +231,6 @@ export const PostProvider = ({ children }) => {
         }
     }
 
-    console.log(postData);
-
     const bookmarkPost = postData.filter((post) => bookmarkData.includes(post._id));
     
     useEffect(() => {

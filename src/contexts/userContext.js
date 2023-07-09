@@ -124,7 +124,6 @@ export const UserProvider = ({ children }) => {
 
     // All user without the loggedin user
     const allUserData = state.allUser.filter((user) => user.username === state.userDetails.username ? null : user);
-    console.log(state.userDetails);
 
     useEffect(() => {
         getAllUser();
