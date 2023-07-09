@@ -14,8 +14,8 @@ const BookmarkComponent = () => {
 
   const { state } = useContext(UserContext);
   const { postData, removeFromBookmark, likePost, dislikePost, bookmarkPost } = useContext(PostContext);
-  const likedPost = (postId) => postData.find((post) => post._id === postId && post.likes.likedBy.includes(state.userDetails._id))
-
+  const likedPost = (postId) => postData.find(({ _id, likes }) => _id === postId && likes.likedBy.find(({ _id }) => _id === state.userDetails._id));
+ 
   return (
     <div className='bookmark-main-div'>
       {bookmarkPost.length === 0 ? <></> : (<h4><b>Your Bookmarks</b></h4>)}
