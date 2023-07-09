@@ -65,7 +65,7 @@ export const posts = [
       },
     ],
     username: "michaelbrown",
-    createdAt: formatDate(),
+    createdAt: "2023-04-10T12:31:25Z",
     updatedAt: formatDate(),
   },
   {
@@ -91,7 +91,7 @@ export const posts = [
       },
     ],
     username: "johndoe",
-    createdAt: formatDate(),
+    createdAt: "2023-04-10T12:31:25Z",
     updatedAt: formatDate(),
   },
   {
@@ -117,7 +117,7 @@ export const posts = [
       },
     ],
     username: "johndoe",
-    createdAt: formatDate(),
+    createdAt: "2023-04-10T12:31:25Z",
     updatedAt: formatDate(),
   },
   {
@@ -143,7 +143,7 @@ export const posts = [
       },
     ],
     username: "johndoe",
-    createdAt: formatDate(),
+    createdAt: "2023-04-10T12:31:25Z",
     updatedAt: formatDate(),
   },
   {
@@ -160,7 +160,7 @@ export const posts = [
     },
     comments: [],
     username: "janesmith",
-    createdAt: formatDate(),
+    createdAt: "2023-04-10T12:31:25Z",
     updatedAt: formatDate(),
   },
   {
@@ -176,7 +176,7 @@ export const posts = [
     },
     comments: [],
     username: "michaelbrown",
-    createdAt: formatDate(),
+    createdAt: "2023-04-10T12:31:25Z",
     updatedAt: formatDate(),
   },
   {
@@ -193,7 +193,7 @@ export const posts = [
     },
     comments: [],
     username: "janesmith",
-    createdAt: formatDate(),
+    createdAt: "2023-04-10T12:31:25Z",
     updatedAt: formatDate(),
   },
   {
@@ -209,7 +209,7 @@ export const posts = [
     },
     comments: [],
     username: "alicejohnson",
-    createdAt: formatDate(),
+    createdAt: "2023-04-10T12:31:25Z",
     updatedAt: formatDate(),
   },
   {
@@ -224,7 +224,7 @@ export const posts = [
     },
     comments: [],
     username: "emilywilson",
-    createdAt: formatDate(),
+    createdAt: "2023-04-10T12:31:25Z",
     updatedAt: formatDate(),
   },
   {
@@ -239,7 +239,7 @@ export const posts = [
     },
     comments: [],
     username: "davidtaylor",
-    createdAt: formatDate(),
+    createdAt: "2023-04-10T12:31:25Z",
     updatedAt: formatDate(),
   },
   {
@@ -254,7 +254,7 @@ export const posts = [
     },
     comments: [],
     username: "janesmith",
-    createdAt: formatDate(),
+    createdAt: "2023-04-10T12:31:25Z",
     updatedAt: formatDate(),
   },
   {
@@ -270,7 +270,7 @@ export const posts = [
     },
     comments: [],
     username: "alicejohnson",
-    createdAt: formatDate(),
+    createdAt: "2023-04-10T12:31:25Z",
     updatedAt: formatDate(),
   },
   {
@@ -297,7 +297,7 @@ export const posts = [
       },
     ],
     username: "aryanmore2110",
-    createdAt: formatDate(),
+    createdAt: "2023-04-10T12:31:25Z",
     updatedAt: formatDate(),
   },
 ];

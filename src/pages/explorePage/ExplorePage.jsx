@@ -11,6 +11,7 @@ import BookmarkIcon from '@mui/icons-material/Bookmark';
 import FavoriteIcon from '@mui/icons-material/Favorite';
 import { useLocation, useNavigate } from 'react-router';
 import { UserContext } from '../../contexts/userContext';
+import { PostTime } from '../../utils/postTime/PostTime';
 
 const ExploreComponent = () => {
 
@@ -26,7 +27,7 @@ const ExploreComponent = () => {
         <h4><b>Explore</b></h4>
         {
           postData.map((post) => {
-            const { _id, username, content, likes, image, firstName, lastName, comments } = post
+            const { _id, username, content, likes, image, firstName, lastName, comments, createdAt } = post
             return (
               <div key={_id} className='explore-post'>
                 <div className='user-img'>
@@ -38,7 +39,7 @@ const ExploreComponent = () => {
                     width: '100%',
                     justifyContent: 'space-between'
                   }}>
-                    <p style={{ marginLeft: '15px' }}><b>{firstName}{lastName}</b> <span style={{ color: '#9a9a9a' }}>@{username}</span></p>
+                    <p style={{ marginLeft: '15px' }}><b>{firstName}{lastName}</b> <span style={{ color: '#9a9a9a' }}>@{username} | {PostTime(createdAt)}</span></p>
                     <div>
                       <PostSettingComponent postId={_id} />
                     </div>

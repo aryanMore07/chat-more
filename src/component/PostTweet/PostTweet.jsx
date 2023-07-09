@@ -9,19 +9,19 @@ const PostTweetComponent = () => {
 
   const { state } = useContext(UserContext);
   const { postMessage } = useContext(PostContext);
-  const { fullName, userName, image } = state.userDetails;
-  const [input, setInput] = useState({ content: '', fullName: "", username: "", image: "" });
+  const { firstName, lastName, userName, image } = state.userDetails;
+  const [input, setInput] = useState({ content: "", firstName: "", lastName: "", username: "", image: "", comments: [] });
 
   const postBtnHandler = () => {
     postMessage(input);
   }
 
   return (
-    <div style={{padding: '3rem'}}>
-      <h4 style={{textAlign: 'center', marginBottom: '10px'}}>Home</h4>
+    <div style={{ padding: '3rem' }}>
+      <h4 style={{ textAlign: 'center', marginBottom: '10px' }}>Home</h4>
       <div className='post-something-div'>
         <div className='post-user-profile-div'>
-          <Avatar alt={state.userDetails.fullName} src={state.userDetails.image} />
+          <Avatar alt={state.userDetails.firstName} src={state.userDetails.image} />
         </div>
         <div style={{ width: '100%', padding: '18px' }}>
           <div className='input-div'>
@@ -34,7 +34,7 @@ const PostTweetComponent = () => {
               className='post-input'
               value={input.content}
               onChange={(event) => {
-                setInput({ content: event.target.value, fullName: fullName, username: userName, image: image });
+                setInput({ content: event.target.value, firstName: firstName, lastName: lastName, username: userName, image: image,  comments: [] });
               }}
             />
           </div>

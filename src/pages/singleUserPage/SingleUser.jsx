@@ -22,6 +22,7 @@ import TextField from '@mui/material/TextField';
 import CancelIcon from '@mui/icons-material/Cancel';
 import { useState } from 'react';
 import BookmarkIcon from '@mui/icons-material/Bookmark';
+import { PostTime } from '../../utils/postTime/PostTime';
 
 
 const style = {
@@ -121,7 +122,7 @@ const SingleUser = () => {
         <div style={{ padding: '3rem' }}>
           {
             loggedInUserposts.map((post) => {
-              const { _id, firstName, lastName, content, username, likes } = post;
+              const { _id, firstName, lastName, content, username, likes,createdAt } = post;
               return (
                 <div key={_id} className='users-posts'>
                   <div className='user-profile'>
@@ -129,7 +130,7 @@ const SingleUser = () => {
                   </div>
                   <div className='post-info'>
                     <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', padding: '15px' }}>
-                      <p><b>{firstName} {lastName}</b> <span style={{ color: '#9a9a9a' }}>@{username}</span></p>
+                      <p><b>{firstName} {lastName}</b> <span style={{ color: '#9a9a9a' }}>@{username}</span> | {PostTime(createdAt)}</p>
 
                       <div>
                         <Button
