@@ -75,7 +75,7 @@ export const posts = [
     content: "Life is too short to be anything but happy. #SmileEveryday",
     image: '',
     likes: {
-      likeCount: 0,
+      likeCount: 1,
       likedBy: [],
       dislikedBy: [],
     },
@@ -101,7 +101,7 @@ export const posts = [
     content: "Success is not final, failure is not fatal: It's the courage to continue that counts. 🌟 #KeepGoingSuccess is not final, failure is not fatal: It's the courage to continue that counts. 🌟 #KeepGoing",
     image: '',
     likes: {
-      likeCount: 0,
+      likeCount: 1,
       likedBy: [],
       dislikedBy: [],
     },
@@ -127,7 +127,7 @@ export const posts = [
     content: "Life is like a camera: Focus on the good times, develop from the negatives, and if things don't work out, take another shot. 📸 #KeepShooting",
     image: '',
     likes: {
-      likeCount: 0,
+      likeCount: 4,
       likedBy: [],
       dislikedBy: [],
     },
@@ -170,7 +170,7 @@ export const posts = [
     content: twitter_quotes[randomNum],
     image: '',
     likes: {
-      likeCount: 0,
+      likeCount: 1,
       likedBy: [],
       dislikedBy: [],
     },
@@ -187,7 +187,7 @@ export const posts = [
       "Surround yourself with those who bring out the best in you. #PositiveVibes",
     image: '',
     likes: {
-      likeCount: 0,
+      likeCount: 4,
       likedBy: [],
       dislikedBy: [],
     },
@@ -218,7 +218,7 @@ export const posts = [
     lastName: "Wilson",
     content: twitter_quotes[randomNum],
     likes: {
-      likeCount: 0,
+      likeCount: 5,
       likedBy: [],
       dislikedBy: [],
     },
@@ -233,7 +233,7 @@ export const posts = [
     lastName: "Taylor",
     content: twitter_quotes[randomNum],
     likes: {
-      likeCount: 0,
+      likeCount: 1,
       likedBy: [],
       dislikedBy: [],
     },

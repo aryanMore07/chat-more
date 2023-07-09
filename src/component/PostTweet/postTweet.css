@@ -4,20 +4,19 @@
 }
 
 .post-something-div {
-    display: flex;
-    flex-direction: row;
-    box-shadow: rgba(0, 0, 0, 0.18) 0px 2px 4px;
-    border-radius: 5px;
+  display: flex;
+  flex-direction: row;
+  box-shadow: rgba(0, 0, 0, 0.18) 0px 2px 4px;
+  border-radius: 5px;
 }
 
 .post-input {
   width: 100%;
-
 }
 .post-btn-div {
-    display: flex;
-    justify-content: flex-end;
-    padding: 10px 25px 10px 25px
+  display: flex;
+  justify-content: flex-end;
+  padding: 10px 25px 10px 25px;
 }
 
 .post-btn {
@@ -29,12 +28,39 @@
   transition: 0.2s;
 }
 
-
 .post-btn:hover {
   color: white;
   background-color: rgb(255, 59, 48);
 }
 
+/* Filter div  */
+
+.filter-div {
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  margin: 18px;
+}
+
+/* Users Post  */
+
+.user-posts {
+  display: flex;
+  flex-direction: column;
+  
+}
+
+.user-details {
+  display: flex;
+}
+
+.user-post-details {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  width: 100%;
+  align-items: center;
+}
 /* Styles for tablets (portrait) and up */
 @media (min-width: 768px) {
   .post-user-profile-div {
@@ -45,9 +71,10 @@
   .post-something-div {
     display: flex;
     flex-direction: row;
- 
- box-shadow: rgba(0, 0, 0, 0.18) 0px 2px 4px;
-border-radius: 5px; }
+
+    box-shadow: rgba(0, 0, 0, 0.18) 0px 2px 4px;
+    border-radius: 5px;
+  }
 
   .post-input {
     width: 100%;
@@ -64,12 +91,39 @@ border-radius: 5px; }
   .post-btn-div {
     display: flex;
     justify-content: flex-end;
-    padding: 10px 25px 10px 25px
+    padding: 10px 25px 10px 25px;
   }
 
   .post-btn:hover {
     color: white;
     background-color: rgb(255, 59, 48);
+  }
+  /* Filter div  */
+
+  .filter-div {
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    margin: 18px;
+  }
+
+  /* Users Post  */
+
+  .user-posts {
+    display: flex;
+    flex-direction: column;
+  }
+
+  .user-details {
+    display: flex;
+  }
+
+  .user-post-details {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    width: 100%;
+    align-items: center;
   }
 }
 
@@ -83,9 +137,10 @@ border-radius: 5px; }
   .post-something-div {
     display: flex;
     flex-direction: row;
- 
- box-shadow: rgba(0, 0, 0, 0.18) 0px 2px 4px;
-border-radius: 5px; }
+
+    box-shadow: rgba(0, 0, 0, 0.18) 0px 2px 4px;
+    border-radius: 5px;
+  }
 
   .post-input {
     width: 100%;
@@ -101,11 +156,39 @@ border-radius: 5px; }
   .post-btn-div {
     display: flex;
     justify-content: flex-end;
-    padding: 10px 25px 10px 25px
+    padding: 10px 25px 10px 25px;
   }
 
   .post-btn:hover {
     color: white;
     background-color: rgb(255, 59, 48);
+  }
+
+  /* Filter div  */
+
+  .filter-div {
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    margin: 18px;
+  }
+
+  /* Users Post  */
+
+  .user-posts {
+    display: flex;
+    flex-direction: column;
+  }
+
+  .user-details {
+    display: flex;
+  }
+
+  .user-post-details {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    width: 100%;
+    align-items: center;
   }
 }

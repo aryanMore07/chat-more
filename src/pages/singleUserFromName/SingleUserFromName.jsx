@@ -1,5 +1,5 @@
 import React from 'react';
-import './singleUserPage.css';
+import './singleUserFromName.css';
 import { useContext } from 'react';
 import { UserContext } from '../../contexts/userContext';
 import { Link, useNavigate, useParams } from 'react-router-dom';
@@ -37,11 +37,11 @@ const style = {
   p: 4,
 };
 
-const SingleUser = () => {
+const SingleUserFromName = () => {
 
 
   const navigate = useNavigate();
-  const { userId } = useParams();
+  const { userName } = useParams();
 
   // Model Handler
 
@@ -65,7 +65,7 @@ const SingleUser = () => {
   const { postData, addToBookmark, removeFromBookmark, editPost, deletePost, bookmarkPost, likePost } = useContext(PostContext);
 
   // Function to find the Selected user Details
-  const selectedUserData = state.allUser.find((user) => user._id === userId);
+  const selectedUserData = state.allUser.find((user) => user.username === userName);
   const { _id, firstName, lastName, username, bio, portfolio, following, followers } = selectedUserData;
 
   // Function to filter only data of the selectedUser
@@ -119,7 +119,7 @@ const SingleUser = () => {
         <div style={{ padding: '3rem' }}>
           {
             loggedInUserposts.map((post) => {
-              const { _id, firstName, lastName, content, username, likes,createdAt } = post;
+              const { _id, firstName, lastName, content, username, likes, createdAt } = post;
               return (
                 <div key={_id} className='users-posts'>
                   <div className='user-profile'>
@@ -226,4 +226,4 @@ const SingleUser = () => {
   )
 }
 
-export default SingleUser
+export default SingleUserFromName;

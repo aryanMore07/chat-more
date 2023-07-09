@@ -56,7 +56,7 @@ const HomeComponent = () => {
                 <InputGroup className="mb-3">
                     <InputGroup.Text id="basic-addon1"><SearchIcon /></InputGroup.Text>
                     <Form.Control
-                        placeholder="Username"
+                        placeholder="Search Username..."
                         aria-label="Username"
                         aria-describedby="basic-addon1"
                         onChange={(event) => {

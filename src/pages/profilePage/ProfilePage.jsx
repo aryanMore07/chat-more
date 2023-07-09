@@ -69,7 +69,7 @@ const ProfileComponent = () => {
             <div className="user-info">
                 <Avatar src={state.userDetails.image} alt={state.userDetails.firstName} className='user-picture' style={{ height: '220px', width: '220px', margin: '8px' }} />
                 <h4>{state?.userDetails?.firstName} {state?.userDetails?.lastName}</h4>
-                <p style={{ color: '#9a9a9a' }}>@{state?.userDetails?.username}</p>
+                <p className='user-tag' style={{ color: '#9a9a9a' }}>@{state?.userDetails?.username}</p>
                 <EditUserDetails />
                 {state?.userDetails.bio ? (<p>{state?.userDetails.bio}</p>) : (<p>Please add a bio</p>)}
                 {state?.userDetails.portfolio ? (<Link>{state?.userDetails.portfolio}</Link>) : (<p>Please add a website</p>)}
@@ -103,7 +103,7 @@ const ProfileComponent = () => {
                                     </div>
                                     <div className='post-info'>
                                         <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', padding: '15px' }}>
-                                            <p><b>{firstName} {lastName}</b> <span style={{ color: '#9a9a9a' }}>@{username}</span></p>
+                                            <p className='user-tag'><b>{firstName} {lastName}</b> <span style={{ color: '#9a9a9a' }}>@{username}</span></p>
 
                                             <div>
                                                 <Button

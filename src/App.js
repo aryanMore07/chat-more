@@ -16,6 +16,7 @@ import BookmarkComponent from './pages/bookmarkPage/BookmarkPage.jsx';
 import ProfileComponent from './pages/profilePage/ProfilePage.jsx';
 import SinglePost from './pages/singlePost/SinglePost';
 import SingleUser from './pages/singleUserPage/SingleUser';
+import SingleUserFromName from './pages/singleUserFromName/SingleUserFromName';
 
 function App() {
 
@@ -43,6 +44,7 @@ function App() {
           <Route path='profile' element={<RequireAuth><ProfileComponent /></RequireAuth>} />
           <Route path=':postId' element={<RequireAuth><SinglePost /></RequireAuth>} />
           <Route path='user/:userId' element={<RequireAuth><SingleUser /></RequireAuth>} />
+          <Route path='users/:userName' element={<RequireAuth><SingleUserFromName /></RequireAuth>} />
         </Route>
         <Route path='/auth-login' element={<LoginComponent />} />
         <Route path='/auth-signup' element={<SignupComponent />} />

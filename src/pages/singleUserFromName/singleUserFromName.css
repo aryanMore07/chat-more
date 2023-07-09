@@ -1,0 +1,87 @@
+/* Default styles for mobile devices */
+.follow-btn {
+    width: 10rem;
+  margin-bottom: 8px;
+  border: 1px solid white;
+  border-radius: 8px;
+  padding: 10px;
+  transition: 0.2s;
+}
+
+.follow-btn:hover {
+    background-color: #FF3B30;
+    color: white;
+}
+.unfollow-btn:hover {
+    background-color: #FF3B30;
+    color: white
+}
+
+.unfollow-btn {
+  width: 10rem;
+  margin-bottom: 8px;
+  border: 1px solid white;
+  border-radius: 8px;
+  padding: 10px;
+  transition: 0.2s;
+}
+
+/* Styles for tablets (portrait) and up */
+@media (min-width: 768px) {
+  .follow-btn {
+    width: 10rem;
+    margin-bottom: 8px;
+    border: 1px solid white;
+    border-radius: 8px;
+    padding: 10px;
+    transition: 0.2s;
+  }
+
+  .follow-btn:hover {
+    background-color: #FF3B30;
+    color: white;
+  }
+  .unfollow-btn:hover {
+    background-color: #FF3B30;
+    color: white
+  }
+
+  .unfollow-btn {
+    width: 10rem;
+    margin-bottom: 8px;
+    border: 1px solid white;
+    border-radius: 8px;
+    padding: 10px;
+    transition: 0.2s;
+  }
+}
+
+/* Styles for laptops and up */
+@media screen and (min-width: 1024px) {
+  .follow-btn {
+    width: 10rem;
+    margin-bottom: 8px;
+    border: 1px solid white;
+    border-radius: 8px;
+    padding: 10px;
+    transition: 0.2s;
+  }
+
+
+  .follow-btn:hover {
+    background-color: #FF3B30;
+    color: white;
+  }
+  .unfollow-btn:hover {
+    background-color: #FF3B30;
+    color: white
+  }
+  .unfollow-btn {
+    width: 10rem;
+    margin-bottom: 8px;
+    border: 1px solid white;
+    border-radius: 8px;
+    padding: 10px;
+    transition: 0.2s;
+  }
+}

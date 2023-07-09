@@ -8,8 +8,10 @@ import { makeServer } from "./server";
 import { BrowserRouter as Router } from 'react-router-dom';
 import { UserContext, UserProvider } from './contexts/userContext';
 import { PostContext, PostProvider } from './contexts/postContext';
+import { FilteredPostContext, FilteredPostProvider } from './contexts/filterPostContext';
 export { UserContext }
 export { PostContext }
+export { FilteredPostContext }
 // Call make Server
 makeServer();
 
@@ -19,7 +21,9 @@ root.render(
     <Router>
       <UserProvider>
         <PostProvider>
-          <App />
+          <FilteredPostProvider>
+            <App />
+          </FilteredPostProvider>
         </PostProvider>
       </UserProvider>
     </Router>
