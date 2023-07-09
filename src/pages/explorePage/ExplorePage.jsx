@@ -17,8 +17,8 @@ const ExploreComponent = () => {
   let location = useLocation();
   const navigate = useNavigate();
   const { state } = useContext(UserContext);
-  const { postData, bookmarkData, addToBookmark, removeFromBookmark, likePost, dislikePost } = useContext(PostContext);
-  const bookmarkedPost = (postId) => bookmarkData.find((post) => post._id === postId);
+  const { postData, bookmarkPost, addToBookmark, removeFromBookmark, likePost, dislikePost } = useContext(PostContext);
+  const bookmarkedPost = (postId) => bookmarkPost.find((post) => post._id === postId);
   const likedPost = (postId) => postData.find(({ _id, likes }) => _id === postId && likes.likedBy.find(({ _id }) => _id === state.userDetails._id));
   return (
     <div className='explore-posts-div'>

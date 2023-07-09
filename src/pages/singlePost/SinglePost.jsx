@@ -40,8 +40,8 @@ const SinglePost = () => {
     const [commentInput, setCommentInput] = useState('');
     const [editedComment, setEditedComment] = useState('');
     const { state } = useContext(UserContext);
-    const { postData, bookmarkData, addToBookmark, removeFromBookmark, likePost, dislikePost, addComment, editComment, deleteComment } = useContext(PostContext);
-    const bookmarkedPost = (postId) => bookmarkData.find((post) => post._id === postId);
+    const { postData, bookmarkPost, addToBookmark, removeFromBookmark, likePost, dislikePost, addComment, editComment, deleteComment } = useContext(PostContext);
+    const bookmarkedPost = (postId) => bookmarkPost.find((post) => post._id === postId);
     const likedPost = (postId) => postData.find(({ _id, likes }) => _id === postId && likes.likedBy.find(({ _id }) => _id === postId));
 
     // Getting data for the post that selected

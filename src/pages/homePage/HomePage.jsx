@@ -1,4 +1,4 @@
-import React, { useContext, useEffect, useState } from 'react';
+import React, { useContext } from 'react';
 import './homePage.css';
 import HomeIcon from '@mui/icons-material/Home';
 import RocketLaunchIcon from '@mui/icons-material/RocketLaunch';
@@ -17,6 +17,7 @@ import ListItemIcon from '@mui/material/ListItemIcon';
 import ListItemText from '@mui/material/ListItemText';
 import AddCircleOutlineIcon from '@mui/icons-material/AddCircleOutline';
 import LogoutComponent from '../../component/logoutComponent/LogoutComponent';
+import LogoutIcon from '@mui/icons-material/Logout';
 
 const HomeComponent = () => {
 
@@ -24,13 +25,14 @@ const HomeComponent = () => {
     const { state, dispatch, searchedData, allUserData } = useContext(UserContext);
 
     return (
-        <div className='home-div container'>
-            <div className="leftSide-div">
-                <ul style={{ listStyle: 'none', display: 'flex', flexDirection: 'column' }}>
-                    <NavLink to='/home' className='sidebar-nav-links'><li className='list-style'><span style={{ paddingRight: '15px' }}><HomeIcon /></span>Home</li></NavLink>
-                    <NavLink to='explore' className='sidebar-nav-links'><li className='list-style'><span style={{ paddingRight: '15px' }}><RocketLaunchIcon /></span>Explore</li></NavLink>
-                    <NavLink to='bookmarks' className='sidebar-nav-links'><li className='list-style'><span style={{ paddingRight: '15px' }}><BookmarkBorderIcon /></span>Bookmark</li></NavLink>
-                    <NavLink to='profile' className='sidebar-nav-links'><li className='list-style'><span style={{ paddingRight: '15px' }}><AccountCircleIcon /></span>Profile</li></NavLink>
+        <div className='home-div container layout'>
+            <div className="leftSide-div aside-left">
+                <ul className='leftSide-ulelements' style={{}}>
+                    <NavLink to='/home' className='sidebar-nav-links'><li className='list-style'><span className='action-icons'><HomeIcon /></span><span className='route-names'>Home</span></li></NavLink>
+                    <NavLink to='explore' className='sidebar-nav-links'><li className='list-style'><span className='action-icons'><RocketLaunchIcon /></span><span className='route-names'>Explore</span></li></NavLink>
+                    <NavLink to='bookmarks' className='sidebar-nav-links'><li className='list-style'><span className='action-icons'><BookmarkBorderIcon /></span><span className='route-names'>Bookmark</span></li></NavLink>
+                    <NavLink to='profile' className='sidebar-nav-links'><li className='list-style'><span className='action-icons'><AccountCircleIcon /></span><span className='route-names'>Profile</span></li></NavLink>
+                    <NavLink className='sidebar-nav-links logout-btn' style={{ color: 'black' }}><li className='list-style'><span className='logout-btn action-icons'><LogoutIcon /></span></li></NavLink>
                 </ul>
                 {
                     state?.userDetails?.firstName &&
@@ -47,10 +49,10 @@ const HomeComponent = () => {
                         </div>
                     </div>}
             </div>
-            <div className="middle-div">
+            <div className="middle-div middle">
                 <Outlet />
             </div>
-            <div className="rightSide-div">
+            <div className="rightSide-div aside-right">
                 <InputGroup className="mb-3">
                     <InputGroup.Text id="basic-addon1"><SearchIcon /></InputGroup.Text>
                     <Form.Control

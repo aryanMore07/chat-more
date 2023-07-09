@@ -37,18 +37,17 @@ function App() {
       <Routes>
         <Route path='/welcome' element={<Landingpage />} />
         <Route path='/' element={<RequireAuth><HomeComponent /></RequireAuth>}>
-          <Route path='home' element={<RequireAuth><PostTweetComponent /></RequireAuth>}/>
-          <Route path='explore' element={<RequireAuth><ExploreComponent /></RequireAuth>}/>
-          <Route path='bookmarks' element={<RequireAuth><BookmarkComponent /></RequireAuth>}/>
-          <Route path='profile' element={<RequireAuth><ProfileComponent /></RequireAuth>}/>
-          <Route path=':postId' element={<RequireAuth><SinglePost /></RequireAuth>}/>
-          <Route path='user/:userId' element={<RequireAuth><SingleUser /></RequireAuth>}/>
+          <Route path='home' element={<RequireAuth><PostTweetComponent /></RequireAuth>} />
+          <Route path='explore' element={<RequireAuth><ExploreComponent /></RequireAuth>} />
+          <Route path='bookmarks' element={<RequireAuth><BookmarkComponent /></RequireAuth>} />
+          <Route path='profile' element={<RequireAuth><ProfileComponent /></RequireAuth>} />
+          <Route path=':postId' element={<RequireAuth><SinglePost /></RequireAuth>} />
+          <Route path='user/:userId' element={<RequireAuth><SingleUser /></RequireAuth>} />
         </Route>
         <Route path='/auth-login' element={<LoginComponent />} />
         <Route path='/auth-signup' element={<SignupComponent />} />
         <Route path='/mockman' element={<MockmanComponent />} />
       </Routes>
-
     </div>
   );
 }

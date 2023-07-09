@@ -61,7 +61,7 @@ const SingleUser = () => {
 
   const { state, followUser, unFollowUser } = useContext(UserContext);
   const [editedPost, setEditedPost] = useState('')
-  const { postData, addToBookmark, removeFromBookmark, editPost, deletePost, bookmarkData, likePost } = useContext(PostContext);
+  const { postData, addToBookmark, removeFromBookmark, editPost, deletePost, bookmarkPost, likePost } = useContext(PostContext);
 
   // Function to find the Selected user Details
   const selectedUserData = state.allUser.find((user) => user._id === userId);
@@ -71,7 +71,7 @@ const SingleUser = () => {
   const loggedInUserposts = postData.filter((post) => post.username === selectedUserData.username);
 
   // Function to find whether the user have bookmarked the post or not
-  const bookedMarkPost = (postId) => bookmarkData.find((post) => post._id === postId);
+  const bookedMarkPost = (postId) => bookmarkPost.find((post) => post._id === postId);
 
   // Function check whether the user have follwed or not
   const checkUserFollowing = (userId) => state.userDetails.following.find((user) => user._id === userId);
@@ -90,7 +90,7 @@ const SingleUser = () => {
   return (
     <div className='profile-div'>
       <div className="user-info">
-        <Avatar src={image} alt={firstName} className='user-picture' style={{ height: '220px', width: '220px', margin: '8px' }} />
+        <Avatar src={selectedUserData.image} alt={selectedUserData.firstName} className='user-picture' style={{ height: '220px', width: '220px', margin: '8px' }} />
         <h4>{firstName} {lastName}</h4>
         <p style={{ color: '#9a9a9a' }}>@{username}</p>
         {
@@ -117,7 +117,7 @@ const SingleUser = () => {
       </div>
       <div className='posts-div'>
         {loggedInUserposts.length === 0 && (<h4 style={{ marginLeft: '15px' }}><b>No post to show</b></h4>)}
-        {loggedInUserposts.length > 0 && (<h4 style={{ marginLeft: '15px' }}><b>Your Posts</b></h4>)}
+        {loggedInUserposts.length > 0 && (<h4 style={{ marginLeft: '15px' }}><b>All Posts</b></h4>)}
         <div style={{ padding: '3rem' }}>
           {
             loggedInUserposts.map((post) => {
@@ -125,7 +125,7 @@ const SingleUser = () => {
               return (
                 <div key={_id} className='users-posts'>
                   <div className='user-profile'>
-                    <Avatar alt={state.userDetails.firstName} src={state.userDetails.image} />
+                    <Avatar alt={selectedUserData.firstName} src={selectedUserData.image} />
                   </div>
                   <div className='post-info'>
                     <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', padding: '15px' }}>

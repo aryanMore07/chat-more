@@ -11,7 +11,7 @@ const PostSettingComponent = ({ postId }) => {
 
   const location = useLocation();
   const navigate = useNavigate();
-  const { removeFromBookmark, } = useContext(PostContext);
+  const { bookmarkPost, addToBookmark, removeFromBookmark, } = useContext(PostContext);
   const [anchorEl, setAnchorEl] = React.useState(null);
   const open = Boolean(anchorEl);
   const handleClick = (event) => {
@@ -20,6 +20,8 @@ const PostSettingComponent = ({ postId }) => {
   const handleClose = () => {
     setAnchorEl(null);
   };
+
+  const checkBookmarked = (postId) => bookmarkPost.find((post) => post._id === postId);
 
   return (
     <div>
@@ -42,7 +44,17 @@ const PostSettingComponent = ({ postId }) => {
         open={open}
         onClose={handleClose}
       >
-        <MenuItem style={{ display: 'flex', justifyContent: 'center' }} onClick={() => {removeFromBookmark(postId)}}>Remove from Favorites</MenuItem>
+        {
+          checkBookmarked(postId) ?
+            (
+              <MenuItem style={{ display: 'flex', justifyContent: 'center' }} onClick={() => { removeFromBookmark(postId) }}>Remove from Favorites</MenuItem>
+            )
+            :
+            (
+              <MenuItem style={{ display: 'flex', justifyContent: 'center' }} onClick={() => { addToBookmark(postId) }}>Add to Favorites</MenuItem>
+            )
+        }
+
         <MenuItem style={{ display: 'flex', justifyContent: 'center' }} onClick={() => {
           navigate(`/${postId}`, { state: { from: location } })
         }}>

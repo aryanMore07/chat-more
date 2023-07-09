@@ -231,11 +231,12 @@ export const PostProvider = ({ children }) => {
         }
     }
 
-
+    const bookmarkPost = postData.filter((post) => bookmarkData.includes(post._id));
+    
     useEffect(() => {
         getAllPost();
         fetchUserBookmarks();
     }, [postData, bookmarkData])
 
-    return <PostContext.Provider value={{ postData, postMessage, bookmarkData, addToBookmark, removeFromBookmark, likePost, dislikePost, deletePost, editPost, addComment, editComment, deleteComment }}>{children}</PostContext.Provider>
+    return <PostContext.Provider value={{ postData, postMessage, bookmarkData, addToBookmark, removeFromBookmark, likePost, dislikePost, deletePost, editPost, addComment, editComment, deleteComment, bookmarkPost }}>{children}</PostContext.Provider>
 }

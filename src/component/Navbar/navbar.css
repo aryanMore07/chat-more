@@ -13,6 +13,14 @@
   text-align: center;
 }
 
+
+.search-div {
+  display: block;
+  position: absolute;
+  right: 30px;
+  top: 16px;
+}
+
 /* Styles for tablets (portrait) and up */
 @media (min-width: 768px) {
   .heading {
@@ -27,6 +35,13 @@
     padding: 0px;
     margin: 0px;
     text-align: center;
+  }
+
+  .search-div {
+    display: block;
+    position: absolute;
+    right: 30px;
+    top: 16px;
   }
 }
 
@@ -44,5 +59,11 @@
     padding: 0px;
     margin: 0px;
     text-align: left;
+  }
+
+  
+
+  .search-div {
+    display: none;
   }
 }

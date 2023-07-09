@@ -13,18 +13,17 @@ import FavoriteIcon from '@mui/icons-material/Favorite';
 const BookmarkComponent = () => {
 
   const { state } = useContext(UserContext);
-  const { postData, bookmarkData, removeFromBookmark, likePost, dislikePost } = useContext(PostContext);
-
+  const { postData, removeFromBookmark, likePost, dislikePost, bookmarkPost } = useContext(PostContext);
   const likedPost = (postId) => postData.find((post) => post._id === postId && post.likes.likedBy.includes(state.userDetails._id))
 
   return (
     <div className='bookmark-main-div'>
-      {bookmarkData.length === 0 ? <></> : (<h4><b>Your Bookmarks</b></h4>)}
+      {bookmarkPost.length === 0 ? <></> : (<h4><b>Your Bookmarks</b></h4>)}
       {
-        bookmarkData.length === 0 ?
+        bookmarkPost.length === 0 ?
           (<h2>No Bookmarks</h2>)
           :
-          bookmarkData.map((post) => {
+          bookmarkPost.map((post) => {
             const { _id, username, content, likes, image, fullName } = post
             return (
               <div key={_id} className='bookmark-posts'>

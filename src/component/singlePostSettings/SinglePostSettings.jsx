@@ -11,8 +11,8 @@ import { PostContext } from '../../contexts/postContext';
 const SinglePostSettings = ({postId}) => {
 
 
-    const { bookmarkData, addToBookmark, removeFromBookmark, } = useContext(PostContext);
-    const bookmarkedPost = (postId) => bookmarkData.find((post) => post._id === postId);
+    const { bookmarkPost, addToBookmark, removeFromBookmark, } = useContext(PostContext);
+    const bookmarkedPost = (postId) => bookmarkPost.find((post) => post._id === postId);
 
     const [anchorEl, setAnchorEl] = React.useState(null);
     const open = Boolean(anchorEl);

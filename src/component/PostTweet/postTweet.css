@@ -1,7 +1,6 @@
 /* Default styles for mobile devices */
 .post-user-profile-div {
-  display: flex;
-  padding: 16px;
+  display: none;
 }
 
 .post-something-div {
