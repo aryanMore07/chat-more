@@ -66,7 +66,7 @@ const SingleUser = () => {
 
   // Function to find the Selected user Details
   const selectedUserData = state.allUser.find((user) => user._id === userId);
-  const { _id, firstName, lastName, username, image, bio, portfolio, following, followers } = selectedUserData;
+  const { _id, firstName, lastName, username, bio, portfolio, following, followers } = selectedUserData;
 
   // Function to filter only data of the selectedUser
   const loggedInUserposts = postData.filter((post) => post.username === selectedUserData.username);
@@ -84,9 +84,6 @@ const SingleUser = () => {
   const unFollowUserBtn = () => {
     unFollowUser(_id);
   }
-
-  // console.log(selectedUserData.followers)
-  // console.log(selectedUserData.following)
 
   return (
     <div className='profile-div'>

@@ -36,8 +36,6 @@ const SearchComponent = () => {
     const handleOpen = () => setOpen(true);
     const handleClose = () => setOpen(false);
 
-    console.log(searchedData);
-
     return (
         <div>
             <Button variant='outlined' onClick={handleOpen}><SearchIcon /></Button>

@@ -1,6 +1,6 @@
 import React from 'react';
 import './signupPage.css';
-import { Link, useNavigate } from 'react-router-dom';
+import { useNavigate } from 'react-router-dom';
 import { useState } from 'react';
 import axios from 'axios';
 import { toast } from 'react-toastify';
@@ -13,7 +13,6 @@ const SignupComponent = () => {
     const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');
     const [confirmPassword, setConfirmPassword] = useState('');
-    const [checkTandC, setTandC] = useState(false);
     const navigate = useNavigate();
 
 
@@ -145,12 +144,8 @@ const SignupComponent = () => {
                     <input type="password" id='userConfirmPassword' className='user-inputs' placeholder='********' value={confirmPassword} onChange={(event) => {
                         setConfirmPassword(event.target.value)
                     }} />
-                    <label htmlFor="t&c">
-                        <input type="checkbox" /> I accept all Terms & Conditions
-                    </label>
                 </div>
                 <button className='signup-btn' onClick={signUpHandler}>Signup</button>
-                <Link to='/auth-login' className='already-have-acc-btn'>Already have an account {">"}</Link>
             </div>
         </div>
     )

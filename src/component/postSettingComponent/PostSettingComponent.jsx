@@ -61,9 +61,6 @@ const PostSettingComponent = ({ postId }) => {
           Go to Post
         </MenuItem>
         <MenuItem style={{ display: 'flex', justifyContent: 'center' }} onClick={handleClose}>
-          Unfollow
-        </MenuItem>
-        <MenuItem style={{ display: 'flex', justifyContent: 'center' }} onClick={handleClose}>
           Close
         </MenuItem>
       </Menu>
