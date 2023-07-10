@@ -1,8 +1,9 @@
 /* eslint-disable react-hooks/exhaustive-deps */
+import { BookmarkAdd } from "@mui/icons-material";
 import axios from "axios";
 import { useEffect } from "react";
 import { createContext, useState } from "react";
-
+import { toast } from 'react-toastify';
 export const PostContext = createContext();
 
 export const PostProvider = ({ children }) => {
@@ -18,7 +19,6 @@ export const PostProvider = ({ children }) => {
                 setPostData(response.data.posts);
             }
         } catch (error) {
-            console.log(error);
         }
     }
 
@@ -36,10 +36,19 @@ export const PostProvider = ({ children }) => {
                 }
             );
             if (response.status === 200 || response.status === 201) {
+                toast.success('Posted!', {
+                    position: "top-center",
+                    autoClose: 1000,
+                    hideProgressBar: false,
+                    closeOnClick: true,
+                    pauseOnHover: true,
+                    draggable: true,
+                    progress: undefined,
+                    theme: "light",
+                });
                 setBookmarkdata(response.data.posts);
             }
         } catch (error) {
-            console.log(error);
         }
     }
 
@@ -73,9 +82,20 @@ export const PostProvider = ({ children }) => {
                         authorization: encodedToken, // passing token as an authorization header
                     },
                 })
-            setBookmarkdata(response.data.bookmarks);
+            if (response.status === 200 || response.status === 201) {
+                setBookmarkdata(response.data.bookmarks);
+                toast.success(`Added to Favourites!`, {
+                    position: "top-center",
+                    autoClose: 1000,
+                    hideProgressBar: false,
+                    closeOnClick: true,
+                    pauseOnHover: true,
+                    draggable: true,
+                    progress: undefined,
+                    theme: "light",
+                });
+            }
         } catch (error) {
-            console.log(error);
         }
     }
 
@@ -89,9 +109,20 @@ export const PostProvider = ({ children }) => {
                         authorization: encodedToken
                     }
                 })
-            setBookmarkdata(response.data.bookmarks);
+                if (response.status === 200 || response.status === 201) {
+                    setBookmarkdata(response.data.bookmarks);
+                    toast.success(`Removed from Favourites!`, {
+                        position: "top-center",
+                        autoClose: 1000,
+                        hideProgressBar: false,
+                        closeOnClick: true,
+                        pauseOnHover: true,
+                        draggable: true,
+                        progress: undefined,
+                        theme: "light",
+                    });
+                }
         } catch (error) {
-            console.log(error);
         }
     }
 
@@ -108,10 +139,19 @@ export const PostProvider = ({ children }) => {
                     }
                 })
             if (response.status === 200 || response.status === 201) {
+                toast.success('Liked!', {
+                    position: "top-center",
+                    autoClose: 1000,
+                    hideProgressBar: false,
+                    closeOnClick: true,
+                    pauseOnHover: true,
+                    draggable: true,
+                    progress: undefined,
+                    theme: "light",
+                });
                 setPostData(response.data.posts);
             }
         } catch (error) {
-            console.log(error);
         }
     }
 
@@ -127,9 +167,18 @@ export const PostProvider = ({ children }) => {
                 })
             if (response.status === 200 || response.status === 201) {
                 setPostData(response.data.posts);
+                toast.success(`Disliked!`, {
+                    position: "top-center",
+                    autoClose: 1000,
+                    hideProgressBar: false,
+                    closeOnClick: true,
+                    pauseOnHover: true,
+                    draggable: true,
+                    progress: undefined,
+                    theme: "light",
+                });
             }
         } catch (error) {
-            console.log(error);
         }
     }
 
@@ -149,6 +198,16 @@ export const PostProvider = ({ children }) => {
                 })
             if (response.status === 200 || response.status === 201) {
                 setPostData(response.data.posts);
+                toast.success(`Profile Edit successful!`, {
+                    position: "top-center",
+                    autoClose: 1000,
+                    hideProgressBar: false,
+                    closeOnClick: true,
+                    pauseOnHover: true,
+                    draggable: true,
+                    progress: undefined,
+                    theme: "light",
+                });
             }
         } catch (error) {
             console.log(error)
@@ -166,9 +225,18 @@ export const PostProvider = ({ children }) => {
                 })
             if (response.status === 200 || response.status === 201) {
                 setPostData(response.data.posts)
+                toast.success(`Post Deleted!`, {
+                    position: "top-center",
+                    autoClose: 1000,
+                    hideProgressBar: false,
+                    closeOnClick: true,
+                    pauseOnHover: true,
+                    draggable: true,
+                    progress: undefined,
+                    theme: "light",
+                });
             }
         } catch (error) {
-            console.log(error);
         }
     }
 
@@ -188,9 +256,18 @@ export const PostProvider = ({ children }) => {
                 })
             if (response.status === 200 || response.status === 201) {
                 setPostData(response.data.posts);
+                toast.success(`Comment Added!`, {
+                    position: "top-center",
+                    autoClose: 1000,
+                    hideProgressBar: false,
+                    closeOnClick: true,
+                    pauseOnHover: true,
+                    draggable: true,
+                    progress: undefined,
+                    theme: "light",
+                });
             }
         } catch (error) {
-            console.log(error)
         }
     }
 
@@ -208,9 +285,18 @@ export const PostProvider = ({ children }) => {
                 })
             if (response.status === 200 || response.status === 201) {
                 setPostData(response.data.posts);
+                toast.success(`Edit Comment Successful!`, {
+                    position: "top-center",
+                    autoClose: 1000,
+                    hideProgressBar: false,
+                    closeOnClick: true,
+                    pauseOnHover: true,
+                    draggable: true,
+                    progress: undefined,
+                    theme: "light",
+                });
             }
         } catch (error) {
-            console.log(error);
         }
     }
 
@@ -225,14 +311,23 @@ export const PostProvider = ({ children }) => {
                 })
             if (response.status === 200 || response.status === 201) {
                 setPostData(response.data.posts);
+                toast.success(`Comment Deleted!`, {
+                    position: "top-center",
+                    autoClose: 1000,
+                    hideProgressBar: false,
+                    closeOnClick: true,
+                    pauseOnHover: true,
+                    draggable: true,
+                    progress: undefined,
+                    theme: "light",
+                });
             }
         } catch (error) {
-            console.log(error);
         }
     }
 
     const bookmarkPost = postData.filter((post) => bookmarkData.includes(post._id));
-    
+
     useEffect(() => {
         getAllPost();
         fetchUserBookmarks();

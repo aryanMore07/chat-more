@@ -1,7 +1,7 @@
 import axios from "axios";
 import { useEffect } from "react";
 import { createContext, useReducer } from "react";
-
+import { toast } from 'react-toastify';
 export const UserContext = createContext();
 
 
@@ -73,6 +73,16 @@ export const UserProvider = ({ children }) => {
                 })
             if (response.status === 200 || response.status === 201) {
                 dispatch({ type: 'ADD_USER_DETAILS', payload: response.data.user })
+                toast.success(`User Details Edited`, {
+                    position: "top-center",
+                    autoClose: 1000,
+                    hideProgressBar: false,
+                    closeOnClick: true,
+                    pauseOnHover: true,
+                    draggable: true,
+                    progress: undefined,
+                    theme: "light",
+                });
             }
         } catch (error) {
             console.log(error);
@@ -93,6 +103,16 @@ export const UserProvider = ({ children }) => {
                 })
             if (response.status === 200 || response.status === 201) {
                 dispatch({ type: 'ADD_USER_DETAILS', payload: response.data.user });
+                toast.success(`Followed!`, {
+                    position: "top-center",
+                    autoClose: 1000,
+                    hideProgressBar: false,
+                    closeOnClick: true,
+                    pauseOnHover: true,
+                    draggable: true,
+                    progress: undefined,
+                    theme: "light",
+                });
             }
         } catch (error) {
             console.log(error);
@@ -113,6 +133,16 @@ export const UserProvider = ({ children }) => {
                 })
             if (response.status === 200 || response.status === 201) {
                 dispatch({ type: 'ADD_USER_DETAILS', payload: response.data.user });
+                toast.success(`Unfollowed!`, {
+                    position: "top-center",
+                    autoClose: 1000,
+                    hideProgressBar: false,
+                    closeOnClick: true,
+                    pauseOnHover: true,
+                    draggable: true,
+                    progress: undefined,
+                    theme: "light",
+                });
             }
         } catch (error) {
             console.log(error);
