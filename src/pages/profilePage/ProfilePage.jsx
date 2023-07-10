@@ -63,7 +63,7 @@ const ProfileComponent = () => {
     const loggedInUserposts = postData.filter((post) => post.username === state.userDetails.username);
     const bookedMarkPost = (postId) => bookmarkPost.find((post) => post._id === postId);
     const likedPost = (postId) => postData.find(({ _id, likes }) => _id === postId && likes.likedBy.find(({ _id }) => _id === state.userDetails._id));
- 
+
     return (
         <div className='profile-div'>
             <div className="user-info">
@@ -166,7 +166,11 @@ const ProfileComponent = () => {
                                             </div>
                                         </div>
                                         <div className='users-content'>
-                                            <p>{content}</p>
+                                            <div onClick={() => {
+                                                navigate(`/${_id}`, { state: { from: location } });
+                                            }}>
+                                                {content}
+                                            </div>
                                         </div>
                                         <hr />
                                         <div className='icons-div'>
@@ -212,7 +216,7 @@ const ProfileComponent = () => {
                     }
                 </div>
             </div>
-        </div >
+        </div>
     )
 }
 

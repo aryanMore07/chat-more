@@ -62,6 +62,7 @@
 }
 
 .user-div {
+  cursor: pointer;
   display: none;
 }
 
@@ -145,6 +146,7 @@
   }
 
   .user-div {
+    cursor: pointer;
     display: none;
     /* display: flex; */
     align-items: center;
@@ -242,6 +244,7 @@
   }
 
   .user-div {
+    cursor: pointer;
     display: flex;
     align-items: center;
     justify-content: center;

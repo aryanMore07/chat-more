@@ -32,7 +32,7 @@ const PostTweetComponent = () => {
 
   const postBtnHandler = () => {
     // console.log(input.content === '');
-    if(input.content === "") {
+    if (input.content === "") {
       alert('Please input the feild')
     } else {
       postMessage(input);
@@ -87,19 +87,21 @@ const PostTweetComponent = () => {
                   }}>
                     <p onClick={() => {
                       if (username === state?.userDetails?.username) {
-                        navigate('/profile', { state: { from: location }});
+                        navigate('/profile', { state: { from: location } });
                       } else {
-                      navigate(`/users/${username}`, { state: { from: location } });
+                        navigate(`/users/${username}`, { state: { from: location } });
                       }
                     }} className='user-tag' style={{ marginLeft: '15px' }}><b>{firstName}{lastName}</b> <span style={{ color: '#9a9a9a' }}>@{username} | {PostTime(createdAt)}</span></p>
                     <div>
                       <PostSettingComponent postId={_id} userName={username} />
                     </div>
                   </div>
-                  <div className='users-content' onClick={() => {
-                  navigate(`/${_id}`, { state: { from: location } });
-                }}>
-                    {content}
+                  <div className='users-content'>
+                    <div onClick={() => {
+                      navigate(`/${_id}`, { state: { from: location } });
+                    }}>
+                      {content}
+                    </div>
                     <hr />
                     <div className='icons-div'>
                       {

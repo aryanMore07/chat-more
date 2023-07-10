@@ -42,60 +42,63 @@ const ExploreComponent = () => {
                   }}>
                     <p onClick={() => {
                       if (username === state?.userDetails?.username) {
-                        navigate('/profile', { state: { from: location }});
+                        navigate('/profile', { state: { from: location } });
                       } else {
-                      navigate(`/users/${username}`, { state: { from: location } });
+                        navigate(`/users/${username}`, { state: { from: location } });
                       }
                     }} className='user-tag' style={{ marginLeft: '15px' }}><b>{firstName}{lastName}</b> <span style={{ color: '#9a9a9a' }}>@{username} | {PostTime(createdAt)}</span></p>
-                  <div>
-                    <PostSettingComponent userName={username} postId={_id} />
+                    <div>
+                      <PostSettingComponent userName={username} postId={_id} />
+                    </div>
                   </div>
-                </div>
-                <div className='users-content' onClick={() => {
-                  navigate(`/${_id}`, { state: { from: location } });
-                }}>
-                  {content}
-                  <hr />
-                  <div className='icons-div'>
-                    {
-                      likedPost(_id) ?
-                        (
-                          <span className='icons' onClick={() => {
-                            dislikePost(_id)
-                          }}><FavoriteIcon /> {likes.likeCount}</span>
-                        )
-                        :
-                        (
-                          <span className='icons' onClick={() => {
-                            likePost(_id)
-                          }}><FavoriteBorderIcon /> {likes.likeCount}</span>
-                        )
-                    }
-                    <span className='icons' onClick={() => {
+                  <div className='users-content'>
+                    <div onClick={() => {
                       navigate(`/${_id}`, { state: { from: location } });
-                    }}><ChatBubbleOutlineIcon /> {comments.length}</span>
-                    {
-                      bookmarkedPost(_id) ?
-                        (
-                          <span className='icons' onClick={() => {
-                            removeFromBookmark(_id)
-                          }}><BookmarkIcon /></span>
-                        )
-                        :
-                        (
-                          <span className='icons' onClick={() => {
-                            addToBookmark(_id)
-                          }} ><BookmarkBorderIcon /></span>
-                        )
-                    }
+                    }}>
+                      {content}
+
+                    </div>
+                    <hr />
+                    <div className='icons-div'>
+                      {
+                        likedPost(_id) ?
+                          (
+                            <span className='icons' onClick={() => {
+                              dislikePost(_id)
+                            }}><FavoriteIcon /> {likes.likeCount}</span>
+                          )
+                          :
+                          (
+                            <span className='icons' onClick={() => {
+                              likePost(_id)
+                            }}><FavoriteBorderIcon /> {likes.likeCount}</span>
+                          )
+                      }
+                      <span className='icons' onClick={() => {
+                        navigate(`/${_id}`, { state: { from: location } });
+                      }}><ChatBubbleOutlineIcon /> {comments.length}</span>
+                      {
+                        bookmarkedPost(_id) ?
+                          (
+                            <span className='icons' onClick={() => {
+                              removeFromBookmark(_id)
+                            }}><BookmarkIcon /></span>
+                          )
+                          :
+                          (
+                            <span className='icons' onClick={() => {
+                              addToBookmark(_id)
+                            }} ><BookmarkBorderIcon /></span>
+                          )
+                      }
+                    </div>
                   </div>
                 </div>
               </div>
-              </div>
-      )
+            )
           })
         }
-    </div>
+      </div>
     </div >
   )
 }
