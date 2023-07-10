@@ -45,7 +45,7 @@ const BookmarkComponent = () => {
                         navigate(`/users/${username}`, { state: { from: location } });
                       }
                     }} className='user-tag'><b>{firstName} {lastName} </b><span style={{ color: '#9a9a9a' }}>  @{username} | {PostTime(createdAt)}</span></p>
-                    <span><PostSettingComponent /></span>
+                    <span><PostSettingComponent postId={_id} /></span>
                   </div>
                   <div className='bmp-second-div' onClick={() => {
                     navigate(`/${_id}`, { state: { from: location } });
@@ -71,7 +71,6 @@ const BookmarkComponent = () => {
 
                     <span className='icons' onClick={() => {
                       navigate(`/${_id}`, { state: { from: location } });
-                      // <Navigate to={`/${_id}`} state={{ from: location }} />
                     }}><ChatBubbleOutlineIcon /></span>
                     <span className='icons' onClick={() => {
                       removeFromBookmark(_id)
