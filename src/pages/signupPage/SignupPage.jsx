@@ -1,6 +1,6 @@
 import React from 'react';
 import './signupPage.css';
-import { useNavigate } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import { useState } from 'react';
 import axios from 'axios';
 import { toast } from 'react-toastify';
@@ -146,6 +146,7 @@ const SignupComponent = () => {
                     }} />
                 </div>
                 <button className='signup-btn' onClick={signUpHandler}>Signup</button>
+                <Link to='/auth-login' className='create-new-acc-btn'>Already have an account? {'>'}</Link>
             </div>
         </div>
     )

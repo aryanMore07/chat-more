@@ -71,6 +71,9 @@ const PostTweetComponent = () => {
         <FilterPostPopOver />
       </div>
       <div className='user-posts'>
+              {
+                filterPostData.length === 0 && <h1>No posts to show!</h1>
+              }
         {
           filterPostData.map((post) => {
             const { _id, username, content, likes, image, firstName, lastName, comments, createdAt } = post;
