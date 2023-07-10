@@ -24,7 +24,7 @@ const PostTweetComponent = () => {
   const { state } = useContext(UserContext);
   const { postMessage, bookmarkPost, postData, dislikePost, addToBookmark, removeFromBookmark, likePost, } = useContext(PostContext);
   const { filterPostData } = useContext(FilteredPostContext);
-  const { firstName, lastName, userName, image } = state.userDetails;
+  const { firstName, lastName, username, image } = state.userDetails;
   const bookmarkedPost = (postId) => bookmarkPost.find((post) => post._id === postId);
   const likedPost = (postId) => postData.find(({ _id, likes }) => _id === postId && likes.likedBy.find(({ _id }) => _id === state.userDetails._id));
 
@@ -58,7 +58,7 @@ const PostTweetComponent = () => {
               className='post-input'
               value={input.content}
               onChange={(event) => {
-                setInput({ content: event.target.value, firstName: firstName, lastName: lastName, username: userName, image: image, comments: [] });
+                setInput({ content: event.target.value, firstName: firstName, lastName: lastName, username: username, image: image, comments: [] });
               }}
             />
           </div>

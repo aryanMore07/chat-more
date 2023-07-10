@@ -56,7 +56,6 @@ export const editUserHandler = function (schema, request) {
       );
     }
     const { userData } = JSON.parse(request.requestBody);
-    console.log(userData && userData.username && userData.username !== user.username);
     if (userData && userData.username && userData.username !== user.username) {
       return new Response(
         404,
@@ -133,10 +132,6 @@ export const bookmarkPostHandler = function (schema, request) {
       );
     }
     const isBookmarked = user.bookmarks.some((currPostId) => currPostId === postId);
-    console.log(user.bookmarks);
-    console.log(isBookmarked);
-    console.log(postId);
-
     if (isBookmarked) {
       return new Response(400, {}, { errors: ['This Post is already bookmarked'] });
     }
