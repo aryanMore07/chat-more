@@ -22,7 +22,7 @@
 
 /* LEFT SIDE DIV  */
 
-.leftSide-div {
+.aside-left {
   width: auto;
   height: auto;
   position: sticky;
@@ -112,7 +112,7 @@
 
   /* LEFT SIDE DIV  */
 
-  .leftSide-div {
+  .aside-left {
     width: min-content;
     height: 652px;
     display: flex;
@@ -206,7 +206,7 @@
 
   /* LEFT SIDE DIV  */
 
-  .leftSide-div {
+  .aside-left {
     width: max-content;
     height: 652px;
     display: flex;

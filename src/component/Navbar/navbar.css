@@ -61,9 +61,7 @@
     text-align: left;
   }
 
-  
-
   .search-div {
-    display: none;
+    display: none !important;
   }
 }
