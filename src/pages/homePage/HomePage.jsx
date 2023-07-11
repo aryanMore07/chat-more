@@ -32,7 +32,9 @@ const HomeComponent = () => {
                     <NavLink to='explore' className='sidebar-nav-links'><li className='list-style'><span className='action-icons'><RocketLaunchIcon /></span><span className='route-names'>Explore</span></li></NavLink>
                     <NavLink to='bookmarks' className='sidebar-nav-links'><li className='list-style'><span className='action-icons'><BookmarkBorderIcon /></span><span className='route-names'>Bookmark</span></li></NavLink>
                     <NavLink to='profile' className='sidebar-nav-links'><li className='list-style'><span className='action-icons'><AccountCircleIcon /></span><span className='route-names'>Profile</span></li></NavLink>
-                    <NavLink className='sidebar-nav-links logout-btn' style={{ color: 'black' }}><li className='list-style'><span className='logout-btn action-icons'><LogoutIcon /></span></li></NavLink>
+                    <NavLink className='sidebar-nav-links logout-btn' style={{ color: 'black' }} onClick={() => {
+                        dispatch({ type: 'LOGOUT_USER' })
+                    }}><li className='list-style'><span className='logout-btn action-icons'><LogoutIcon /></span></li></NavLink>
                 </ul>
                 {
                     state?.userDetails?.firstName &&

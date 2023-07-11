@@ -91,10 +91,7 @@
 
 /* RIGHT DIV  */
 
-.rightSide-div {
-  /* padding: 5rem 0px 5rem 0px;
-    margin-left: 20px;
-  width: auto; */
+.rightSide-div {  
   display: none;
 }
 
@@ -135,12 +132,12 @@
 
   .logout-btn {
     display: block;
+    color: black;
   }
 
   .user-div {
     cursor: pointer;
     display: none;
-    /* display: flex; */
     align-items: center;
     justify-content: center;
     height: 5rem;
