@@ -20,11 +20,6 @@
     "left";
 }
 
-.home-div {
-  /* display: flex;
-  flex-direction: row; */
-}
-
 /* LEFT SIDE DIV  */
 
 .leftSide-div {
@@ -114,10 +109,6 @@
     justify-content: center;
   }
 
-  .home-div {
-    /* display: flex;
-    flex-direction: row; */
-  }
 
   /* LEFT SIDE DIV  */
 
