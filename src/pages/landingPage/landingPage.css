@@ -17,7 +17,7 @@
 
 .leftSide-inner-div {
   height: 70vh;
-  width: 23rem;
+  width: auto;
   display: flex;
   flex-direction: column;
   justify-content: space-between;

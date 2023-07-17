@@ -13,7 +13,7 @@
   display: flex;
   justify-content: center;
   align-items: center;
-  width: 23rem;
+  width: auto;
   display: flex;
   flex-direction: column;
   background-color: #ffff;
@@ -21,6 +21,7 @@
   border-radius: 0.6rem;
   box-shadow: rgba(0, 0, 0, 0.05) 0px 6px 24px 0px,
     rgba(0, 0, 0, 0.08) 0px 0px 0px 1px;
+  padding: 20px;
 }
 
 .login-main-heading {
@@ -34,19 +35,20 @@
 .label-div {
   display: flex;
   flex-direction: column;
-  width: 20rem;
+  width: auto;
 }
 
 .login-btn {
   font-size: 15px;
   color: #fff;
   background-color: #ff3b30;
-  width: 20rem;
+  width: 14rem;
   padding: 15px;
   font-weight: 900;
   cursor: pointer;
   margin-bottom: 10px;
   border: none;
+  border-radius: 5px;
 }
 
 #userName-input {
@@ -128,6 +130,7 @@
     cursor: pointer;
     margin-bottom: 10px;
     border: none;
+    border-radius: 5px;
   }
 
   #email-input {
@@ -210,6 +213,7 @@
     cursor: pointer;
     margin-bottom: 10px;
     border: none;
+    border-radius: 5px;
   }
 
   #email-input {

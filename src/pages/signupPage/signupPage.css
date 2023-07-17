@@ -21,7 +21,7 @@
   display: flex;
   justify-content: center;
   align-items: center;
-  width: 20rem;
+  width: auto;
   display: flex;
   flex-direction: column;
   background-color: #ffff;
@@ -42,16 +42,18 @@
 }
 
 .signup-btn {
+  border-radius: 5px;
   margin-top: 15px;
   font-size: 15px;
   color: #fff;
   background-color: #ff3b30;
-  width: 20rem;
+  width: 14rem;
   padding: 15px;
   font-weight: 900;
   cursor: pointer;
   margin-bottom: 10px;
   border: none;
+  border-radius: 5px;
 }
 
 .already-have-acc-btn {
@@ -107,6 +109,7 @@
   }
 
   .signup-btn {
+    border-radius: 5px;
     margin-top: 15px;
     font-size: 15px;
     color: #fff;
@@ -174,6 +177,7 @@
   }
 
   .signup-btn {
+    border-radius: 5px;
     margin-top: 15px;
     font-size: 15px;
     color: #fff;
