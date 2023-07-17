@@ -23,6 +23,7 @@ import CancelIcon from '@mui/icons-material/Cancel';
 import { useState } from 'react';
 import BookmarkIcon from '@mui/icons-material/Bookmark';
 import { PostTime } from '../../utils/postTime/PostTime';
+import FavoriteIcon from '@mui/icons-material/Favorite';
 
 
 const style = {
@@ -62,7 +63,7 @@ const SingleUserFromName = () => {
 
   const { state, followUser, unFollowUser } = useContext(UserContext);
   const [editedPost, setEditedPost] = useState('')
-  const { postData, addToBookmark, removeFromBookmark, editPost, deletePost, bookmarkPost, likePost } = useContext(PostContext);
+  const { postData, addToBookmark, removeFromBookmark, editPost, deletePost, bookmarkPost, likePost, dislikePost } = useContext(PostContext);
 
   // Function to find the Selected user Details
   const selectedUserData = state.allUser.find((user) => user.username === userName);
@@ -74,6 +75,9 @@ const SingleUserFromName = () => {
   // Function to find whether the user have bookmarked the post or not
   const bookedMarkPost = (postId) => bookmarkPost.find((post) => post._id === postId);
 
+  // Function to find whether the user have Liked the post or not
+  const likedPost = (postId) => postData.find(({ _id, likes }) => _id === postId && likes.likedBy.find(({ _id }) => _id === state.userDetails._id));
+  
   // Function check whether the user have follwed or not
   const checkUserFollowing = (userId) => state.userDetails.following.find((user) => user._id === userId);
 
@@ -194,9 +198,23 @@ const SingleUserFromName = () => {
                     </div>
                     <hr />
                     <div className='icons-div'>
-                      <span className='icons' onClick={() => {
-                        likePost(_id)
-                      }}><FavoriteBorderIcon /> {likes.likeCount}</span>
+                      {
+                        likedPost(_id) ?
+                          (
+                            <span className='icons' onClick={() => {
+                              dislikePost(_id)
+                            }}><FavoriteIcon /> {likes.likeCount}</span>
+                          )
+                          :
+                          (
+
+                            <span className='icons' onClick={
+                              () => {
+                                likePost(_id)
+                              }
+                            }><FavoriteBorderIcon /> {likes.likeCount}</span>
+                          )
+                      }
                       <span className='icons' onClick={() => {
                         navigate(`/${_id}`)
                       }}><ChatBubbleOutlineIcon /></span>
