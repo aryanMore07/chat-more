@@ -23,7 +23,7 @@
 }
 
 .user-profile {
-  padding-top: 15px
+  padding-top: 15px;
 }
 
 .edit-btn {
@@ -60,6 +60,10 @@
   border-radius: 5px;
   display: flex;
   padding: 25px;
+}
+
+.profile-post-div {
+  padding: 1.5rem;
 }
 
 .post-info {
@@ -101,7 +105,7 @@
   }
 
   .user-profile {
-    padding-top: 15px
+    padding-top: 15px;
   }
 
   .edit-btn {
@@ -180,8 +184,15 @@
   }
 
   .user-profile {
-    padding-top: 15px
+    padding-top: 15px;
   }
+
+  
+
+.profile-div {
+  padding: 20px;
+}
+
 
   .edit-btn {
     margin-bottom: 8px;

@@ -92,7 +92,7 @@ const ProfileComponent = () => {
             <div className='posts-div'>
                 {loggedInUserposts.length === 0 && (<h4 style={{ marginLeft: '15px' }}><b>No post to show</b></h4>)}
                 {loggedInUserposts.length > 0 && (<h4 style={{ marginLeft: '15px' }}><b>Your Posts</b></h4>)}
-                <div style={{ padding: '3rem' }}>
+                <div classsName='profile-post-div'>
                     {
                         loggedInUserposts.map((post) => {
                             const { _id, firstName, lastName, content, username, likes } = post;
