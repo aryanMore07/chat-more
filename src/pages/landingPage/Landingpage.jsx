@@ -28,7 +28,7 @@ const LeftContainer = styled(Box)(({ theme }) => ({
   height: "100%",
   display: "flex",
   flexDirection: "column",
-  justifyContent: "space-between",
+  justifyContent: "space-evenly",
   alignItems: "flex-start",
 }));
 
