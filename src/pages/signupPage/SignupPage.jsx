@@ -1,11 +1,10 @@
 import React from "react";
-import "./signupPage.css";
 import { Link, useNavigate } from "react-router-dom";
 import { useState } from "react";
 import axios from "axios";
 import { toast } from "react-toastify";
 import { styled } from "@mui/material/styles";
-import { Box, Button, Grid, OutlinedInput } from "@mui/material";
+import { Box, Button, Grid, OutlinedInput, Typography } from "@mui/material";
 
 const Container = styled(Box)(({ theme }) => ({
   width: "100%",
@@ -30,7 +29,7 @@ const InnerContainer = styled(Box)(({ theme }) => ({
   },
 }));
 
-const Title = styled(Box)(({ theme }) => ({
+const Title = styled(Typography)(({ theme }) => ({
   textAlign: "center",
   fontSize: "28px",
   lineHeight: "38px",
