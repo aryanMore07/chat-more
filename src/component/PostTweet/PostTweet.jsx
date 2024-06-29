@@ -17,12 +17,15 @@ const Container = styled(Box)(({ theme }) => ({
   flexDirection: "column",
   rowGap: theme.spacing(1),
   padding: `${theme.spacing(2)} 0px`,
+  width: "90%",
+  margin: "auto",
 }));
 
 const TopContainer = styled(Card)(({ theme }) => ({
   display: "flex",
   padding: theme.spacing(2),
   boxSizing: "border-box",
+  width: "100%",
 }));
 
 const InputContainer = styled(Box)(({ theme }) => ({
@@ -131,7 +134,7 @@ const PostTweetComponent = () => {
         direction="row"
         justifyContent="flex-end"
         alignItems="center"
-        sx={{ margin: `${theme.spacing(1)} 0px` }}
+        sx={{ margin: `${theme.spacing(1)} 0px`, width: "100%" }}
       >
         <FilterPostPopOver />
       </Stack>

@@ -32,6 +32,31 @@ const MiddleContainer = styled(Box)(({ theme }) => ({
   minHeight: "calc(100vh - 65px)",
 }));
 
+const LeftContainer = styled(Box)(({ theme }) => ({
+  width: "15%",
+  margin: "auto",
+  display: "flex",
+  flexDirection: "column",
+  justifyContent: "space-between",
+  alignItems: "center",
+  minHeight: "calc(100vh - 105px)",
+  position: "fixed",
+  padding: `${theme.spacing(4)} 0px`,
+  borderRight: `1px solid #cfcfcf`,
+}));
+
+const RightContainer = styled(Box)(({ theme }) => ({
+  width: "100%",
+  margin: "auto",
+  display: "flex",
+  flexDirection: "column",
+  alignItems: "flex-start",
+  minHeight: "calc(100vh - 105px)",
+  position: "fixed",
+  padding: `${theme.spacing(4)} ${theme.spacing(2)}`,
+  borderLeft: `1px solid #cfcfcf`,
+}));
+
 const HomeComponent = () => {
   const navigate = useNavigate();
   const { state, dispatch, searchedData, allUserData } =
@@ -40,9 +65,9 @@ const HomeComponent = () => {
   return (
     <Container>
       <Grid container>
-        <Grid item md={2}>
-          <div className="leftSide-div aside-left">
-            <ul className="leftSide-ulelements" style={{}}>
+        <Grid item md={2} sx={{ position: "relative" }}>
+          <LeftContainer>
+            <ul className="leftSide-ulelements">
               <NavLink to="/home" className="sidebar-nav-links">
                 <li className="list-style">
                   <span className="action-icons">
@@ -108,7 +133,7 @@ const HomeComponent = () => {
                 </div>
               </div>
             )}
-          </div>
+          </LeftContainer>
         </Grid>
         <Grid item md={8}>
           <MiddleContainer>
@@ -116,7 +141,7 @@ const HomeComponent = () => {
           </MiddleContainer>
         </Grid>
         <Grid item md={2}>
-          <div className="rightSide-div aside-right">
+          <RightContainer>
             <input
               placeholder="Search Username..."
               aria-label="Username"
@@ -173,34 +198,42 @@ const HomeComponent = () => {
                 </ul>
               </div>
             )}
-            <div className="all-user">
+            <List>
               {allUserData.map((user) => {
                 const { _id, firstName, lastName, username, image } = user;
                 return (
-                  <List key={_id}>
-                    <ListItem style={{ borderRadius: "5rem" }} disablePadding>
-                      <ListItemButton
-                        onClick={() => {
-                          navigate(`/user/${_id}`);
+                  <ListItem
+                    key={_id}
+                    style={{ borderRadius: "5rem", width: "100%" }}
+                    disablePadding
+                  >
+                    <ListItemButton
+                      onClick={() => {
+                        navigate(`/user/${_id}`);
+                      }}
+                    >
+                      <ListItemIcon>
+                        <Avatar alt={firstName} src={image} />
+                      </ListItemIcon>
+                      <ListItemText
+                        primary={`${firstName}${lastName}`}
+                        secondary={"@" + username}
+                      />
+                      <ListItemIcon
+                        sx={{
+                          "& .MuiListItemIcon-root": {
+                            width: "fit-content",
+                          },
                         }}
                       >
-                        <ListItemIcon>
-                          <Avatar alt={firstName} src={image} />
-                        </ListItemIcon>
-                        <ListItemText
-                          primary={`${firstName}${lastName}`}
-                          secondary={"@" + username}
-                        />
-                        <ListItemIcon>
-                          <AddCircleOutlineIcon />
-                        </ListItemIcon>
-                      </ListItemButton>
-                    </ListItem>
-                  </List>
+                        <AddCircleOutlineIcon />
+                      </ListItemIcon>
+                    </ListItemButton>
+                  </ListItem>
                 );
               })}
-            </div>
-          </div>
+            </List>
+          </RightContainer>
         </Grid>
       </Grid>
     </Container>
