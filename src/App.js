@@ -1,3 +1,4 @@
+/* eslint-disable react-hooks/exhaustive-deps */
 import { Route, Routes, useLocation } from "react-router";
 import "./App.css";
 // import MockmanComponent from './component/Mockman';
@@ -17,17 +18,34 @@ import ProfileComponent from "./pages/profilePage/ProfilePage.jsx";
 import SinglePost from "./pages/singlePost/SinglePost";
 import SingleUser from "./pages/singleUserPage/SingleUser";
 import SingleUserFromName from "./pages/singleUserFromName/SingleUserFromName";
-import { useEffect } from "react";
+import { useContext, useEffect } from "react";
+import { UserContext } from "./contexts/userContext.js";
 
 function App() {
   const { pathname } = useLocation();
+  const { state, dispatch } = useContext(UserContext);
+
+  const localStoredUsetDetails = JSON.parse(localStorage.getItem("userDetails"));
+  const checkUserLoggedIn = () => {
+    if (!state.userDetails) {
+      console.log("hora he")
+      dispatch({
+        type: "ADD_USER_DETAILS",
+        payload: localStoredUsetDetails,
+      });
+    }
+  }
 
   useEffect(() => {
     window.scrollTo({
       top: 0,
-      behavior: "auto", // Use 'auto' for instant scrolling
+      behavior: "auto",
     });
   }, [pathname]);
+
+  useEffect(() => {
+    checkUserLoggedIn()
+  }, [state]);
 
   return (
     <div className="App">
