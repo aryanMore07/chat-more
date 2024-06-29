@@ -44,6 +44,7 @@ const RightContainer = styled(Box)(({ theme }) => ({
 const LeftSideHeading = styled(Box)(({ theme }) => ({
   fontSize: "3.5rem",
   fontWeight: 800,
+  marginBottom: theme.spacing(1),
 }));
 
 const LeftSideTitles = styled(Box)(({ theme }) => ({
@@ -94,11 +95,11 @@ const Landingpage = () => {
         <Grid container spacing={matches && 4}>
           <Grid item xs={12} sm={12} md={6}>
             <LeftContainer>
-              <LeftSideHeading>
-                <span style={{ color: "#ff3b30" }}>Chat</span>
-                <span style={{ color: "black" }}>More</span>
-              </LeftSideHeading>
               <Box>
+                <LeftSideHeading>
+                  <span style={{ color: "#ff3b30" }}>Chat</span>
+                  <span style={{ color: "black" }}>More</span>
+                </LeftSideHeading>
                 <LeftSideTitles>
                   <span
                     style={{
