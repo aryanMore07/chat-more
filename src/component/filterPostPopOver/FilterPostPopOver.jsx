@@ -9,6 +9,7 @@ import Button from "@mui/material/Button";
 import { useState } from "react";
 import { useContext } from "react";
 import { FilteredPostContext } from "../../contexts/filterPostContext";
+import TuneSharpIcon from "@mui/icons-material/TuneSharp";
 
 const FilterPostPopOver = () => {
   const { dispatch } = useContext(FilteredPostContext);
@@ -28,7 +29,12 @@ const FilterPostPopOver = () => {
 
   return (
     <div>
-      <Button aria-describedby={id} variant="outlined" onClick={handleClick}>
+      <Button
+        aria-describedby={id}
+        variant="outlined"
+        onClick={handleClick}
+        endIcon={<TuneSharpIcon />}
+      >
         Filter Post
       </Button>
       <Popover
