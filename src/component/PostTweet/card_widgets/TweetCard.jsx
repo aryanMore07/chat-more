@@ -77,6 +77,13 @@ const IconsText = styled("span")(({ theme }) => ({
   paddingLeft: "4px",
 }));
 
+const UserText = styled("b")(({ theme }) => ({
+  cursor: "pointer",
+  "&:hover": {
+    textDecoration: "underline",
+  },
+}));
+
 function TweetCard({ data }) {
   let location = useLocation();
   const navigate = useNavigate();
@@ -110,21 +117,20 @@ function TweetCard({ data }) {
         </AvatarContainer>
         <RightContainer>
           <CardTopContainer>
-            <UsernameText
-              onClick={() => {
-                if (username === state?.userDetails?.username) {
-                  navigate("/profile", { state: { from: location } });
-                } else {
-                  navigate(`/users/${username}`, {
-                    state: { from: location },
-                  });
-                }
-              }}
-            >
-              <b>
-                {firstName}
-                {lastName}
-              </b>{" "}
+            <UsernameText>
+              <UserText
+                onClick={() => {
+                  if (username === state?.userDetails?.username) {
+                    navigate("/profile", { state: { from: location } });
+                  } else {
+                    navigate(`/users/${username}`, {
+                      state: { from: location },
+                    });
+                  }
+                }}
+              >
+                {firstName}&nbsp;{lastName}
+              </UserText>{" "}
               <span style={{ color: "#9a9a9a" }}>
                 @{username} | {PostTime(data.createdAt)}
               </span>
