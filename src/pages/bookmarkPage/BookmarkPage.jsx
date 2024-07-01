@@ -41,7 +41,9 @@ const BookmarkComponent = () => {
       <Grid container spacing={2}>
         {bookmarkPost.length === 0 ? (
           <Grid item xs={12} sm={12} md={12}>
-            <Heading>No Bookmarks</Heading>
+            <Heading sx={{ textAlign: "center" }}>
+              No Bookmarks to show!
+            </Heading>
           </Grid>
         ) : (
           bookmarkPost.map((post, index) => {
