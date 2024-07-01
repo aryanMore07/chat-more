@@ -5,7 +5,7 @@ import { useContext } from "react";
 import { PostContext } from "../../contexts/postContext";
 import { Box, Grid, Typography } from "@mui/material";
 import { styled } from "@mui/material/styles";
-import PostCard from "./card_widgets/PostCard";
+import TweetCard from "./card_widgets/TweetCard";
 
 const Container = styled(Box)(({ theme }) => ({
   display: "flex",
@@ -47,7 +47,7 @@ const BookmarkComponent = () => {
           bookmarkPost.map((post, index) => {
             return (
               <Grid item xs={12} sm={12} md={12} key={index}>
-                <PostCard data={post} />
+                <TweetCard data={post} />
               </Grid>
             );
           })

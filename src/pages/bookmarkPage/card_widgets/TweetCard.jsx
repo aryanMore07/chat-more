@@ -95,7 +95,7 @@ const UserIdText = styled("span")(({ theme }) => ({
   fontSize: "12px",
 }));
 
-function PostCard({ data }) {
+function TweetCard({ data }) {
   const {
     _id,
     username,
@@ -236,4 +236,4 @@ function PostCard({ data }) {
   );
 }
 
-export default PostCard;
+export default TweetCard;
