@@ -29,10 +29,11 @@ const CardInnerContainer = styled(Box)(({ theme }) => ({
   boxSizing: "border-box",
   display: "flex",
   gap: theme.spacing(1),
+  width: "100%",
 }));
 
 const AvatarContainer = styled(Box)(({ theme }) => ({
-  width: "50px",
+  width: "fit-content",
   height: "50px",
   display: "flex",
   justifyContent: "center",
@@ -42,17 +43,28 @@ const AvatarContainer = styled(Box)(({ theme }) => ({
 const RightContainer = styled(Box)(({ theme }) => ({
   width: "100%",
   height: "100%",
+  [theme.breakpoints.down("sm")]: {
+    width: "calc(100% - 50px)",
+  },
 }));
 
 const CardTopContainer = styled(Box)(({ theme }) => ({
   display: "flex",
   justifyContent: "space-between",
+  [theme.breakpoints.down("sm")]: {
+    marginBottom: theme.spacing(2),
+  },
 }));
 
 const UsernameText = styled(Typography)(({ theme }) => ({
   display: "flex",
   alignItems: "center",
   gap: theme.spacing(1),
+  [theme.breakpoints.down("sm")]: {
+    flexDirection: "column",
+    alignItems: "flex-start",
+    gap: theme.spacing(0),
+  },
 }));
 
 const IconsContainer = styled(Box)(({ theme }) => ({
@@ -82,6 +94,11 @@ const UserText = styled("b")(({ theme }) => ({
   "&:hover": {
     textDecoration: "underline",
   },
+}));
+
+const UserIdText = styled("span")(({ theme }) => ({
+  color: "#9a9a9a",
+  fontSize: "12px",
 }));
 
 function TweetCard({ data }) {
@@ -131,9 +148,9 @@ function TweetCard({ data }) {
               >
                 {firstName}&nbsp;{lastName}
               </UserText>{" "}
-              <span style={{ color: "#9a9a9a" }}>
+              <UserIdText>
                 @{username} | {PostTime(data.createdAt)}
-              </span>
+              </UserIdText>
             </UsernameText>
             <div>
               <PostSettingComponent

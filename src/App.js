@@ -1,5 +1,5 @@
 /* eslint-disable react-hooks/exhaustive-deps */
-import { Route, Routes, useLocation } from "react-router";
+import { Route, Routes, useLocation, useNavigate } from "react-router";
 import "./App.css";
 // import MockmanComponent from './component/Mockman';
 import Navbar from "./component/Navbar/Navbar";
@@ -18,34 +18,21 @@ import ProfileComponent from "./pages/profilePage/ProfilePage.jsx";
 import SinglePost from "./pages/singlePost/SinglePost";
 import SingleUser from "./pages/singleUserPage/SingleUser";
 import SingleUserFromName from "./pages/singleUserFromName/SingleUserFromName";
-import { useContext, useEffect } from "react";
-import { UserContext } from "./contexts/userContext.js";
+import { useEffect } from "react";
 
 function App() {
   const { pathname } = useLocation();
-  const { state, dispatch } = useContext(UserContext);
-
-  const localStoredUsetDetails = JSON.parse(localStorage.getItem("userDetails"));
-  const checkUserLoggedIn = () => {
-    if (!state.userDetails) {
-      console.log("hora he")
-      dispatch({
-        type: "ADD_USER_DETAILS",
-        payload: localStoredUsetDetails,
-      });
-    }
-  }
+  const navigate = useNavigate();
 
   useEffect(() => {
     window.scrollTo({
       top: 0,
       behavior: "auto",
     });
+    if (pathname === "/") {
+      navigate("/home");
+    }
   }, [pathname]);
-
-  useEffect(() => {
-    checkUserLoggedIn()
-  }, [state]);
 
   return (
     <div className="App">

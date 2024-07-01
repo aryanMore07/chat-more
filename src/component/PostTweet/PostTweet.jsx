@@ -17,8 +17,12 @@ const Container = styled(Box)(({ theme }) => ({
   flexDirection: "column",
   rowGap: theme.spacing(1),
   padding: `${theme.spacing(2)} 0px`,
-  width: "90%",
+  width: "95%",
   margin: "auto",
+  boxSizing: "border-box",
+  [theme.breakpoints.down("sm")]: {
+    width: "100%",
+  },
 }));
 
 const TopContainer = styled(Card)(({ theme }) => ({
@@ -138,22 +142,20 @@ const PostTweetComponent = () => {
       >
         <FilterPostPopOver />
       </Stack>
-      <div className="user-posts">
-        <Grid container spacing={2}>
-          {filterPostData.length === 0 && (
-            <Grid item md={12}>
-              <h1>No posts to show!</h1>
+      <Grid container spacing={2}>
+        {filterPostData.length === 0 && (
+          <Grid item md={12}>
+            <h1>No posts to show!</h1>
+          </Grid>
+        )}
+        {filterPostData.map((post, index) => {
+          return (
+            <Grid item xs={12} sm={12} md={12} key={index}>
+              <TweetCard data={post} />
             </Grid>
-          )}
-          {filterPostData.map((post, index) => {
-            return (
-              <Grid item md={12} key={index}>
-                <TweetCard data={post} />
-              </Grid>
-            );
-          })}
-        </Grid>
-      </div>
+          );
+        })}
+      </Grid>
     </Container>
   );
 };
