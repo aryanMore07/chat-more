@@ -3,146 +3,57 @@ import React, { useEffect } from "react";
 import "./bookmarkPage.css";
 import { useContext } from "react";
 import { PostContext } from "../../contexts/postContext";
-import Avatar from "@mui/material/Avatar";
-import PostSettingComponent from "../../component/postSettingComponent/PostSettingComponent";
-import FavoriteBorderIcon from "@mui/icons-material/FavoriteBorder";
-import ChatBubbleOutlineIcon from "@mui/icons-material/ChatBubbleOutline";
-import BookmarkIcon from "@mui/icons-material/Bookmark";
-import { UserContext } from "../../contexts/userContext";
-import FavoriteIcon from "@mui/icons-material/Favorite";
-import { PostTime } from "../../utils/postTime/PostTime";
-import { useLocation, useNavigate } from "react-router";
+import { Box, Grid, Typography } from "@mui/material";
+import { styled } from "@mui/material/styles";
+import PostCard from "./card_widgets/PostCard";
+
+const Container = styled(Box)(({ theme }) => ({
+  display: "flex",
+  flexDirection: "column",
+  rowGap: theme.spacing(1),
+  padding: `${theme.spacing(2)} 0px`,
+  width: "95%",
+  margin: "auto",
+  boxSizing: "border-box",
+  [theme.breakpoints.down("sm")]: {
+    width: "100%",
+  },
+}));
+
+const Heading = styled(Typography)(({ theme }) => ({
+  fontSize: "24px",
+  fontWeight: 600,
+  fontFamily: "Poppins",
+  margin: `${theme.spacing(2)} 0px`,
+}));
 
 const BookmarkComponent = () => {
-  let location = useLocation();
-  const navigate = useNavigate();
-  const { state } = useContext(UserContext);
-  const {
-    postData,
-    removeFromBookmark,
-    likePost,
-    dislikePost,
-    bookmarkPost,
-    fetchUserBookmarks,
-  } = useContext(PostContext);
-  const likedPost = (postId) =>
-    postData.find(
-      ({ _id, likes }) =>
-        _id === postId &&
-        likes.likedBy.find(({ _id }) => _id === state.userDetails._id)
-    );
+  const { postData, bookmarkPost, fetchUserBookmarks } =
+    useContext(PostContext);
 
   useEffect(() => {
     fetchUserBookmarks();
   }, [postData]);
 
   return (
-    <div className="bookmark-main-div">
-      {bookmarkPost.length === 0 ? (
-        <></>
-      ) : (
-        <h4>
-          <b>Your Bookmarks</b>
-        </h4>
-      )}
-      {bookmarkPost.length === 0 ? (
-        <h2>No Bookmarks</h2>
-      ) : (
-        bookmarkPost.map((post) => {
-          const {
-            _id,
-            username,
-            content,
-            likes,
-            image,
-            firstName,
-            lastName,
-            createdAt,
-          } = post;
-          return (
-            <div key={_id} className="bookmark-posts">
-              <div className="user-image">
-                <Avatar alt={username} src={image} />
-              </div>
-              <div className="post-details">
-                <div className="bmp-first-div">
-                  <p
-                    onClick={() => {
-                      if (username === state?.userDetails?.username) {
-                        navigate("/profile", { state: { from: location } });
-                      } else {
-                        navigate(`/users/${username}`, {
-                          state: { from: location },
-                        });
-                      }
-                    }}
-                    className="user-tag"
-                  >
-                    <b>
-                      {firstName} {lastName}{" "}
-                    </b>
-                    <span style={{ color: "#9a9a9a" }}>
-                      {" "}
-                      @{username} | {PostTime(createdAt)}
-                    </span>
-                  </p>
-                  <span>
-                    <PostSettingComponent postId={_id} />
-                  </span>
-                </div>
-                <div
-                  className="bmp-second-div"
-                  onClick={() => {
-                    navigate(`/${_id}`, { state: { from: location } });
-                  }}
-                >
-                  {content}
-                </div>
-                <hr />
-                <div className="icons-div">
-                  {likedPost(_id) ? (
-                    <span
-                      className="icons"
-                      onClick={() => {
-                        dislikePost(_id);
-                      }}
-                    >
-                      <FavoriteIcon /> {likes.likeCount}
-                    </span>
-                  ) : (
-                    <span
-                      className="icons"
-                      onClick={() => {
-                        likePost(_id);
-                      }}
-                    >
-                      <FavoriteBorderIcon /> {likes.likeCount}
-                    </span>
-                  )}
-
-                  <span
-                    className="icons"
-                    onClick={() => {
-                      navigate(`/${_id}`, { state: { from: location } });
-                    }}
-                  >
-                    <ChatBubbleOutlineIcon />
-                  </span>
-                  <span
-                    className="icons"
-                    onClick={() => {
-                      removeFromBookmark(_id);
-                    }}
-                  >
-                    <BookmarkIcon />
-                  </span>
-                </div>
-              </div>
-            </div>
-          );
-        })
-      )}
-    </div>
+    <Container>
+      {bookmarkPost.length === 0 ? <></> : <Heading>Your Bookmarks</Heading>}
+      <Grid container spacing={2}>
+        {bookmarkPost.length === 0 ? (
+          <Grid item xs={12} sm={12} md={12}>
+            <Heading>No Bookmarks</Heading>
+          </Grid>
+        ) : (
+          bookmarkPost.map((post, index) => {
+            return (
+              <Grid item xs={12} sm={12} md={12} key={index}>
+                <PostCard data={post} />
+              </Grid>
+            );
+          })
+        )}
+      </Grid>
+    </Container>
   );
 };
 

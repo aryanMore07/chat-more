@@ -68,6 +68,7 @@ const Heading = styled(Typography)(({ theme }) => ({
   fontSize: "24px",
   fontWeight: 600,
   fontFamily: "Poppins",
+  margin: `${theme.spacing(2)} 0px`,
 }));
 
 const PostTweetComponent = () => {
