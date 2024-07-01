@@ -14,7 +14,7 @@ import ListItemText from "@mui/material/ListItemText";
 import AddCircleOutlineIcon from "@mui/icons-material/AddCircleOutline";
 import LogoutComponent from "../../component/logoutComponent/LogoutComponent";
 import { styled } from "@mui/material/styles";
-import { Box, Grid } from "@mui/material";
+import { Box, Grid, InputAdornment, OutlinedInput } from "@mui/material";
 import { sideNavigationContext } from "../../utils/textUtils";
 import HomeRoundedIcon from "@mui/icons-material/HomeRounded";
 import PersonOutlineRoundedIcon from "@mui/icons-material/PersonOutlineRounded";
@@ -26,6 +26,7 @@ import {
   useMediaQuery,
 } from "@mui/material";
 import LogoutIcon from "@mui/icons-material/Logout";
+import { Search } from "@mui/icons-material";
 
 const Container = styled(Box)(({ theme }) => ({
   width: "90%",
@@ -61,11 +62,11 @@ const LeftContainer = styled(Box)(({ theme }) => ({
 }));
 
 const RightContainer = styled(Box)(({ theme }) => ({
-  width: "100%",
+  width: "auto",
   margin: "auto",
   display: "flex",
   flexDirection: "column",
-  alignItems: "flex-start",
+  alignItems: "center",
   minHeight: "calc(100vh - 105px)",
   position: "fixed",
   padding: `${theme.spacing(4)} ${theme.spacing(2)}`,
@@ -98,12 +99,17 @@ const ListItemIconComponent = styled(ListItemIcon)(({ theme }) => ({
   },
 }));
 
+const Input = styled(OutlinedInput)(({ theme }) => ({
+  width: "auto",
+  borderRadius: "50px",
+  height: "45px",
+}));
+
 const HomeComponent = () => {
   const navigate = useNavigate();
   const { pathname } = useLocation();
   const matches = useMediaQuery(theme.breakpoints.down("sm"));
-  const { state, dispatch, searchedData, allUserData } =
-    useContext(UserContext);
+  const { state, dispatch, searchedData } = useContext(UserContext);
 
   const renderNavIcons = (menuName) => {
     let isActive = pathname === `/${menuName.toLowerCase()}`;
@@ -201,97 +207,47 @@ const HomeComponent = () => {
           </Grid>
           <Grid item xs={0} sm={0} md={2}>
             <RightContainer>
-              <input
-                placeholder="Search Username..."
-                aria-label="Username"
-                aria-describedby="basic-addon1"
+              <Input
+                placeholder="Search Users..."
+                aria-label="usernames"
                 onChange={(event) => {
                   dispatch({ type: "USER_INPUT", payload: event.target.value });
                 }}
+                color="secondary"
+                startAdornment={
+                  <InputAdornment position="start">
+                    <Search />
+                  </InputAdornment>
+                }
               />
               {state.userInput && (
-                <div className="searched-users-output">
-                  <ul
-                    style={{
-                      listStyle: "none",
-                      display: "flex",
-                      flexDirection: "column",
-                    }}
-                  >
-                    {searchedData.map((user) => {
-                      const { _id, firstName, lastName, username } = user;
-                      return (
-                        <li
-                          style={{
-                            padding: "0.5rem 1rem",
-                            border: "1px solid",
-                            borderColor: "rgba(0,0,0,0.2)",
-                            margin: "0.5rem",
-                            borderRadius: "0.5rem",
-                            boxShadow: "0 2px 8px 0 rgba(0,0,0,0.1)",
-                            cursor: "pointer",
-                          }}
-                          key={_id}
+                <List>
+                  {searchedData.map((user) => {
+                    const { _id, firstName, lastName, username, image } = user;
+                    return (
+                      <ListItem disablePadding key={_id}>
+                        <ListItemButtonComponent
                           onClick={() => {
                             navigate(`/user/${_id}`);
                           }}
                         >
-                          <div
-                            style={{
-                              display: "flex",
-                              justifyContent: "space-between",
-                              width: "100%",
-                            }}
-                          >
-                            <Avatar alt={firstName} />
-                            <div>
-                              <b>
-                                {firstName} {lastName}
-                              </b>{" "}
-                              <br />@{username}
-                            </div>
-                          </div>
-                        </li>
-                      );
-                    })}
-                  </ul>
-                </div>
+                          <ListItemIconComponent>
+                            <Avatar
+                              sx={{ marginRight: theme.spacing(2) }}
+                              alt={firstName}
+                              src={image}
+                            />
+                          </ListItemIconComponent>
+                          <ListItemTextComponent
+                            primary={`${firstName} ${lastName}`}
+                            secondary={`@${username}`}
+                          />
+                        </ListItemButtonComponent>
+                      </ListItem>
+                    );
+                  })}
+                </List>
               )}
-              <List>
-                {allUserData.map((user) => {
-                  const { _id, firstName, lastName, username, image } = user;
-                  return (
-                    <ListItem
-                      key={_id}
-                      style={{ borderRadius: "5rem", width: "100%" }}
-                      disablePadding
-                    >
-                      <ListItemButton
-                        onClick={() => {
-                          navigate(`/user/${_id}`);
-                        }}
-                      >
-                        <ListItemIcon>
-                          <Avatar alt={firstName} src={image} />
-                        </ListItemIcon>
-                        <ListItemText
-                          primary={`${firstName}${lastName}`}
-                          secondary={"@" + username}
-                        />
-                        <ListItemIcon
-                          sx={{
-                            "& .MuiListItemIcon-root": {
-                              width: "fit-content",
-                            },
-                          }}
-                        >
-                          <AddCircleOutlineIcon />
-                        </ListItemIcon>
-                      </ListItemButton>
-                    </ListItem>
-                  );
-                })}
-              </List>
             </RightContainer>
           </Grid>
         </Grid>
