@@ -61,7 +61,7 @@ const LeftContainer = styled(Box)(({ theme }) => ({
 }));
 
 const RightContainer = styled(Box)(({ theme }) => ({
-  width: "auto",
+  width: "13%",
   margin: "auto",
   display: "flex",
   flexDirection: "column",
