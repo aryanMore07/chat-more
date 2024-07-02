@@ -1,7 +1,6 @@
 import React, { useState } from "react";
 import "./searchComponent.css";
-import Button from "@mui/material/Button";
-import SearchIcon from "@mui/icons-material/Search";
+import MenuIcon from "@mui/icons-material/Menu";
 import { useContext } from "react";
 import { UserContext } from "../../contexts/userContext";
 import { styled } from "@mui/material/styles";
@@ -31,13 +30,13 @@ const SearchComponent = () => {
 
   return (
     <div>
-      <Button
+      <IconButton
         variant="outlined"
         onClick={handleIsOpen}
         style={{ color: "white", borderColor: "white" }}
       >
-        <SearchIcon />
-      </Button>
+        <MenuIcon sx={{ color: "#fff" }} />
+      </IconButton>
       <Drawer anchor="right" open={isopen}>
         <div style={{ padding: "2rem" }}>
           <DrawerHeader>
