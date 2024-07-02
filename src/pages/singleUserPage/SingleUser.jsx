@@ -4,10 +4,10 @@ import { useContext } from "react";
 import { UserContext } from "../../contexts/userContext";
 import { Link, useParams } from "react-router-dom";
 import Avatar from "@mui/material/Avatar";
-import { PostContext } from "../../contexts/postContext";
 import { styled } from "@mui/material/styles";
 import { Box, Grid, Typography } from "@mui/material";
 import TweetCard from "./card_widgets/TweetCard";
+import { PostContext } from "../../contexts/postContext";
 
 const Container = styled(Box)(({ theme }) => ({
   display: "flex",
