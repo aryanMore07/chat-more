@@ -61,7 +61,7 @@ const LeftContainer = styled(Box)(({ theme }) => ({
 }));
 
 const RightContainer = styled(Box)(({ theme }) => ({
-  width: "auto",
+  width: "13%",
   margin: "auto",
   display: "flex",
   flexDirection: "column",
@@ -146,9 +146,9 @@ const HomeComponent = () => {
           <Grid item xs={0} sm={2} md={2} sx={{ position: "relative" }}>
             <LeftContainer>
               <List>
-                {sideNavigationContext.menu_links.map((menu) => {
+                {sideNavigationContext.menu_links.map((menu, index) => {
                   return (
-                    <ListItem disablePadding>
+                    <ListItem disablePadding key={index}>
                       <ListItemButtonComponent
                         onClick={() => {
                           navigate(menu.path);
