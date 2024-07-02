@@ -108,19 +108,19 @@ export const PostProvider = ({ children }) => {
                         authorization: encodedToken
                     }
                 })
-                if (response.status === 200 || response.status === 201) {
-                    setBookmarkdata(response.data.bookmarks);
-                    toast.success(`Removed from Favourites!`, {
-                        position: "top-center",
-                        autoClose: 1000,
-                        hideProgressBar: false,
-                        closeOnClick: true,
-                        pauseOnHover: true,
-                        draggable: true,
-                        progress: undefined,
-                        theme: "light",
-                    });
-                }
+            if (response.status === 200 || response.status === 201) {
+                setBookmarkdata(response.data.bookmarks);
+                toast.success(`Removed from Favourites!`, {
+                    position: "top-center",
+                    autoClose: 1000,
+                    hideProgressBar: false,
+                    closeOnClick: true,
+                    pauseOnHover: true,
+                    draggable: true,
+                    progress: undefined,
+                    theme: "light",
+                });
+            }
         } catch (error) {
         }
     }
@@ -332,5 +332,5 @@ export const PostProvider = ({ children }) => {
         fetchUserBookmarks();
     }, [postData, bookmarkData])
 
-    return <PostContext.Provider value={{ postData, postMessage, bookmarkData, addToBookmark, removeFromBookmark, likePost, dislikePost, deletePost, editPost, addComment, editComment, deleteComment, bookmarkPost }}>{children}</PostContext.Provider>
+    return <PostContext.Provider value={{ postData, postMessage, bookmarkData, addToBookmark, removeFromBookmark, likePost, dislikePost, deletePost, editPost, addComment, editComment, deleteComment, bookmarkPost, fetchUserBookmarks }}>{children}</PostContext.Provider>
 }

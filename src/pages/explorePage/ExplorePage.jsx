@@ -1,106 +1,49 @@
-import React from 'react';
-import './explorePage.css';
-import { useContext } from 'react';
-import { PostContext } from '../../contexts/postContext';
-import FavoriteBorderIcon from '@mui/icons-material/FavoriteBorder';
-import ChatBubbleOutlineIcon from '@mui/icons-material/ChatBubbleOutline';
-import BookmarkBorderIcon from '@mui/icons-material/BookmarkBorder';
-import Avatar from '@mui/material/Avatar';
-import PostSettingComponent from '../../component/postSettingComponent/PostSettingComponent';
-import BookmarkIcon from '@mui/icons-material/Bookmark';
-import FavoriteIcon from '@mui/icons-material/Favorite';
-import { useLocation, useNavigate } from 'react-router';
-import { UserContext } from '../../contexts/userContext';
-import { PostTime } from '../../utils/postTime/PostTime';
+/* eslint-disable react-hooks/exhaustive-deps */
+import React from "react";
+import "./explorePage.css";
+import { useContext } from "react";
+import { PostContext } from "../../contexts/postContext";
+import { styled } from "@mui/material/styles";
+import { Box, Grid, Typography } from "@mui/material";
+import TweetCard from "./card_widgets/TweetCard";
+
+const Container = styled(Box)(({ theme }) => ({
+  display: "flex",
+  flexDirection: "column",
+  rowGap: theme.spacing(1),
+  padding: `${theme.spacing(2)} 0px`,
+  width: "95%",
+  margin: "auto",
+  boxSizing: "border-box",
+  [theme.breakpoints.down("sm")]: {
+    width: "100%",
+  },
+}));
+
+const Heading = styled(Typography)(({ theme }) => ({
+  fontSize: "24px",
+  fontWeight: 600,
+  fontFamily: "Poppins",
+  margin: `${theme.spacing(2)} 0px`,
+}));
 
 const ExploreComponent = () => {
-
-  let location = useLocation();
-  const navigate = useNavigate();
-  const { state } = useContext(UserContext);
-  const { postData, bookmarkPost, addToBookmark, removeFromBookmark, likePost, dislikePost } = useContext(PostContext);
-  const bookmarkedPost = (postId) => bookmarkPost.find((post) => post._id === postId);
-  const likedPost = (postId) => postData.find(({ _id, likes }) => _id === postId && likes.likedBy.find(({ _id }) => _id === state.userDetails._id));
+  const { postData } = useContext(PostContext);
 
   return (
-    <div className='explore-posts-div'>
-      <div className='explore-div'>
-        <h4><b>Explore</b></h4>
-        {
-          postData.map((post) => {
-            const { _id, username, content, likes, image, firstName, lastName, comments, createdAt } = post;
-            return (
-              <div key={_id} className='explore-post'>
-                <div className='user-img'>
-                  <Avatar alt={username} src={image} />
-                </div>
-                <div className='explore-post-details'>
-                  <div style={{
-                    display: 'flex',
-                    width: '100%',
-                    justifyContent: 'space-between'
-                  }}>
-                    <p onClick={() => {
-                      if (username === state?.userDetails?.username) {
-                        navigate('/profile', { state: { from: location } });
-                      } else {
-                        navigate(`/users/${username}`, { state: { from: location } });
-                      }
-                    }} className='user-tag' style={{ marginLeft: '15px' }}><b>{firstName}{lastName}</b> <span style={{ color: '#9a9a9a' }}>@{username} | {PostTime(createdAt)}</span></p>
-                    <div>
-                      <PostSettingComponent userName={username} postId={_id} />
-                    </div>
-                  </div>
-                  <div className='users-content'>
-                    <div onClick={() => {
-                      navigate(`/${_id}`, { state: { from: location } });
-                    }}>
-                      {content}
-
-                    </div>
-                    <hr />
-                    <div className='icons-div'>
-                      {
-                        likedPost(_id) ?
-                          (
-                            <span className='icons' onClick={() => {
-                              dislikePost(_id)
-                            }}><FavoriteIcon /> {likes.likeCount}</span>
-                          )
-                          :
-                          (
-                            <span className='icons' onClick={() => {
-                              likePost(_id)
-                            }}><FavoriteBorderIcon /> {likes.likeCount}</span>
-                          )
-                      }
-                      <span className='icons' onClick={() => {
-                        navigate(`/${_id}`, { state: { from: location } });
-                      }}><ChatBubbleOutlineIcon /> {comments.length}</span>
-                      {
-                        bookmarkedPost(_id) ?
-                          (
-                            <span className='icons' onClick={() => {
-                              removeFromBookmark(_id)
-                            }}><BookmarkIcon /></span>
-                          )
-                          :
-                          (
-                            <span className='icons' onClick={() => {
-                              addToBookmark(_id)
-                            }} ><BookmarkBorderIcon /></span>
-                          )
-                      }
-                    </div>
-                  </div>
-                </div>
-              </div>
-            )
-          })
-        }
-      </div>
-    </div >
-  )
-}
+    <Container>
+      <Heading>Explore</Heading>
+      <Grid container spacing={2}>
+        {postData.map((post, index) => {
+          return (
+            <Grid xs={12} sm={12} md={12} item key={index}>
+              <TweetCard data={post} />
+            </Grid>
+          );
+        })}
+      </Grid>
+    </Container>
+  );
+};
 
 export default ExploreComponent;

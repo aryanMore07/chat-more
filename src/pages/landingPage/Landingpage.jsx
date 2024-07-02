@@ -39,6 +39,9 @@ const RightContainer = styled(Box)(({ theme }) => ({
   display: "flex",
   justifyContent: "center",
   alignItems: "center",
+  [theme.breakpoints.down("sm")]: {
+    display: "none",
+  },
 }));
 
 const LeftSideHeading = styled(Box)(({ theme }) => ({
@@ -92,7 +95,7 @@ const Landingpage = () => {
   return (
     <Container>
       <InnerContainer>
-        <Grid container spacing={matches && 4}>
+        <Grid container spacing={matches ? 4 : 0}>
           <Grid item xs={12} sm={12} md={6}>
             <LeftContainer>
               <Box>
@@ -150,7 +153,7 @@ const Landingpage = () => {
               </Box>
             </LeftContainer>
           </Grid>
-          <Grid item xs={12} sm={12} md={6}>
+          <Grid item xs={0} sm={12} md={6}>
             <RightContainer>
               <Image src={landingPageImage} alt="social-app" />
             </RightContainer>

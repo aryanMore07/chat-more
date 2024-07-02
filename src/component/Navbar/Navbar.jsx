@@ -9,6 +9,9 @@ const Container = styled(Box)(({ theme }) => ({
   width: "100%",
   height: "65px",
   backgroundColor: "#2c394b",
+  position: "sticky",
+  top: "0px",
+  zIndex: 10,
 }));
 
 const InnerContainer = styled(Box)(({ theme }) => ({

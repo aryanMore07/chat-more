@@ -1,154 +1,164 @@
-import React, { useContext } from 'react';
-import './postTweet.css';
-import Avatar from '@mui/material/Avatar';
-import { UserContext } from '../../contexts/userContext';
+import React, { useContext } from "react";
+import "./postTweet.css";
+import Avatar from "@mui/material/Avatar";
+import { UserContext } from "../../contexts/userContext";
 import TextField from "@mui/material/TextField";
-import { PostContext } from '../../contexts/postContext';
-import { useState } from 'react';
-import FilterPostPopOver from '../filterPostPopOver/FilterPostPopOver';
-import { FilteredPostContext } from '../../contexts/filterPostContext';
-import { PostTime } from '../../utils/postTime/PostTime';
-import PostSettingComponent from '../postSettingComponent/PostSettingComponent';
-import FavoriteBorderIcon from '@mui/icons-material/FavoriteBorder';
-import ChatBubbleOutlineIcon from '@mui/icons-material/ChatBubbleOutline';
-import BookmarkBorderIcon from '@mui/icons-material/BookmarkBorder';
-import BookmarkIcon from '@mui/icons-material/Bookmark';
-import FavoriteIcon from '@mui/icons-material/Favorite';
-import { useLocation, useNavigate } from 'react-router';
+import { PostContext } from "../../contexts/postContext";
+import { useState } from "react";
+import FilterPostPopOver from "../filterPostPopOver/FilterPostPopOver";
+import { FilteredPostContext } from "../../contexts/filterPostContext";
+import { Box, Button, Card, Grid, Stack, Typography } from "@mui/material";
+import { styled } from "@mui/material/styles";
+import TweetCard from "./card_widgets/TweetCard";
+import { theme } from "../../utils/theme";
+
+const Container = styled(Box)(({ theme }) => ({
+  display: "flex",
+  flexDirection: "column",
+  rowGap: theme.spacing(1),
+  padding: `${theme.spacing(2)} 0px`,
+  width: "95%",
+  margin: "auto",
+  boxSizing: "border-box",
+  [theme.breakpoints.down("sm")]: {
+    width: "100%",
+  },
+}));
+
+const TopContainer = styled(Card)(({ theme }) => ({
+  display: "flex",
+  padding: theme.spacing(2),
+  boxSizing: "border-box",
+  width: "100%",
+}));
+
+const InputContainer = styled(Box)(({ theme }) => ({
+  display: "flex",
+  flexDirection: "column",
+  width: "100%",
+  rowGap: theme.spacing(2),
+  alignItems: "flex-end",
+}));
+
+const TextFieldComponent = styled(TextField)(({ theme }) => ({
+  width: "100%",
+  "& .MuiFilledInput-root": {
+    borderRadius: "0px",
+  },
+}));
+
+const PostButton = styled(Button)(({ theme }) => ({
+  fontWeight: 500,
+  width: "150px",
+  "&:hover": {
+    backgroundColor: theme.palette.primary.main,
+    color: "#fff",
+  },
+}));
+
+const AvatarContainer = styled(Box)(({ theme }) => ({
+  width: "50px",
+  height: "50px",
+  display: "flex",
+  justifyContent: "flex-start",
+  alignItems: "center",
+}));
+
+const Heading = styled(Typography)(({ theme }) => ({
+  fontSize: "24px",
+  fontWeight: 600,
+  fontFamily: "Poppins",
+  margin: `${theme.spacing(2)} 0px`,
+}));
 
 const PostTweetComponent = () => {
-
-
-  let location = useLocation();
-  const navigate = useNavigate();
   const { state } = useContext(UserContext);
-  const { postMessage, bookmarkPost, postData, dislikePost, addToBookmark, removeFromBookmark, likePost, } = useContext(PostContext);
+  const { postMessage } = useContext(PostContext);
   const { filterPostData } = useContext(FilteredPostContext);
   const { firstName, lastName, username, image } = state.userDetails;
-  const bookmarkedPost = (postId) => bookmarkPost.find((post) => post._id === postId);
-  const likedPost = (postId) => postData.find(({ _id, likes }) => _id === postId && likes.likedBy.find(({ _id }) => _id === state.userDetails._id));
 
-  const [input, setInput] = useState({ content: "", firstName: "", lastName: "", username: "", image: "", comments: [] });
+  const [input, setInput] = useState({
+    content: "",
+    firstName: "",
+    lastName: "",
+    username: "",
+    image: "",
+    comments: [],
+  });
 
   const postBtnHandler = () => {
-    // console.log(input.content === '');
     if (input.content === "") {
-      alert('Please input the feild')
+      alert("Please input the feild");
     } else {
       postMessage(input);
-      setInput({ content: "", firstName: "", lastName: "", username: "", image: "", comments: [] });
+      setInput({
+        content: "",
+        firstName: "",
+        lastName: "",
+        username: "",
+        image: "",
+        comments: [],
+      });
     }
-  }
-
+  };
   return (
-    <div style={{ padding: '3rem' }}>
-      <h4 style={{ textAlign: 'center', marginBottom: '10px' }}><b>Home</b></h4>
-      <div className='post-something-div'>
-        <div className='post-user-profile-div'>
-          <Avatar alt={state.userDetails.firstName} src={state.userDetails.image} />
-        </div>
-        <div style={{ width: '100%', padding: '18px' }}>
-          <div className='input-div'>
-            <TextField
-              id="filled-multiline-static"
-              label="Whats happening...?"
-              multiline
-              rows={4}
-              variant="filled"
-              className='post-input'
-              value={input.content}
-              onChange={(event) => {
-                setInput({ content: event.target.value, firstName: firstName, lastName: lastName, username: username, image: image, comments: [] });
-              }}
-            />
-          </div>
-          <div className='post-btn-div'>
-            <button className='post-btn' onClick={postBtnHandler}>Post</button>
-          </div>
-        </div>
-      </div>
-      <div className='filter-div'>
+    <Container>
+      <Heading>Home</Heading>
+      <TopContainer>
+        <AvatarContainer>
+          <Avatar
+            alt={state.userDetails.firstName}
+            src={state.userDetails.image}
+          />
+        </AvatarContainer>
+        <InputContainer>
+          <TextFieldComponent
+            id="filled-multiline-static"
+            label="Whats happening...?"
+            multiline
+            rows={4}
+            variant="filled"
+            value={input.content}
+            onChange={(event) => {
+              setInput({
+                content: event.target.value,
+                firstName: firstName,
+                lastName: lastName,
+                username: username,
+                image: image,
+                comments: [],
+              });
+            }}
+          />
+          <PostButton variant="outlined" onClick={postBtnHandler}>
+            Post
+          </PostButton>
+        </InputContainer>
+      </TopContainer>
+      <Stack
+        direction="row"
+        justifyContent="flex-end"
+        alignItems="center"
+        sx={{ margin: `${theme.spacing(1)} 0px`, width: "100%" }}
+      >
         <FilterPostPopOver />
-      </div>
-      <div className='user-posts'>
-              {
-                filterPostData.length === 0 && <h1>No posts to show!</h1>
-              }
-        {
-          filterPostData.map((post) => {
-            const { _id, username, content, likes, image, firstName, lastName, comments, createdAt } = post;
-            return (
-              <div key={_id} className='explore-post'>
-                <div className='user-img'>
-                  <Avatar alt={username} src={image} />
-                </div>
-                <div className='explore-post-details'>
-                  <div style={{
-                    display: 'flex',
-                    width: '100%',
-                    justifyContent: 'space-between'
-                  }}>
-                    <p onClick={() => {
-                      if (username === state?.userDetails?.username) {
-                        navigate('/profile', { state: { from: location } });
-                      } else {
-                        navigate(`/users/${username}`, { state: { from: location } });
-                      }
-                    }} className='user-tag' style={{ marginLeft: '15px' }}><b>{firstName}{lastName}</b> <span style={{ color: '#9a9a9a' }}>@{username} | {PostTime(createdAt)}</span></p>
-                    <div>
-                      <PostSettingComponent postId={_id} userName={username} />
-                    </div>
-                  </div>
-                  <div className='users-content'>
-                    <div onClick={() => {
-                      navigate(`/${_id}`, { state: { from: location } });
-                    }}>
-                      {content}
-                    </div>
-                    <hr />
-                    <div className='icons-div'>
-                      {
-                        likedPost(_id) ?
-                          (
-                            <span className='icons' onClick={() => {
-                              dislikePost(_id)
-                            }}><FavoriteIcon /> {likes.likeCount}</span>
-                          )
-                          :
-                          (
-                            <span className='icons' onClick={() => {
-                              likePost(_id)
-                            }}><FavoriteBorderIcon /> {likes.likeCount}</span>
-                          )
-                      }
-                      <span className='icons' onClick={() => {
-                        navigate(`/${_id}`, { state: { from: location } });
-                        // <Navigate to={`/${_id}`} state={{ from: location }} />
-                      }}><ChatBubbleOutlineIcon /> {comments.length}</span>
-                      {
-                        bookmarkedPost(_id) ?
-                          (
-                            <span className='icons' onClick={() => {
-                              removeFromBookmark(_id)
-                            }}><BookmarkIcon /></span>
-                          )
-                          :
-                          (
-                            <span className='icons' onClick={() => {
-                              addToBookmark(_id)
-                            }} ><BookmarkBorderIcon /></span>
-                          )
-                      }
-                    </div>
-                  </div>
-                </div>
-              </div>
-            )
-          })
-        }
-      </div>
-    </div>
-  )
-}
+      </Stack>
+      <Grid container spacing={2}>
+        {filterPostData.length === 0 && (
+          <Grid item md={12}>
+            <h1>No posts to show!</h1>
+          </Grid>
+        )}
+        {filterPostData.map((post, index) => {
+          return (
+            <Grid item xs={12} sm={12} md={12} key={index}>
+              <TweetCard data={post} />
+            </Grid>
+          );
+        })}
+      </Grid>
+    </Container>
+  );
+};
 
 export default PostTweetComponent;
