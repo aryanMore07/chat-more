@@ -146,9 +146,9 @@ const HomeComponent = () => {
           <Grid item xs={0} sm={2} md={2} sx={{ position: "relative" }}>
             <LeftContainer>
               <List>
-                {sideNavigationContext.menu_links.map((menu) => {
+                {sideNavigationContext.menu_links.map((menu, index) => {
                   return (
-                    <ListItem disablePadding>
+                    <ListItem disablePadding key={index}>
                       <ListItemButtonComponent
                         onClick={() => {
                           navigate(menu.path);

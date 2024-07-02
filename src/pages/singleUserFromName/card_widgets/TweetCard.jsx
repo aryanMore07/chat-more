@@ -7,7 +7,7 @@ import BookmarkIcon from "@mui/icons-material/Bookmark";
 import FavoriteIcon from "@mui/icons-material/Favorite";
 import { styled } from "@mui/material/styles";
 import { Box, Card, Divider, IconButton, Typography } from "@mui/material";
-import { useLocation, useNavigate, useParams } from "react-router";
+import { useLocation, useNavigate } from "react-router";
 import { UserContext } from "../../../contexts/userContext";
 import { PostContext } from "../../../contexts/postContext";
 import { PostTime } from "../../../utils/postTime/PostTime";
@@ -104,11 +104,11 @@ function TweetCard({ data }) {
     likes,
     createdAt,
     comments,
+    image,
   } = data;
 
   const navigate = useNavigate();
   const location = useLocation();
-  const { userId } = useParams();
 
   const { state } = useContext(UserContext);
   const {
@@ -119,9 +119,6 @@ function TweetCard({ data }) {
     likePost,
     dislikePost,
   } = useContext(PostContext);
-
-  // Function to find the Selected user Details
-  const selectedUserData = state.allUser.find((user) => user._id === userId);
 
   // Function to find whether the user have bookmarked the post or not
   const bookmarkedPost = (postId) =>
@@ -139,10 +136,7 @@ function TweetCard({ data }) {
     <CardComponent>
       <CardInnerContainer>
         <AvatarContainer>
-          <Avatar
-            alt={selectedUserData.firstName}
-            src={selectedUserData.image}
-          />
+          <Avatar alt={firstName} src={image} />
         </AvatarContainer>
         <RightContainer>
           <CardTopContainer>

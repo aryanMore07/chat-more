@@ -53,7 +53,6 @@ const LogoutComponent = () => {
         <MenuItem
           onClick={() => {
             localStorage.clear();
-            console.log("logout");
             dispatch({ type: "LOGOUT_USER" });
           }}
         >
