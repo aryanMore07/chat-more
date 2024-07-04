@@ -1,5 +1,5 @@
 /* eslint-disable react-hooks/exhaustive-deps */
-import React, { useContext } from "react";
+import React, { useContext, useState, useEffect } from "react";
 import "./homePage.css";
 import RocketLaunchIcon from "@mui/icons-material/RocketLaunch";
 import BookmarkRoundedIcon from "@mui/icons-material/BookmarkRounded";
@@ -26,6 +26,7 @@ import {
 } from "@mui/material";
 import LogoutIcon from "@mui/icons-material/Logout";
 import { Search } from "@mui/icons-material";
+import SearchModel from "./models/SearchModel";
 
 const Container = styled(Box)(({ theme }) => ({
   width: "90%",
@@ -100,8 +101,40 @@ const ListItemIconComponent = styled(ListItemIcon)(({ theme }) => ({
 
 const Input = styled(OutlinedInput)(({ theme }) => ({
   width: "auto",
-  borderRadius: "50px",
   height: "45px",
+  minHeight: "34px",
+  minWidth: "34px",
+  display: "flex",
+  alignItems: "center",
+  margin: "0px",
+  paddingLeft: "4.8px",
+  position: "relative",
+  backgroundColor: "rgb(246, 247, 248)",
+  color: "rgb(48, 55, 65)",
+  fontSize: "0.875rem",
+  border: "1px solid rgb(223, 226, 231)",
+  borderRadius: "12px",
+  cursor: "pointer",
+  transitionProperty: "all",
+  transitionDuration: "150ms",
+  boxShadow:
+    "rgb(255, 255, 255) 0px 2px 0px inset, rgba(232, 234, 238, 0.5) 0px -1.5px 0px inset, rgba(223, 226, 231, 0.5) 0px 1px 2px 0px",
+  "&.MuiOutlinedInput-root": {
+    "&:hover": {
+      borderColor: "transparent",
+    },
+  },
+}));
+
+const Kbd = styled("span")(({ theme }) => ({
+  fontSize: "0.75rem",
+  fontWeight: "bold",
+  lineHeight: "20px",
+  marginLeft: "4px",
+  border: "1px solid rgb(48, 56, 64)",
+  backgroundColor: "white",
+  padding: "0px 4px",
+  borderRadius: "7px",
 }));
 
 const HomeComponent = () => {
@@ -109,6 +142,7 @@ const HomeComponent = () => {
   const { pathname } = useLocation();
   const matches = useMediaQuery(theme.breakpoints.down("sm"));
   const { state, dispatch, searchedData } = useContext(UserContext);
+  const [openSearchModel, setOpenSearchModel] = useState(false);
 
   const renderNavIcons = (menuName) => {
     let isActive = pathname === `/${menuName.toLowerCase()}`;
@@ -138,6 +172,21 @@ const HomeComponent = () => {
       );
     }
   };
+
+  useEffect(() => {
+    const handleKeyDown = (event) => {
+      if (event.ctrlKey && event.key === "s") {
+        event.preventDefault();
+        setOpenSearchModel(true);
+      }
+    };
+
+    window.addEventListener("keydown", handleKeyDown);
+
+    return () => {
+      window.removeEventListener("keydown", handleKeyDown);
+    };
+  }, []);
 
   return (
     <>
@@ -207,6 +256,9 @@ const HomeComponent = () => {
           <Grid item xs={0} sm={0} md={2}>
             <RightContainer>
               <Input
+                onClick={() => {
+                  setOpenSearchModel(!openSearchModel);
+                }}
                 placeholder="Search Users..."
                 aria-label="usernames"
                 onChange={(event) => {
@@ -218,35 +270,12 @@ const HomeComponent = () => {
                     <Search />
                   </InputAdornment>
                 }
+                endAdornment={
+                  <InputAdornment position="end">
+                    <Kbd>Ctrl+S</Kbd>
+                  </InputAdornment>
+                }
               />
-              {state.userInput && (
-                <List>
-                  {searchedData.map((user) => {
-                    const { _id, firstName, lastName, username, image } = user;
-                    return (
-                      <ListItem disablePadding key={_id}>
-                        <ListItemButtonComponent
-                          onClick={() => {
-                            navigate(`/user/${_id}`);
-                          }}
-                        >
-                          <ListItemIconComponent>
-                            <Avatar
-                              sx={{ marginRight: theme.spacing(2) }}
-                              alt={firstName}
-                              src={image}
-                            />
-                          </ListItemIconComponent>
-                          <ListItemTextComponent
-                            primary={`${firstName} ${lastName}`}
-                            secondary={`@${username}`}
-                          />
-                        </ListItemButtonComponent>
-                      </ListItem>
-                    );
-                  })}
-                </List>
-              )}
             </RightContainer>
           </Grid>
         </Grid>
@@ -278,6 +307,7 @@ const HomeComponent = () => {
           </Paper>
         )}
       </Container>
+      <SearchModel open={openSearchModel} setOpen={setOpenSearchModel} />
     </>
   );
 };

@@ -154,11 +154,11 @@ export const UserProvider = ({ children }) => {
   // Search filter function
   const searchedData = state.userInput
     ? state.allUser.filter(
-        (user) =>
-          user.username.toLowerCase() !==
-            state.userDetails.username.toLowerCase() &&
-          user.username.toLowerCase().includes(state.userInput.toLowerCase())
-      )
+      (user) =>
+        user.username.toLowerCase() !==
+        state.userDetails.username.toLowerCase() &&
+        user.username.toLowerCase().includes(state.userInput.toLowerCase())
+    )
     : [];
 
   // All user without the loggedin user
