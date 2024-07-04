@@ -141,7 +141,7 @@ const HomeComponent = () => {
   const navigate = useNavigate();
   const { pathname } = useLocation();
   const matches = useMediaQuery(theme.breakpoints.down("sm"));
-  const { state, dispatch, searchedData } = useContext(UserContext);
+  const { state, dispatch } = useContext(UserContext);
   const [openSearchModel, setOpenSearchModel] = useState(false);
 
   const renderNavIcons = (menuName) => {
