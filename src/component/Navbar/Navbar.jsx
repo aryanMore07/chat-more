@@ -1,7 +1,7 @@
 import React from "react";
 import "./navbar.css";
 import SearchComponent from "../searchComponent/SearchComponent";
-import { useLocation } from "react-router";
+import { useLocation, useNavigate } from "react-router";
 import { styled } from "@mui/material/styles";
 import { Box, Typography } from "@mui/material";
 
@@ -20,15 +20,20 @@ const InnerContainer = styled(Box)(({ theme }) => ({
   margin: "auto",
   display: "flex",
   alignItems: "center",
+  justifyContent: "space-between",
 }));
 
 const Heading = styled(Typography)(({ theme }) => ({
   fontSize: "32px",
   fontFamily: "Carter One",
+  "&:hover": {
+    cursor: "pointer",
+  },
 }));
 
 const Navbar = () => {
   const location = useLocation();
+  const navigate = useNavigate();
 
   const checkLocation =
     location.pathname === "/home" ||
@@ -39,17 +44,18 @@ const Navbar = () => {
   return (
     <Container>
       <InnerContainer>
-        <Heading>
+        <Heading
+          onClick={() => {
+            navigate("/home");
+          }}
+        >
           <span style={{ color: "#ff3b30" }}>Chat</span>
           <span style={{ color: "white" }}>More</span>
         </Heading>
 
-        <div
-          className="search-div"
-          style={{ display: checkLocation ? "block" : "none" }}
-        >
+        <Box style={{ display: checkLocation ? "block" : "none" }}>
           <SearchComponent />
-        </div>
+        </Box>
       </InnerContainer>
     </Container>
   );

@@ -105,17 +105,16 @@ const PostBtn = styled(Button)(({ theme }) => ({
 
 const CardTopContainer = styled(Box)(({ theme }) => ({
   width: "100%",
-  //   height: "100%",
   display: "flex",
   gap: theme.spacing(1),
 }));
 
 const AvatarContainer = styled(Box)(({ theme }) => ({
-  width: "fit-content",
-  height: "50px",
   display: "flex",
   justifyContent: "center",
   alignItems: "center",
+  width: "46px",
+  height: "46px",
 }));
 
 const UsernameText = styled(Typography)(({ theme }) => ({
@@ -148,6 +147,12 @@ const CommentsContainer = styled(Card)(({ theme }) => ({
   boxSizing: "border-box",
 }));
 
+const AvatarComponent = styled(Avatar)(({ theme }) => ({
+  "& .MuiAvatar-root": {
+    height: "auto",
+  },
+}));
+
 const SinglePost = () => {
   const navigate = useNavigate();
   const location = useLocation();
@@ -161,6 +166,7 @@ const SinglePost = () => {
     removeFromBookmark,
     dislikePost,
     addComment,
+    likePost,
   } = useContext(PostContext);
   const bookmarkedPost = (postId) =>
     bookmarkPost.find((post) => post._id === postId);
@@ -214,7 +220,7 @@ const SinglePost = () => {
         <PostCardContainer>
           <CardTopContainer>
             <AvatarContainer>
-              <Avatar alt={firstName} src={image} />
+              <AvatarComponent alt={firstName} src={image} />
             </AvatarContainer>
             <Stack
               direction="row"
@@ -249,7 +255,12 @@ const SinglePost = () => {
                 )}
               </IconButtonComponent>
             ) : (
-              <IconButtonComponent disableRipple>
+              <IconButtonComponent
+                onClick={() => {
+                  likePost(_id);
+                }}
+                disableRipple
+              >
                 <FavoriteBorderIcon sx={{ fontSize: "20px" }} />{" "}
                 {likes.likeCount !== 0 && (
                   <IconsText>{likes.likeCount}</IconsText>
@@ -295,15 +306,18 @@ const SinglePost = () => {
           <Grid container spacing={1}>
             <Grid item xs={2} sm={1} md={1}>
               <Stack
-                sx={{ height: "100%" }}
-                justifyItems="center"
-                alignItems="flex-end"
+                sx={{
+                  height: "100%",
+                  alignItems: "center",
+                  justifyContent: "center",
+                }}
               >
-                <Avatar
-                  sx={{ height: "100%", width: "50px" }}
-                  alt={state.userDetails.firstName}
-                  src={state.userDetails.image}
-                />
+                <AvatarContainer>
+                  <AvatarComponent
+                    alt={state.userDetails.firstName}
+                    src={state.userDetails.image}
+                  />
+                </AvatarContainer>
               </Stack>
             </Grid>
             <Grid item xs={10} sm={9} md={9}>
@@ -342,7 +356,7 @@ const SinglePost = () => {
                 <CommentsContainer>
                   <CardTopContainer>
                     <AvatarContainer>
-                      <Avatar alt={firstName} src={image} />
+                      <AvatarComponent alt={firstName} src={image} />
                     </AvatarContainer>
                     <Stack
                       direction="row"

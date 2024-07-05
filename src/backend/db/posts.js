@@ -1,6 +1,6 @@
 import { v4 as uuid } from "uuid";
 import { formatDate } from "../utils/authUtils";
-import aryan from "../../images/myProfilePicture.jpeg";
+import aryan from "../../images/aryan.jpeg";
 import rupeshPic from "../../images/rupesh.jpeg";
 import yashPic from "../../images/yash.jpeg";
 import tirthPic from "../../images/tirth.jpeg";
@@ -46,7 +46,7 @@ const twitter_quotes = [
 
 export const posts = [
   {
-    _id: "aryanPost",
+    _id: uuid(),
     firstName: "Aryan",
     lastName: "More",
     content: twitter_quotes[Math.floor(Math.random() * twitter_quotes.length)],
@@ -60,6 +60,8 @@ export const posts = [
       {
         _id: uuid(),
         image: aryan,
+        firstName: "Aryan",
+        lastName: "More",
         username: "aryanmore2110",
         text: "Nice read",
         votes: {
@@ -69,7 +71,7 @@ export const posts = [
       },
     ],
     username: "aryanmore2110",
-    createdAt: "2023-04-10T12:31:25Z",
+    createdAt: "2024-06-10T12:31:25Z",
     updatedAt: formatDate(),
   },
   {
@@ -87,6 +89,8 @@ export const posts = [
       {
         _id: uuid(),
         image: aryan,
+        firstName: "Aryan",
+        lastName: "More",
         username: "aryanmore2110",
         text: "Nice read",
         votes: {
@@ -96,7 +100,7 @@ export const posts = [
       },
     ],
     username: "rupeshsoni",
-    createdAt: "2023-04-10T12:31:25Z",
+    createdAt: "2024-04-10T12:31:25Z",
     updatedAt: formatDate(),
   },
   {
@@ -123,7 +127,7 @@ export const posts = [
       },
     ],
     username: "yashmali",
-    createdAt: "2023-04-10T12:31:25Z",
+    createdAt: "2024-04-10T12:31:25Z",
     updatedAt: formatDate(),
   },
   {
@@ -141,6 +145,8 @@ export const posts = [
       {
         _id: uuid(),
         image: aryan,
+        firstName: "Aryan",
+        lastName: "More",
         username: "aryanmore2110",
         text: "Nice read",
         votes: {
@@ -150,7 +156,7 @@ export const posts = [
       },
     ],
     username: "tirthbaraiya",
-    createdAt: "2023-04-10T12:31:25Z",
+    createdAt: "2024-04-10T12:31:25Z",
     updatedAt: formatDate(),
   },
   {
@@ -168,6 +174,8 @@ export const posts = [
       {
         _id: uuid(),
         image: aryan,
+        firstName: "Aryan",
+        lastName: "More",
         username: "aryanmore2110",
         text: "Nice read",
         votes: {
@@ -177,7 +185,7 @@ export const posts = [
       },
     ],
     username: "dhavalvaghela",
-    createdAt: "2023-04-10T12:31:25Z",
+    createdAt: "2024-04-10T12:31:25Z",
     updatedAt: formatDate(),
   },
   {
@@ -194,6 +202,8 @@ export const posts = [
     comments: [
       {
         _id: uuid(),
+        firstName: "Jane",
+        lastName: "Doe",
         username: "janedoe",
         text: "I agree!! Feels like we should go for outing. What say?",
         votes: {
@@ -203,7 +213,7 @@ export const posts = [
       },
     ],
     username: "michaelbrown",
-    createdAt: "2023-04-10T12:31:25Z",
+    createdAt: "2024-04-10T12:31:25Z",
     updatedAt: formatDate(),
   },
   {
@@ -220,6 +230,8 @@ export const posts = [
     comments: [
       {
         _id: uuid(),
+        firstName: "Jane",
+        lastName: "Doe",
         username: "janedoe",
         text: "I agree!! Feels like we should go for outing. What say?",
         votes: {
@@ -229,7 +241,7 @@ export const posts = [
       },
     ],
     username: "johndoe",
-    createdAt: "2023-04-10T12:31:25Z",
+    createdAt: "2024-04-10T12:31:25Z",
     updatedAt: formatDate(),
   },
   {
@@ -246,6 +258,8 @@ export const posts = [
     comments: [
       {
         _id: uuid(),
+        firstName: "Jane",
+        lastName: "Doe",
         username: "janedoe",
         text: "I agree!! Feels like we should go for outing. What say?",
         votes: {
@@ -255,7 +269,7 @@ export const posts = [
       },
     ],
     username: "johndoe",
-    createdAt: "2023-04-10T12:31:25Z",
+    createdAt: "2024-04-10T12:31:25Z",
     updatedAt: formatDate(),
   },
   {
@@ -272,6 +286,8 @@ export const posts = [
     comments: [
       {
         _id: uuid(),
+        firstName: "Jane",
+        lastName: "Doe",
         username: "janedoe",
         text: "I agree!! Feels like we should go for outing. What say?",
         votes: {
@@ -281,13 +297,14 @@ export const posts = [
       },
     ],
     username: "johndoe",
-    createdAt: "2023-04-10T12:31:25Z",
+    createdAt: "2024-04-10T12:31:25Z",
     updatedAt: formatDate(),
   },
   {
     _id: uuid(),
     firstName: "Jane",
-    lastName: "Smith", content: twitter_quotes[Math.floor(Math.random() * twitter_quotes.length)],
+    lastName: "Smith",
+    content: twitter_quotes[Math.floor(Math.random() * twitter_quotes.length)],
     image: "https://randomuser.me/api/portraits/women/1.jpg",
     likes: {
       likeCount: 0,
@@ -296,7 +313,7 @@ export const posts = [
     },
     comments: [],
     username: "janesmith",
-    createdAt: "2023-04-10T12:31:25Z",
+    createdAt: "2024-04-10T12:31:25Z",
     updatedAt: formatDate(),
   },
   {
@@ -312,7 +329,7 @@ export const posts = [
     },
     comments: [],
     username: "michaelbrown",
-    createdAt: "2023-04-10T12:31:25Z",
+    createdAt: "2024-01-10T12:31:25Z",
     updatedAt: formatDate(),
   },
   {
@@ -329,7 +346,7 @@ export const posts = [
     },
     comments: [],
     username: "janesmith",
-    createdAt: "2023-04-10T12:31:25Z",
+    createdAt: "2024-01-10T12:31:25Z",
     updatedAt: formatDate(),
   },
   {
@@ -345,7 +362,7 @@ export const posts = [
     },
     comments: [],
     username: "alicejohnson",
-    createdAt: "2023-04-10T12:31:25Z",
+    createdAt: "2024-07-01T12:31:25Z",
     updatedAt: formatDate(),
   },
   {
@@ -361,7 +378,7 @@ export const posts = [
     },
     comments: [],
     username: "emilywilson",
-    createdAt: "2023-04-10T12:31:25Z",
+    createdAt: "2024-06-10T12:31:25Z",
     updatedAt: formatDate(),
   },
   {
@@ -377,7 +394,7 @@ export const posts = [
     },
     comments: [],
     username: "davidtaylor",
-    createdAt: "2023-04-10T12:31:25Z",
+    createdAt: "2023-012-10T12:31:25Z",
     updatedAt: formatDate(),
   },
   {
@@ -393,7 +410,7 @@ export const posts = [
     },
     comments: [],
     username: "janesmith",
-    createdAt: "2023-04-10T12:31:25Z",
+    createdAt: "2023-08-10T12:31:25Z",
     updatedAt: formatDate(),
   },
   {
@@ -409,7 +426,7 @@ export const posts = [
     },
     comments: [],
     username: "alicejohnson",
-    createdAt: "2023-04-10T12:31:25Z",
+    createdAt: "2024-02-10T12:31:25Z",
     updatedAt: formatDate(),
   },
 ];

@@ -25,7 +25,7 @@ import {
   useMediaQuery,
 } from "@mui/material";
 import LogoutIcon from "@mui/icons-material/Logout";
-import { Search } from "@mui/icons-material";
+import { FiSearch } from "react-icons/fi";
 import SearchModel from "./models/SearchModel";
 
 const Container = styled(Box)(({ theme }) => ({
@@ -143,16 +143,52 @@ const HomeComponent = () => {
   const matches = useMediaQuery(theme.breakpoints.down("sm"));
   const { state, dispatch } = useContext(UserContext);
   const [openSearchModel, setOpenSearchModel] = useState(false);
+  const [value, setValue] = React.useState("home");
 
-  const renderNavIcons = (menuName) => {
+  const handleChange = (event, newValue) => {
+    setValue(newValue);
+  };
+
+  const renderNavIcons = (menuName, path) => {
+    let isActive = pathname === path;
     if (menuName === "Home") {
-      return <HomeRoundedIcon sx={{ color: "#000" }} />;
+      return (
+        <HomeRoundedIcon
+          sx={{ color: isActive ? theme.palette.primary.main : "#000" }}
+        />
+      );
     } else if (menuName === "Explore") {
-      return <RocketLaunchIcon sx={{ color: "#000" }} />;
+      return (
+        <RocketLaunchIcon
+          sx={{ color: isActive ? theme.palette.primary.main : "#000" }}
+        />
+      );
     } else if (menuName === "Bookmarks") {
-      return <BookmarkRoundedIcon sx={{ color: "#000" }} />;
+      return (
+        <BookmarkRoundedIcon
+          sx={{ color: isActive ? theme.palette.primary.main : "#000" }}
+        />
+      );
     } else {
-      return <PersonRoundedIcon sx={{ color: "#000" }} />;
+      return (
+        <PersonRoundedIcon
+          sx={{ color: isActive ? theme.palette.primary.main : "#000" }}
+        />
+      );
+    }
+  };
+
+  const setBottomNavigationValues = () => {
+    if (pathname === "/home") {
+      setValue("home");
+    } else if (pathname === "/explore") {
+      setValue("explore");
+    } else if (pathname === "/bookmarks") {
+      setValue("bookmarks");
+    } else if (pathname === "/profile") {
+      setValue("profile");
+    } else {
+      setValue("");
     }
   };
 
@@ -170,6 +206,10 @@ const HomeComponent = () => {
       window.removeEventListener("keydown", handleKeyDown);
     };
   }, []);
+
+  useEffect(() => {
+    setBottomNavigationValues();
+  }, [pathname]);
 
   return (
     <>
@@ -230,8 +270,8 @@ const HomeComponent = () => {
                         />
                       </ListItemIcon>
                       <ListItemTextComponent
-                        primary={`${state.userDetails.firstName} 
-                      ${state.userDetails.lastName}`}
+                        primary={`${state.userDetails.firstName} ${state.userDetails.lastName}`}
+                        secondary={`@${state.userDetails.username}`}
                       />
                     </ListItemButtonComponent>
                   </ListItem>
@@ -258,7 +298,7 @@ const HomeComponent = () => {
                 color="secondary"
                 startAdornment={
                   <InputAdornment position="start">
-                    <Search />
+                    <FiSearch />
                   </InputAdornment>
                 }
                 endAdornment={
@@ -275,12 +315,14 @@ const HomeComponent = () => {
             sx={{ position: "fixed", bottom: 0, left: 0, right: 0 }}
             elevation={3}
           >
-            <BottomNavigation>
+            <BottomNavigation value={value} onChange={handleChange}>
               {sideNavigationContext.menu_links.map((menu, index) => {
                 return (
                   <BottomNavigationAction
                     key={index}
-                    icon={renderNavIcons(menu.text)}
+                    icon={renderNavIcons(menu.text, menu.path)}
+                    value={menu.text.toLowerCase()}
+                    label={menu.text}
                     onClick={() => {
                       navigate(menu.path);
                     }}

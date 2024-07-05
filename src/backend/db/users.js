@@ -1,6 +1,6 @@
 import { v4 as uuid } from "uuid";
 import { formatDate } from "../utils/authUtils";
-import aryanPic from '../../images/myProfilePicture.jpeg';
+import aryanPic from '../../images/aryan.jpeg';
 import dhavalPic from '../../images/dhaval.jpeg';
 import yashPic from '../../images/yash.jpeg';
 import rupeshPic from '../../images/rupesh.jpeg';
