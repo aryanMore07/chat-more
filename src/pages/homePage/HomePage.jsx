@@ -27,6 +27,7 @@ import {
 import LogoutIcon from "@mui/icons-material/Logout";
 import { FiSearch } from "react-icons/fi";
 import SearchModel from "./models/SearchModel";
+import ConfirmLogoutModel from "./models/ConfirmLogoutModel";
 
 const Container = styled(Box)(({ theme }) => ({
   width: "90%",
@@ -143,6 +144,7 @@ const HomeComponent = () => {
   const matches = useMediaQuery(theme.breakpoints.down("sm"));
   const { state, dispatch } = useContext(UserContext);
   const [openSearchModel, setOpenSearchModel] = useState(false);
+  const [openConfirmLoginModel, setOpenConfirmLoginModel] = useState(false);
   const [value, setValue] = React.useState("home");
 
   const handleChange = (event, newValue) => {
@@ -331,8 +333,7 @@ const HomeComponent = () => {
               })}
               <BottomNavigationAction
                 onClick={() => {
-                  localStorage.clear();
-                  dispatch({ type: "LOGOUT_USER" });
+                  setOpenConfirmLoginModel(!openConfirmLoginModel);
                 }}
                 icon={<LogoutIcon sx={{ color: "#000" }} />}
               />
@@ -341,6 +342,10 @@ const HomeComponent = () => {
         )}
       </Container>
       <SearchModel open={openSearchModel} setOpen={setOpenSearchModel} />
+      <ConfirmLogoutModel
+        open={openConfirmLoginModel}
+        setOpen={setOpenConfirmLoginModel}
+      />
     </>
   );
 };
