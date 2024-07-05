@@ -5,7 +5,6 @@ import { useContext } from "react";
 import { UserContext } from "../../contexts/userContext";
 import { styled } from "@mui/material/styles";
 import { useNavigate } from "react-router";
-import Drawer from "@mui/material/Drawer";
 import IconButton from "@mui/material/IconButton";
 import ChevronRightIcon from "@mui/icons-material/ChevronRight";
 import ListItemButton from "@mui/material/ListItemButton";

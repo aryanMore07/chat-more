@@ -6,7 +6,6 @@ import {
   DialogContentText,
   DialogTitle,
 } from "@mui/material";
-import { styled } from "@mui/material/styles";
 import React, { useContext } from "react";
 import { UserContext } from "../../../contexts/userContext";
 
