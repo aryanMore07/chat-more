@@ -93,7 +93,11 @@ const SingleUserFromName = () => {
             Follow
           </button>
         )}
-        {bio ? <pre>{bio}</pre> : <p>Please add a bio</p>}
+        {bio ? (
+          <pre style={{ fontSize: "16px", lineHeight: "28px" }}>{bio}</pre>
+        ) : (
+          <p>Please add a bio</p>
+        )}
         {portfolio ? <Link>{portfolio}</Link> : <p>Please add a website</p>}
         <div className="followings-details-div">
           <div className="followings-inner-divs">

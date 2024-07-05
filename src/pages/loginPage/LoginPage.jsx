@@ -1,4 +1,5 @@
-import React from "react";
+/* eslint-disable react-hooks/exhaustive-deps */
+import React, { useEffect } from "react";
 import "./loginPage.css";
 import { Link, useNavigate } from "react-router-dom";
 import { useState, useContext } from "react";
@@ -60,6 +61,7 @@ const LoginComponent = () => {
   const [userName, setUserName] = useState("");
   const [password, setPassword] = useState("");
   const navigate = useNavigate();
+  const { state } = useContext(UserContext);
   const loginHandler = async (event) => {
     event.preventDefault();
     try {
@@ -119,6 +121,12 @@ const LoginComponent = () => {
       }
     }
   };
+
+  useEffect(() => {
+    if (state.userDetails) {
+      navigate("/home");
+    }
+  }, [state]);
 
   return (
     <Container>

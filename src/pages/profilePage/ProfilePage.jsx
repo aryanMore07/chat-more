@@ -55,7 +55,9 @@ const ProfileComponent = () => {
         </p>
         <EditUserDetails />
         {state?.userDetails.bio ? (
-          <pre>{state?.userDetails.bio}</pre>
+          <pre style={{ fontSize: "16px", lineHeight: "28px" }}>
+            {state?.userDetails.bio}
+          </pre>
         ) : (
           <p>Please add a bio</p>
         )}

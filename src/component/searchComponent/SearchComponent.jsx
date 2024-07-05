@@ -18,6 +18,7 @@ import {
   ListItem,
   ListItemIcon,
   OutlinedInput,
+  SwipeableDrawer,
 } from "@mui/material";
 import { FiSearch } from "react-icons/fi";
 import { theme } from "../../utils/theme";
@@ -133,14 +134,16 @@ const SearchComponent = () => {
       >
         <MenuIcon sx={{ color: "#fff" }} />
       </IconButton>
-      <Drawer
+      <SwipeableDrawer
         sx={{
           "& .MuiDrawer-paper": {
-            width: "65%",
+            width: "80%",
           },
         }}
         anchor="right"
         open={isopen}
+        onClose={handleClose}
+        onOpen={handleIsOpen}
       >
         <Container>
           <DrawerHeader>
@@ -198,7 +201,7 @@ const SearchComponent = () => {
             <h1 style={{ textAlign: "center" }}>No user Found</h1>
           )}
         </CustomList>
-      </Drawer>
+      </SwipeableDrawer>
     </Box>
   );
 };
