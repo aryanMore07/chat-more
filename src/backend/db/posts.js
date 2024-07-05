@@ -1,6 +1,10 @@
 import { v4 as uuid } from "uuid";
 import { formatDate } from "../utils/authUtils";
-import aryan from '../../images/myProfilePicture.jpeg';
+import aryan from "../../images/myProfilePicture.jpeg";
+import rupeshPic from "../../images/rupesh.jpeg";
+import yashPic from "../../images/yash.jpeg";
+import tirthPic from "../../images/tirth.jpeg";
+import dhavalPic from '../../images/dhaval.jpeg';
 
 /**
  * Posts can be added here.
@@ -37,17 +41,151 @@ const twitter_quotes = [
   "The best way to predict the future is to create it. - Peter Drucker",
   "Life is 10% what happens to us and 90% how we react to it. - Charles R. Swindoll",
   "Dream big and dare to fail. - Norman Vaughan",
-  "Believe you can and you're halfway there. - Theodore Roosevelt"
-]
-
-const randomNum = Math.floor(Math.random() * twitter_quotes.length);
+  "Believe you can and you're halfway there. - Theodore Roosevelt",
+];;
 
 export const posts = [
   {
+    _id: "aryanPost",
+    firstName: "Aryan",
+    lastName: "More",
+    content: twitter_quotes[Math.floor(Math.random() * twitter_quotes.length)],
+    image: aryan,
+    likes: {
+      likeCount: 4,
+      likedBy: [],
+      dislikedBy: [],
+    },
+    comments: [
+      {
+        _id: uuid(),
+        image: aryan,
+        username: "aryanmore2110",
+        text: "Nice read",
+        votes: {
+          upvotedBy: [],
+          downvotedBy: [],
+        },
+      },
+    ],
+    username: "aryanmore2110",
+    createdAt: "2023-04-10T12:31:25Z",
+    updatedAt: formatDate(),
+  },
+  {
     _id: uuid(),
-    firstName: "Michael",
+    firstName: "Rupesh",
+    lastName: "Soni",
+    content: twitter_quotes[Math.floor(Math.random() * twitter_quotes.length)],
+    image: rupeshPic,
+    likes: {
+      likeCount: 4,
+      likedBy: [],
+      dislikedBy: [],
+    },
+    comments: [
+      {
+        _id: uuid(),
+        image: aryan,
+        username: "aryanmore2110",
+        text: "Nice read",
+        votes: {
+          upvotedBy: [],
+          downvotedBy: [],
+        },
+      },
+    ],
+    username: "rupeshsoni",
+    createdAt: "2023-04-10T12:31:25Z",
+    updatedAt: formatDate(),
+  },
+  {
+    _id: uuid(),
+    firstName: "Yash",
+    lastName: "Mali",
+    content: twitter_quotes[Math.floor(Math.random() * twitter_quotes.length)],
+    image: yashPic,
+    likes: {
+      likeCount: 2,
+      likedBy: [],
+      dislikedBy: [],
+    },
+    comments: [
+      {
+        _id: uuid(),
+        image: aryan,
+        username: "aryanmore2110",
+        text: "Nice read",
+        votes: {
+          upvotedBy: [],
+          downvotedBy: [],
+        },
+      },
+    ],
+    username: "yashmali",
+    createdAt: "2023-04-10T12:31:25Z",
+    updatedAt: formatDate(),
+  },
+  {
+    _id: uuid(),
+    firstName: "Tirth",
+    lastName: "Baraiya",
+    content: twitter_quotes[Math.floor(Math.random() * twitter_quotes.length)],
+    image: tirthPic,
+    likes: {
+      likeCount: 7,
+      likedBy: [],
+      dislikedBy: [],
+    },
+    comments: [
+      {
+        _id: uuid(),
+        image: aryan,
+        username: "aryanmore2110",
+        text: "Nice read",
+        votes: {
+          upvotedBy: [],
+          downvotedBy: [],
+        },
+      },
+    ],
+    username: "tirthbaraiya",
+    createdAt: "2023-04-10T12:31:25Z",
+    updatedAt: formatDate(),
+  },
+  {
+    _id: uuid(),
+    firstName: "Dhaval",
+    lastName: "Vaghela",
+    content: twitter_quotes[Math.floor(Math.random() * twitter_quotes.length)],
+    image: dhavalPic,
+    likes: {
+      likeCount: 7,
+      likedBy: [],
+      dislikedBy: [],
+    },
+    comments: [
+      {
+        _id: uuid(),
+        image: aryan,
+        username: "aryanmore2110",
+        text: "Nice read",
+        votes: {
+          upvotedBy: [],
+          downvotedBy: [],
+        },
+      },
+    ],
+    username: "dhavalvaghela",
+    createdAt: "2023-04-10T12:31:25Z",
+    updatedAt: formatDate(),
+  },
+  {
+    _id: uuid(),
+    firstName: "Michael ",
     lastName: "Brown",
-    content: twitter_quotes[randomNum],
+    content: twitter_quotes[Math.floor(Math.random() * twitter_quotes.length)],
+    image: "https://randomuser.me/api/portraits/men/10.jpg",
     likes: {
       likeCount: 3,
       likedBy: [],
@@ -72,8 +210,8 @@ export const posts = [
     _id: uuid(),
     firstName: "John",
     lastName: "Doe",
-    content: "Life is too short to be anything but happy. #SmileEveryday",
-    image: '',
+    content: twitter_quotes[Math.floor(Math.random() * twitter_quotes.length)],
+    image: "https://randomuser.me/api/portraits/men/0.jpg",
     likes: {
       likeCount: 1,
       likedBy: [],
@@ -98,8 +236,8 @@ export const posts = [
     _id: uuid(),
     firstName: "John",
     lastName: "Doe",
-    content: "Success is not final, failure is not fatal: It's the courage to continue that counts. 🌟 #KeepGoingSuccess is not final, failure is not fatal: It's the courage to continue that counts. 🌟 #KeepGoing",
-    image: '',
+    content: twitter_quotes[Math.floor(Math.random() * twitter_quotes.length)],
+    image: "https://randomuser.me/api/portraits/men/2.jpg",
     likes: {
       likeCount: 1,
       likedBy: [],
@@ -124,8 +262,8 @@ export const posts = [
     _id: uuid(),
     firstName: "John",
     lastName: "Doe",
-    content: "Life is like a camera: Focus on the good times, develop from the negatives, and if things don't work out, take another shot. 📸 #KeepShooting",
-    image: '',
+    content: twitter_quotes[Math.floor(Math.random() * twitter_quotes.length)],
+    image: "https://randomuser.me/api/portraits/men/8.jpg",
     likes: {
       likeCount: 4,
       likedBy: [],
@@ -149,10 +287,8 @@ export const posts = [
   {
     _id: uuid(),
     firstName: "Jane",
-    lastName: "Smith",
-    content:
-      "Never underestimate the power of a kind word. #BeKind",
-    image: '',
+    lastName: "Smith", content: twitter_quotes[Math.floor(Math.random() * twitter_quotes.length)],
+    image: "https://randomuser.me/api/portraits/women/1.jpg",
     likes: {
       likeCount: 0,
       likedBy: [],
@@ -167,8 +303,8 @@ export const posts = [
     _id: uuid(),
     firstName: "Michael",
     lastName: "Brown",
-    content: twitter_quotes[randomNum],
-    image: '',
+    content: twitter_quotes[Math.floor(Math.random() * twitter_quotes.length)],
+    image: "https://randomuser.me/api/portraits/women/4.jpg",
     likes: {
       likeCount: 1,
       likedBy: [],
@@ -185,7 +321,7 @@ export const posts = [
     lastName: "Smith",
     content:
       "Surround yourself with those who bring out the best in you. #PositiveVibes",
-    image: '',
+    image: "https://randomuser.me/api/portraits/women/1.jpg",
     likes: {
       likeCount: 4,
       likedBy: [],
@@ -200,8 +336,8 @@ export const posts = [
     _id: uuid(),
     firstName: "Alice",
     lastName: "Johnson",
-    content: twitter_quotes[randomNum],
-    image: '',
+    content: twitter_quotes[Math.floor(Math.random() * twitter_quotes.length)],
+    image: "https://randomuser.me/api/portraits/women/2.jpg",
     likes: {
       likeCount: 0,
       likedBy: [],
@@ -216,7 +352,8 @@ export const posts = [
     _id: uuid(),
     firstName: "Emily",
     lastName: "Wilson",
-    content: twitter_quotes[randomNum],
+    content: twitter_quotes[Math.floor(Math.random() * twitter_quotes.length)],
+    image: "https://randomuser.me/api/portraits/men/4.jpg",
     likes: {
       likeCount: 5,
       likedBy: [],
@@ -231,7 +368,8 @@ export const posts = [
     _id: uuid(),
     firstName: "David",
     lastName: "Taylor",
-    content: twitter_quotes[randomNum],
+    content: twitter_quotes[Math.floor(Math.random() * twitter_quotes.length)],
+    image: "https://randomuser.me/api/portraits/men/5.jpg",
     likes: {
       likeCount: 1,
       likedBy: [],
@@ -246,7 +384,8 @@ export const posts = [
     _id: uuid(),
     firstName: "Jane",
     lastName: "Smith",
-    content: twitter_quotes[randomNum],
+    content: twitter_quotes[Math.floor(Math.random() * twitter_quotes.length)],
+    image: "https://randomuser.me/api/portraits/women/1.jpg",
     likes: {
       likeCount: 0,
       likedBy: [],
@@ -261,8 +400,8 @@ export const posts = [
     _id: uuid(),
     firstName: "Alice",
     lastName: "Johnson",
-    content: twitter_quotes[randomNum],
-    image: '',
+    content: twitter_quotes[Math.floor(Math.random() * twitter_quotes.length)],
+    image: "https://randomuser.me/api/portraits/women/2.jpg",
     likes: {
       likeCount: 4,
       likedBy: [],
@@ -270,33 +409,6 @@ export const posts = [
     },
     comments: [],
     username: "alicejohnson",
-    createdAt: "2023-04-10T12:31:25Z",
-    updatedAt: formatDate(),
-  },
-  {
-    _id: 'aryanPost',
-    firstName: 'Aryan',
-    lastName: 'More',
-    content: twitter_quotes[randomNum],
-    image: aryan,
-    likes: {
-      likeCount: 4,
-      likedBy: [],
-      dislikedBy: [],
-    },
-    comments: [
-      {
-        _id: uuid(),
-        image: aryan,
-        username: "aryanmore2110",
-        text: "Nice read",
-        votes: {
-          upvotedBy: [],
-          downvotedBy: [],
-        },
-      },
-    ],
-    username: "aryanmore2110",
     createdAt: "2023-04-10T12:31:25Z",
     updatedAt: formatDate(),
   },

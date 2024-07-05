@@ -78,10 +78,10 @@ const SingleUserFromName = () => {
           className="user-picture"
           style={{ height: "220px", width: "220px", margin: "8px" }}
         />
-        <h4>
+        <h4 style={{ marginBottom: "0px" }}>
           {firstName} {lastName}
         </h4>
-        <p className="user-tag" style={{ color: "#9a9a9a" }}>
+        <p className="user-tag" style={{ color: "#9a9a9a", marginTop: "8px" }}>
           @{username}
         </p>
         {checkUserFollowing(_id) ? (
@@ -93,7 +93,7 @@ const SingleUserFromName = () => {
             Follow
           </button>
         )}
-        {bio ? <p>{bio}</p> : <p>Please add a bio</p>}
+        {bio ? <pre>{bio}</pre> : <p>Please add a bio</p>}
         {portfolio ? <Link>{portfolio}</Link> : <p>Please add a website</p>}
         <div className="followings-details-div">
           <div className="followings-inner-divs">

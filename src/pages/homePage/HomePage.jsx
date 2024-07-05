@@ -16,7 +16,7 @@ import { styled } from "@mui/material/styles";
 import { Box, Grid, InputAdornment, OutlinedInput } from "@mui/material";
 import { sideNavigationContext } from "../../utils/textUtils";
 import HomeRoundedIcon from "@mui/icons-material/HomeRounded";
-import PersonOutlineRoundedIcon from "@mui/icons-material/PersonOutlineRounded";
+import PersonRoundedIcon from "@mui/icons-material/PersonRounded";
 import { theme } from "../../utils/theme";
 import {
   BottomNavigation,
@@ -145,31 +145,14 @@ const HomeComponent = () => {
   const [openSearchModel, setOpenSearchModel] = useState(false);
 
   const renderNavIcons = (menuName) => {
-    let isActive = pathname === `/${menuName.toLowerCase()}`;
     if (menuName === "Home") {
-      return (
-        <HomeRoundedIcon
-          sx={{ color: isActive ? theme.palette.primary.main : "#000" }}
-        />
-      );
+      return <HomeRoundedIcon sx={{ color: "#000" }} />;
     } else if (menuName === "Explore") {
-      return (
-        <RocketLaunchIcon
-          sx={{ color: isActive ? theme.palette.primary.main : "#000" }}
-        />
-      );
+      return <RocketLaunchIcon sx={{ color: "#000" }} />;
     } else if (menuName === "Bookmarks") {
-      return (
-        <BookmarkRoundedIcon
-          sx={{ color: isActive ? theme.palette.primary.main : "#000" }}
-        />
-      );
+      return <BookmarkRoundedIcon sx={{ color: "#000" }} />;
     } else {
-      return (
-        <PersonOutlineRoundedIcon
-          sx={{ color: isActive ? theme.palette.primary.main : "#000" }}
-        />
-      );
+      return <PersonRoundedIcon sx={{ color: "#000" }} />;
     }
   };
 
@@ -196,8 +179,16 @@ const HomeComponent = () => {
             <LeftContainer>
               <List>
                 {sideNavigationContext.menu_links.map((menu, index) => {
+                  let isActive = pathname === `${menu.path}`;
                   return (
-                    <ListItem disablePadding key={index}>
+                    <ListItem
+                      sx={{
+                        borderRadius: "50px",
+                        border: isActive ? `1px solid grey` : "none",
+                      }}
+                      disablePadding
+                      key={index}
+                    >
                       <ListItemButtonComponent
                         onClick={() => {
                           navigate(menu.path);

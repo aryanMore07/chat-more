@@ -1,6 +1,10 @@
 import { v4 as uuid } from "uuid";
 import { formatDate } from "../utils/authUtils";
-import ayanPic from '../../images/myProfilePicture.jpeg';
+import aryanPic from '../../images/myProfilePicture.jpeg';
+import dhavalPic from '../../images/dhaval.jpeg';
+import yashPic from '../../images/yash.jpeg';
+import rupeshPic from '../../images/rupesh.jpeg';
+import tirthPic from '../../images/tirth.jpeg';
 /**
  * User Database can be added here.
  * You can add default users of your wish with different attributes
@@ -8,47 +12,84 @@ import ayanPic from '../../images/myProfilePicture.jpeg';
 
 export const users = [
   {
-    _id: uuid(),
+    _id: "007",
     firstName: "Aryan",
     lastName: "More",
     username: "aryanmore2110",
-    image: `${ayanPic}`,
+    image: `${aryanPic}`,
     password: "aryanmore",
     bookmarks: [],
     bio: "Frontend Developer",
     portfolio: "https://portfolioaryan.netlify.app/",
-    followers: [
-      {
-        _id: "007",
-        firstName: "Jane",
-        lastName: "Smith",
-        username: "janesmith",
-        image: 'jane'
-      },
-      {
-        _id: uuid(),
-        firstName: "John",
-        lastName: "Doe",
-        username: "johndoe",
-        image: "john",
-      },
-    ],
-    following: [
-      {
-        _id: "007",
-        firstName: "Jane",
-        lastName: "Smith",
-        username: "janesmith",
-        image: "jane",
-      },
-      {
-        _id: uuid(),
-        firstName: "John",
-        lastName: "Doe",
-        username: "johndoe",
-        image: "john",
-      },
-    ],
+    followers: [],
+    following: [],
+    createdAt: formatDate(),
+    updatedAt: formatDate(),
+  },
+  {
+    _id: uuid(),
+    firstName: "Rupesh",
+    lastName: "Soni",
+    username: "rupeshsoni",
+    image: `${rupeshPic}`,
+    password: "rupeshsoni",
+    bookmarks: [],
+    bio: `24`,
+    portfolio: "https://rupeshsoni.in/",
+    followers: [],
+    following: [],
+    createdAt: formatDate(),
+    updatedAt: formatDate(),
+  },
+  {
+    _id: uuid(),
+    firstName: "Tirth",
+    lastName: "Baraiya",
+    username: "tirthbaraiya",
+    image: `${tirthPic}`,
+    password: "tirthbaraiya",
+    bookmarks: [],
+    bio: `
+      Tirth Baraiya
+      Test Automation Engineer
+      Onto better things
+    `,
+    portfolio: "https://tirthbaraiya.in/",
+    followers: [],
+    createdAt: formatDate(),
+    updatedAt: formatDate(),
+  },
+  {
+    _id: uuid(),
+    firstName: "Yash",
+    lastName: "mali",
+    username: "yashmali",
+    image: `${yashPic}`,
+    password: "yashmali",
+    bookmarks: [],
+    bio: `
+    🍁YASH MALI💫
+    🔱कर्मण्येवाधिकारस्ते मा फलेषु कदाचन।
+     मा कर्मफलहेतुर्भूर्मा ते सङ्गोऽस्त्वकर्मणि॥🚩
+ `,
+    portfolio: "https://yashmali.in/",
+    followers: [],
+    following: [],
+    createdAt: formatDate(),
+    updatedAt: formatDate(),
+  },
+  {
+    _id: uuid(),
+    firstName: "Dhaval",
+    lastName: "Vaghela",
+    username: "dhavalvaghela",
+    image: `${dhavalPic}`,
+    password: "dhavalvaghela",
+    bookmarks: [],
+    bio: "DHAVAL VAGHELA ⚚",
+    portfolio: "https://dhavalvaghela.in/",
+    followers: [],
+    following: [],
     createdAt: formatDate(),
     updatedAt: formatDate(),
   },
@@ -58,7 +99,7 @@ export const users = [
     lastName: "Doe",
     username: "johndoe",
     password: "password123",
-    image: "https://example.com/profile_images/johndoe.jpg",
+    image: "https://randomuser.me/api/portraits/men/1.jpg",
     bookmarks: [],
     bio: "Hello, I'm John Doe!",
     portfolio: "https://example.com/portfolio/johndoe",
@@ -68,12 +109,12 @@ export const users = [
     updatedAt: "2023-07-04T10:30:00Z",
   },
   {
-    _id: "007",
+    _id: uuid(),
     firstName: "Jane",
     lastName: "Smith",
     username: "janesmith",
     password: "pass123",
-    image: "https://example.com/profile_images/janesmith.jpg",
+    image: "https://randomuser.me/api/portraits/men/0.jpg",
     bookmarks: [],
     bio: "Hey there, I'm Jane Smith!",
     portfolio: "https://example.com/portfolio/janesmith",
@@ -88,7 +129,7 @@ export const users = [
     lastName: "Johnson",
     username: "alicejohnson",
     password: "abcde",
-    image: "https://example.com/profile_images/alicejohnson.jpg",
+    image: "https://randomuser.me/api/portraits/women/2.jpg",
     bookmarks: [],
     bio: "Hi, I'm Alice Johnson!",
     portfolio: "https://example.com/portfolio/alicejohnson",
@@ -133,7 +174,7 @@ export const users = [
     lastName: "Brown",
     username: "michaelbrown",
     password: "password456",
-    image: "https://example.com/profile_images/michaelbrown.jpg",
+    image: "https://randomuser.me/api/portraits/women/3.jpg",
     bookmarks: [],
     bio: "Hello, I'm Michael Brown!",
     portfolio: "https://example.com/portfolio/michaelbrown",
@@ -148,7 +189,7 @@ export const users = [
     lastName: "Wilson",
     username: "emilywilson",
     password: "qwerty",
-    image: "https://example.com/profile_images/emilywilson.jpg",
+    image: "https://randomuser.me/api/portraits/men/3.jpg",
     bookmarks: [],
     bio: "Hi there, I'm Emily Wilson!",
     portfolio: "https://example.com/portfolio/emilywilson",
@@ -163,7 +204,7 @@ export const users = [
     lastName: "Taylor",
     username: "davidtaylor",
     password: "password789",
-    image: "https://example.com/profile_images/davidtaylor.jpg",
+    image: "https://randomuser.me/api/portraits/men/4.jpg",
     bookmarks: [],
     bio: "Hey, I'm David Taylor!",
     portfolio: "https://example.com/portfolio/davidtaylor",
