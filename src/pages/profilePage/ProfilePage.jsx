@@ -47,15 +47,17 @@ const ProfileComponent = () => {
           className="user-picture"
           style={{ height: "220px", width: "220px", margin: "8px" }}
         />
-        <h4>
+        <h4 style={{ marginBottom: "0px" }}>
           {state?.userDetails?.firstName} {state?.userDetails?.lastName}
         </h4>
-        <p className="user-tag" style={{ color: "#9a9a9a" }}>
+        <p className="user-tag" style={{ color: "#9a9a9a", marginTop: "8px" }}>
           @{state?.userDetails?.username}
         </p>
         <EditUserDetails />
         {state?.userDetails.bio ? (
-          <p>{state?.userDetails.bio}</p>
+          <pre style={{ fontSize: "16px", lineHeight: "28px" }}>
+            {state?.userDetails.bio}
+          </pre>
         ) : (
           <p>Please add a bio</p>
         )}

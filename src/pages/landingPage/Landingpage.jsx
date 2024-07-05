@@ -3,12 +3,13 @@ import landingPageImage from "../../images/landing-page-picture.svg";
 import { Link, useNavigate } from "react-router-dom";
 import { styled } from "@mui/material/styles";
 import { Box, Button, Grid, useMediaQuery } from "@mui/material";
+import { theme } from "../../utils/theme";
 
 const Container = styled(Box)(({ theme }) => ({
   width: "100%",
   height: "calc(100vh - 65px)",
   [theme.breakpoints.down("md")]: {
-    height: "100%",
+    height: "calc(100vh - 146px)",
     padding: `${theme.spacing(5)} 0px`,
   },
 }));
@@ -96,9 +97,15 @@ const Landingpage = () => {
     <Container>
       <InnerContainer>
         <Grid container spacing={matches ? 4 : 0}>
-          <Grid item xs={12} sm={12} md={6}>
+          <Grid item xs={12} sm={6} md={6}>
             <LeftContainer>
-              <Box>
+              <Box
+                sx={{
+                  [theme.breakpoints.down("md")]: {
+                    marginBottom: theme.spacing(5),
+                  },
+                }}
+              >
                 <LeftSideHeading>
                   <span style={{ color: "#ff3b30" }}>Chat</span>
                   <span style={{ color: "black" }}>More</span>
@@ -153,7 +160,7 @@ const Landingpage = () => {
               </Box>
             </LeftContainer>
           </Grid>
-          <Grid item xs={0} sm={12} md={6}>
+          <Grid item xs={0} sm={6} md={6}>
             <RightContainer>
               <Image src={landingPageImage} alt="social-app" />
             </RightContainer>

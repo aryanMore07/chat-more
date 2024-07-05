@@ -4,3 +4,7 @@
   text-decoration: underline;
   cursor: pointer;
 }
+
+.MuiAvatar-img {
+  height: auto !important;
+}

@@ -99,13 +99,39 @@ const ListItemTextComponent = styled(ListItemText)(({ theme, isActive }) => ({
   },
 }));
 
+const CustomList = styled(List)({
+  overflow: "auto",
+  height: "calc(640px - 100px)",
+  "&::-webkit-scrollbar": {
+    width: "6px",
+  },
+  "&::-webkit-scrollbar-track": {
+    backgroundColor: "#fff",
+    borderRadius: "12px",
+  },
+  "&::-webkit-scrollbar-thumb": {
+    backgroundColor: "#888",
+    borderRadius: "3px",
+  },
+  "&::-webkit-scrollbar-thumb:hover": {
+    backgroundColor: "#555",
+  },
+});
+
 function SearchModel({ open, setOpen }) {
   const navigate = useNavigate();
-  const { state, dispatch, searchedData } = useContext(UserContext);
+  const { state, dispatch, searchedData, allUserData } =
+    useContext(UserContext);
 
   const handleClose = () => {
     setOpen(!open);
   };
+
+  const handleSearchChange = (event) => {
+    dispatch({ type: "USER_INPUT", payload: event.target.value });
+  };
+
+  const filteredUsers = state.userInput ? searchedData : allUserData;
 
   return (
     <Modal
@@ -130,9 +156,7 @@ function SearchModel({ open, setOpen }) {
                 </InputAdornment>
               }
               placeholder="Which user are you looking for?"
-              onChange={(event) => {
-                dispatch({ type: "USER_INPUT", payload: event.target.value });
-              }}
+              onChange={handleSearchChange}
             />
           </Grid>
           <Grid item xs={1} sm={1} md={1}>
@@ -147,10 +171,10 @@ function SearchModel({ open, setOpen }) {
           <Grid item xs={12} sm={12} md={12}>
             <Divider sx={{ color: "#cfcfcf" }} />
           </Grid>
-          {state.userInput ? (
-            <Grid item xs={12} sm={12} md={12}>
-              <List>
-                {searchedData.map((user) => {
+          <Grid item xs={12} sm={12} md={12}>
+            <CustomList>
+              {filteredUsers.length > 0 ? (
+                filteredUsers.map((user) => {
                   const { _id, firstName, lastName, username, image } = user;
                   return (
                     <ListItem disablePadding key={_id}>
@@ -175,14 +199,12 @@ function SearchModel({ open, setOpen }) {
                       </ListItemButtonComponent>
                     </ListItem>
                   );
-                })}
-              </List>
-            </Grid>
-          ) : (
-            <Grid item xs={12} sm={12} md={12}>
-              <h1 style={{ textAlign: "center" }}>No user Found</h1>
-            </Grid>
-          )}
+                })
+              ) : (
+                <h1 style={{ textAlign: "center" }}>No user Found</h1>
+              )}
+            </CustomList>
+          </Grid>
         </Grid>
       </Container>
     </Modal>

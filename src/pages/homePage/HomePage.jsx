@@ -16,7 +16,7 @@ import { styled } from "@mui/material/styles";
 import { Box, Grid, InputAdornment, OutlinedInput } from "@mui/material";
 import { sideNavigationContext } from "../../utils/textUtils";
 import HomeRoundedIcon from "@mui/icons-material/HomeRounded";
-import PersonOutlineRoundedIcon from "@mui/icons-material/PersonOutlineRounded";
+import PersonRoundedIcon from "@mui/icons-material/PersonRounded";
 import { theme } from "../../utils/theme";
 import {
   BottomNavigation,
@@ -25,8 +25,9 @@ import {
   useMediaQuery,
 } from "@mui/material";
 import LogoutIcon from "@mui/icons-material/Logout";
-import { Search } from "@mui/icons-material";
+import { FiSearch } from "react-icons/fi";
 import SearchModel from "./models/SearchModel";
+import ConfirmLogoutModel from "./models/ConfirmLogoutModel";
 
 const Container = styled(Box)(({ theme }) => ({
   width: "90%",
@@ -143,9 +144,15 @@ const HomeComponent = () => {
   const matches = useMediaQuery(theme.breakpoints.down("sm"));
   const { state, dispatch } = useContext(UserContext);
   const [openSearchModel, setOpenSearchModel] = useState(false);
+  const [openConfirmLoginModel, setOpenConfirmLoginModel] = useState(false);
+  const [value, setValue] = React.useState("home");
 
-  const renderNavIcons = (menuName) => {
-    let isActive = pathname === `/${menuName.toLowerCase()}`;
+  const handleChange = (event, newValue) => {
+    setValue(newValue);
+  };
+
+  const renderNavIcons = (menuName, path) => {
+    let isActive = pathname === path;
     if (menuName === "Home") {
       return (
         <HomeRoundedIcon
@@ -166,10 +173,24 @@ const HomeComponent = () => {
       );
     } else {
       return (
-        <PersonOutlineRoundedIcon
+        <PersonRoundedIcon
           sx={{ color: isActive ? theme.palette.primary.main : "#000" }}
         />
       );
+    }
+  };
+
+  const setBottomNavigationValues = () => {
+    if (pathname === "/home") {
+      setValue("home");
+    } else if (pathname === "/explore") {
+      setValue("explore");
+    } else if (pathname === "/bookmarks") {
+      setValue("bookmarks");
+    } else if (pathname === "/profile") {
+      setValue("profile");
+    } else {
+      setValue("");
     }
   };
 
@@ -188,6 +209,10 @@ const HomeComponent = () => {
     };
   }, []);
 
+  useEffect(() => {
+    setBottomNavigationValues();
+  }, [pathname]);
+
   return (
     <>
       <Container>
@@ -196,8 +221,16 @@ const HomeComponent = () => {
             <LeftContainer>
               <List>
                 {sideNavigationContext.menu_links.map((menu, index) => {
+                  let isActive = pathname === `${menu.path}`;
                   return (
-                    <ListItem disablePadding key={index}>
+                    <ListItem
+                      sx={{
+                        borderRadius: "50px",
+                        border: isActive ? `1px solid grey` : "none",
+                      }}
+                      disablePadding
+                      key={index}
+                    >
                       <ListItemButtonComponent
                         onClick={() => {
                           navigate(menu.path);
@@ -239,8 +272,8 @@ const HomeComponent = () => {
                         />
                       </ListItemIcon>
                       <ListItemTextComponent
-                        primary={`${state.userDetails.firstName} 
-                      ${state.userDetails.lastName}`}
+                        primary={`${state.userDetails.firstName} ${state.userDetails.lastName}`}
+                        secondary={`@${state.userDetails.username}`}
                       />
                     </ListItemButtonComponent>
                   </ListItem>
@@ -267,7 +300,7 @@ const HomeComponent = () => {
                 color="secondary"
                 startAdornment={
                   <InputAdornment position="start">
-                    <Search />
+                    <FiSearch />
                   </InputAdornment>
                 }
                 endAdornment={
@@ -284,12 +317,14 @@ const HomeComponent = () => {
             sx={{ position: "fixed", bottom: 0, left: 0, right: 0 }}
             elevation={3}
           >
-            <BottomNavigation>
+            <BottomNavigation value={value} onChange={handleChange}>
               {sideNavigationContext.menu_links.map((menu, index) => {
                 return (
                   <BottomNavigationAction
                     key={index}
-                    icon={renderNavIcons(menu.text)}
+                    icon={renderNavIcons(menu.text, menu.path)}
+                    value={menu.text.toLowerCase()}
+                    label={menu.text}
                     onClick={() => {
                       navigate(menu.path);
                     }}
@@ -298,8 +333,7 @@ const HomeComponent = () => {
               })}
               <BottomNavigationAction
                 onClick={() => {
-                  localStorage.clear();
-                  dispatch({ type: "LOGOUT_USER" });
+                  setOpenConfirmLoginModel(!openConfirmLoginModel);
                 }}
                 icon={<LogoutIcon sx={{ color: "#000" }} />}
               />
@@ -308,6 +342,10 @@ const HomeComponent = () => {
         )}
       </Container>
       <SearchModel open={openSearchModel} setOpen={setOpenSearchModel} />
+      <ConfirmLogoutModel
+        open={openConfirmLoginModel}
+        setOpen={setOpenConfirmLoginModel}
+      />
     </>
   );
 };
