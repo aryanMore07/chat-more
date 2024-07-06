@@ -306,7 +306,7 @@ const HomeComponent = () => {
                 color="secondary"
                 startAdornment={
                   <InputAdornment position="start">
-                    <FiSearch />
+                    <FiSearch style={{ padding: `0px ${theme.spacing(1)}` }} />
                   </InputAdornment>
                 }
                 endAdornment={
