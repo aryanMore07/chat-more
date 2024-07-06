@@ -71,7 +71,7 @@ const LoginComponent = () => {
           password: password,
         });
         if (response.status === 200 || response.status === 201) {
-          toast.success("Login successful 🔥", {
+          toast.success("Login successful", {
             position: "top-center",
             autoClose: 2000,
             hideProgressBar: false,

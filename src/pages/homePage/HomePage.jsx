@@ -227,6 +227,7 @@ const HomeComponent = () => {
                       sx={{
                         borderRadius: "50px",
                         border: isActive ? `1px solid grey` : "none",
+                        margin: `${theme.spacing(0.5)} 0px`,
                       }}
                       disablePadding
                       key={index}
@@ -257,7 +258,12 @@ const HomeComponent = () => {
                   }}
                 >
                   <ListItem
-                    secondaryAction={<LogoutComponent />}
+                    secondaryAction={
+                      <LogoutComponent
+                        isOpen={openConfirmLoginModel}
+                        setIsOpen={setOpenConfirmLoginModel}
+                      />
+                    }
                     disablePadding
                   >
                     <ListItemButtonComponent
@@ -300,7 +306,7 @@ const HomeComponent = () => {
                 color="secondary"
                 startAdornment={
                   <InputAdornment position="start">
-                    <FiSearch />
+                    <FiSearch style={{ padding: `0px ${theme.spacing(1)}` }} />
                   </InputAdornment>
                 }
                 endAdornment={

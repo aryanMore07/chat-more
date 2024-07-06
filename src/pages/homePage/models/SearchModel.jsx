@@ -15,7 +15,7 @@ import {
   styled,
 } from "@mui/material";
 import React, { useContext } from "react";
-import SearchOutlinedIcon from "@mui/icons-material/SearchOutlined";
+import { FiSearch } from "react-icons/fi";
 import { UserContext } from "../../../contexts/userContext";
 import { useNavigate } from "react-router";
 import { theme } from "../../../utils/theme";
@@ -152,7 +152,7 @@ function SearchModel({ open, setOpen }) {
             <Input
               startAdornment={
                 <InputAdornment position="start">
-                  <SearchOutlinedIcon />
+                  <FiSearch />
                 </InputAdornment>
               }
               placeholder="Which user are you looking for?"
