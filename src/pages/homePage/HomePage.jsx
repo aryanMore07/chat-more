@@ -227,6 +227,7 @@ const HomeComponent = () => {
                       sx={{
                         borderRadius: "50px",
                         border: isActive ? `1px solid grey` : "none",
+                        margin: `${theme.spacing(0.5)} 0px`,
                       }}
                       disablePadding
                       key={index}
