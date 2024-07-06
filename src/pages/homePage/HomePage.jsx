@@ -257,7 +257,12 @@ const HomeComponent = () => {
                   }}
                 >
                   <ListItem
-                    secondaryAction={<LogoutComponent />}
+                    secondaryAction={
+                      <LogoutComponent
+                        isOpen={openConfirmLoginModel}
+                        setIsOpen={setOpenConfirmLoginModel}
+                      />
+                    }
                     disablePadding
                   >
                     <ListItemButtonComponent

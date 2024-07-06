@@ -5,11 +5,8 @@ import MenuItem from "@mui/material/MenuItem";
 import Fade from "@mui/material/Fade";
 import MoreVertIcon from "@mui/icons-material/MoreVert";
 import LogoutIcon from "@mui/icons-material/Logout";
-import { useContext } from "react";
-import { UserContext } from "../../contexts/userContext";
 
-const LogoutComponent = () => {
-  const { dispatch } = useContext(UserContext);
+const LogoutComponent = ({ isOpen, setIsOpen }) => {
   const [anchorEl, setAnchorEl] = React.useState(null);
   const open = Boolean(anchorEl);
   const handleClick = (event) => {
@@ -52,8 +49,8 @@ const LogoutComponent = () => {
       >
         <MenuItem
           onClick={() => {
-            localStorage.clear();
-            dispatch({ type: "LOGOUT_USER" });
+            handleClose();
+            setIsOpen(!isOpen);
           }}
         >
           Logout{" "}
